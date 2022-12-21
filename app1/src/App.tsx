@@ -1,12 +1,12 @@
 import React from "react";
-import CounterAppOne from "./components/CounterAppOne";
+import "./App.css";
 
-const App = () => (
-  <div>
-    <p>APP-1</p>
-
-    <CounterAppOne />
-  </div>
-);
+function App() {
+  return (
+    <div className="App">
+      <p>dfgydegfyieadg</p>
+    </div>
+  );
+}
 
 export default App;
