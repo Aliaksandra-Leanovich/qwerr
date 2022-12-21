@@ -8,23 +8,13 @@ import { Users } from "../pages/Users";
 import { routes } from "../routes";
 import { PrivateRoute } from "../utils";
 
-const CounterAppOne = React.lazy(() => import("app1/CounterAppOne"));
-const CounterAppTwo = React.lazy(() => import("app2/Module"));
-
 export const AppRouter = () => {
   return (
     <Routes>
       <Route path={routes.HOME} element={<MainTemplate />}>
         <Route index element={<Home />} />
       </Route>
-      <Route
-        path={routes.PRODUCT}
-        element={<Product CounterAppOne={CounterAppOne} />}
-      />
-      <Route
-        path={routes.SERVICES}
-        element={<Services CounterAppTwo={CounterAppTwo} />}
-      />
+
       <Route element={<PrivateRoute />}>
         <Route path={routes.USERS} element={<Users />} />
       </Route>

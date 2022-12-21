@@ -5,11 +5,5 @@ type ContainerAppProps = {
 };
 
 export const Product = ({ CounterAppOne }: ContainerAppProps) => {
-  return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <CounterAppOne />
-      </Suspense>
-    </div>
-  );
+  return <div></div>;
 };
