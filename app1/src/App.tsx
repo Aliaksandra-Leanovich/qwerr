@@ -1,10 +1,10 @@
-import React from "react";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <p>dfgydegfyieadg</p>
+      <h2>Product Page</h2>
+      <p>You have been logged in</p>
     </div>
   );
 }
