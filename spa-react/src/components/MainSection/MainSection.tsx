@@ -5,6 +5,7 @@ import { Bar } from "../Bars";
 import { Button } from "../Button";
 import { FormWithEmail } from "../FormWithEmail/FormWithEmail";
 import { Modal } from "../Modal/Modal";
+import { SliderLogos } from "../SliderLogos";
 
 import {
   ContainerButtonsSC,
@@ -66,6 +67,7 @@ export const MainSection = () => {
 
             <Bar />
           </ContainerWithTwoBlocksSC>
+          <SliderLogos />
         </ContainerSC>
       </WrapperSC>
       <Modal show={show} handleClose={closeModal} width="800px">
