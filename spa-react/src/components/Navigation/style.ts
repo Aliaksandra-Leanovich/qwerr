@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import { Colors } from "../../ui";
 
 export const ContainerSC = styled.div`
@@ -9,7 +10,7 @@ export const ContainerSC = styled.div`
   column-gap: 40px;
 `;
 
-export const LinkSC = styled.a`
+export const LinkSC = styled(Link)`
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;

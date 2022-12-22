@@ -9,7 +9,6 @@ import { Link } from "../Link";
 import { LoginForm } from "../LoginForm";
 import { Modal } from "../Modal/Modal";
 import { ButtonSC, ContainerSC, LinkSC } from "./style";
-import { Link as RouterLink } from "react-router-dom";
 
 const config = [
   {
@@ -48,9 +47,9 @@ export const Navigation = () => {
   return (
     <ContainerSC>
       {config.map((item, index) => (
-        <RouterLink to={item.href} key={index}>
+        <LinkSC to={item.href} key={index}>
           {item.title}
-        </RouterLink>
+        </LinkSC>
       ))}
       <Modal show={show} handleClose={closeModal}>
         <LoginForm setShow={setShow} />
