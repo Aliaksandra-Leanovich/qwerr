@@ -47,10 +47,7 @@ export const Navigation = () => {
   return (
     <ContainerSC>
       {config.map((item, index) => (
-        <LinkSC
-          to={isAuthorized ? routes.PRODUCT : routes.SERVICES}
-          key={index}
-        >
+        <LinkSC to={isAuthorized ? item.href : "/"} key={index}>
           {item.title}
         </LinkSC>
       ))}
