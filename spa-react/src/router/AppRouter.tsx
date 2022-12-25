@@ -11,6 +11,7 @@ export const AppRouter = () => {
       <Route path={routes.HOME} element={<MainTemplate />}>
         <Route index element={<Home />} />
       </Route>
+
       <Route path={routes.PRODUCT} />
       <Route path={routes.SERVICES} />
       <Route element={<PrivateRoute />}>
