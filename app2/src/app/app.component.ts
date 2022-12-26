@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Services';
-  usersToken: any;
+  public usersToken: string | undefined;
 
-  getToken() {
-    this.usersToken = localStorage.getItem('userToken');
+  ngOnInit() {
+    this.getToken()
   }
+
+  private getToken() {
+   this.usersToken = localStorage.getItem('userToken') as string;
+  }
+
+
 }
