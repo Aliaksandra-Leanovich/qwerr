@@ -1,20 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
+import { environment } from 'src/environments/environment';
+import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'Services';
+
   public usersToken: string | undefined;
+
   public checkRef = doc(db, 'checkField', 'check');
-  public check: boolean = true;
+
+  public checboxInput: FormControl = new FormControl(false);
+  public defaultValue: boolean = false;
+
+  public sub!: Subscription;
 
   ngOnInit() {
+    this.sub = this.checboxInput.valueChanges.subscribe((value) => {
+      this.defaultValue = value;
+    });
     this.getToken();
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   private getToken() {
@@ -23,7 +39,7 @@ export class AppComponent implements OnInit {
 
   public toggleCheck = async () => {
     await updateDoc(this.checkRef, {
-      checked: true,
+      checked: this.defaultValue,
     });
   };
 }

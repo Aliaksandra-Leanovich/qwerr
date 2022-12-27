@@ -14,6 +14,7 @@ export const AppRouter = () => {
 
       <Route path={routes.PRODUCT} />
       <Route path={routes.SERVICES} />
+      <Route path={routes.ABOUT} element={<About />} />
       <Route element={<PrivateRoute />}>
         <Route path={routes.USERS} element={<Users />} />
       </Route>

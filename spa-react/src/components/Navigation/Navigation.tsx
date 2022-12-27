@@ -21,7 +21,7 @@ const config = [
   },
 
   {
-    href: routes.HOME,
+    href: routes.ABOUT,
     title: "About",
   },
 ];
