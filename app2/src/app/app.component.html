@@ -25,9 +25,12 @@
 </style>
 
 <div class="content" role="main">
-  <!-- Next Steps -->
-  <h2>Product Page</h2>
+  <h2>Service Page</h2>
   <p>{{ usersToken }}</p>
+  <label>
+    <input type="checkbox" checked="{checked}" (click)="(toggleCheck)" />
+    Check me
+  </label>
 </div>
 
 <router-outlet></router-outlet>
