@@ -1,6 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import {
+  browserLocalPersistence,
+  getAuth,
+  setPersistence,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ButtonVariants } from "../../enums";
@@ -14,7 +19,11 @@ import { Input } from "../Input";
 import { StyledFormSC } from "./styles";
 import { IUserForm } from "./types";
 
-export const LoginForm = ({ setShow }: any) => {
+interface IProps {
+  setShow: (value: boolean) => void;
+}
+
+export const LoginForm = ({ setShow }: IProps) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -39,16 +48,22 @@ export const LoginForm = ({ setShow }: any) => {
 
   const onSubmit = (data: IUserForm) => {
     const auth = getAuth(app);
+    setPersistence(auth, browserLocalPersistence)
+      .then(async () => {
+        return await signInWithEmailAndPassword(auth, data.email, data.password)
+          .then(async (userCredential) => {
+            const token = await userCredential.user.getIdToken();
 
-    signInWithEmailAndPassword(auth, data.email, data.password)
-      .then(async (userCredential) => {
-        const token = await userCredential.user.getIdToken();
-        setUserTokenToStorage(token);
-        navigate(routes.HOME);
-        setShow(false);
+            setUserTokenToStorage(token);
+            navigate(routes.HOME);
+            setShow(false);
+          })
+          .catch((error) => {
+            setError(getAuthError(error.code));
+          });
       })
       .catch((error) => {
-        setError(getAuthError(error.code));
+        console.log(error);
       });
   };
 

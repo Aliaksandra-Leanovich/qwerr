@@ -28,7 +28,11 @@
   <h2>Service Page</h2>
   <p>{{ usersToken }}</p>
   <label>
-    <input type="checkbox" [formControl]="checboxInput" />
+    <input
+      type="checkbox"
+      [formControl]="checboxInput"
+      (change)="toggleCheck()"
+    />
     Check me
   </label>
 </div>

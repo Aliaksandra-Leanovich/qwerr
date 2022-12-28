@@ -1,5 +1,5 @@
 import "./App.css";
-import { CheckboxForm } from "./components/Checkbox/CheckboxForm";
+import { CheckboxForm } from "./components/CheckboxForm";
 
 function App() {
   const userToken = localStorage.getItem("userToken");

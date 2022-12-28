@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
-import { environment } from 'src/environments/environment';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -38,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public toggleCheck = async () => {
+    console.log('as');
     await updateDoc(this.checkRef, {
       checked: this.defaultValue,
     });

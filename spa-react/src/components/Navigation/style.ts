@@ -10,7 +10,21 @@ export const ContainerSC = styled.div`
   column-gap: 40px;
 `;
 
-export const LinkSC = styled(Link)`
+export const LinkSC = styled.a`
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: ${Colors.INFOLIGHT};
+  cursor: pointer;
+
+  transition: border 0.5s ease-out;
+
+  &:hover {
+    border-bottom: 1px solid ${Colors.INFOLIGHT};
+  }
+`;
+
+export const LinkCustomSC = styled(Link)`
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;

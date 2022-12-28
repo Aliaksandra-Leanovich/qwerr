@@ -8,23 +8,7 @@ import { unsetUser } from "../../store/slices/userSlice";
 import { Link } from "../Link";
 import { LoginForm } from "../LoginForm";
 import { Modal } from "../Modal/Modal";
-import { ButtonSC, ContainerSC, LinkSC } from "./style";
-
-const config = [
-  {
-    href: routes.PRODUCT,
-    title: "Product",
-  },
-  {
-    href: routes.SERVICES,
-    title: "Services",
-  },
-
-  {
-    href: routes.ABOUT,
-    title: "About",
-  },
-];
+import { ButtonSC, ContainerSC, LinkCustomSC, LinkSC } from "./style";
 
 export const Navigation = () => {
   const dispatch = useAppDispatch();
@@ -33,10 +17,7 @@ export const Navigation = () => {
 
   const [show, setShow] = useState(false);
   const showModal = () => {
-    setShow(true);
-  };
-  const closeModal = () => {
-    setShow(false);
+    setShow(!show);
   };
 
   const handleLogout = () => {
@@ -46,12 +27,10 @@ export const Navigation = () => {
 
   return (
     <ContainerSC>
-      {config.map((item, index) => (
-        <LinkSC to={item.href} key={index}>
-          {item.title}
-        </LinkSC>
-      ))}
-      <Modal show={show} handleClose={closeModal}>
+      <LinkSC href={routes.PRODUCT}>Product</LinkSC>
+      <LinkSC href={routes.SERVICES}>Services</LinkSC>
+      <LinkCustomSC to={routes.ABOUT}>About</LinkCustomSC>
+      <Modal show={show} handleClose={showModal}>
         <LoginForm setShow={setShow} />
       </Modal>
       <>
