@@ -78,7 +78,9 @@ const config = [
 
 export const BlogSection = () => {
   const [index, setIndex] = useState(3);
+
   const itemsToRender = config.slice(0, index);
+
   return (
     <SectionSC id="blog">
       <ContainerSC>

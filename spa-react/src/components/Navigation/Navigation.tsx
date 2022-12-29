@@ -13,9 +13,11 @@ import { ButtonSC, ContainerSC, LinkCustomSC, LinkSC } from "./style";
 export const Navigation = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
   const { isAuthorized } = useAppSelector(getUserInfo);
 
   const [show, setShow] = useState(false);
+
   const showModal = () => {
     setShow(!show);
   };

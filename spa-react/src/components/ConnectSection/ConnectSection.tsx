@@ -45,12 +45,11 @@ const config = [
 
 export const ConnectSection = () => {
   const [show, setShow] = useState(false);
+
   const showModal = () => {
-    setShow(true);
+    setShow(!show);
   };
-  const closeModal = () => {
-    setShow(false);
-  };
+
   return (
     <SectionSC>
       <ContainerSC>
@@ -161,7 +160,7 @@ export const ConnectSection = () => {
           </ContainerImageAndDiagramSC>
         </ContainerBlocksSC>
       </ContainerSC>
-      <Modal show={show} handleClose={closeModal} width="800px">
+      <Modal show={show} handleClose={showModal} width="800px">
         <FormWithEmail />
       </Modal>
     </SectionSC>

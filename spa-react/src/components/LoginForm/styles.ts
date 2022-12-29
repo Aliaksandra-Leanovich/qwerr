@@ -9,7 +9,5 @@ export const StyledFormSC = styled.form`
   width: 100%;
   max-width: 600px;
 
-  /* padding: 50px; */
-
   border-radius: 16px;
 `;

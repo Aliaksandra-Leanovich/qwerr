@@ -23,6 +23,4 @@ export const ContainerSC = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 50px;
-
-  /* position: relative; */
 `;

@@ -51,11 +51,9 @@ const config = [
 
 export const ExploreSection = () => {
   const [show, setShow] = useState(false);
+
   const showModal = () => {
-    setShow(true);
-  };
-  const closeModal = () => {
-    setShow(false);
+    setShow(!show);
   };
 
   return (
@@ -88,7 +86,7 @@ export const ExploreSection = () => {
           ))}
         </ContainerOfBlocksSC>
       </ContainerSC>
-      <Modal show={show} handleClose={closeModal} width="800px">
+      <Modal show={show} handleClose={showModal} width="800px">
         <FormWithEmail />
       </Modal>
     </SectionSC>
