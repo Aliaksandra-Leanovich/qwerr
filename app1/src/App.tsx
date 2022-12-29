@@ -1,4 +1,3 @@
-import "./App.css";
 import { CheckboxForm } from "./components/CheckboxForm";
 
 function App() {

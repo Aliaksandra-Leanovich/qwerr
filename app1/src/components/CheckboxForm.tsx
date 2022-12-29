@@ -6,10 +6,12 @@ import { db } from "../utils/firebase";
 
 export const CheckboxForm = () => {
   const checkRef = doc(db, "checkField", "check");
+
   const [checked, setChecked] = useState<boolean>();
 
   const toggleCheck = async () => {
     const checkedStatus = !checked;
+
     setChecked(checkedStatus);
 
     await updateDoc(checkRef, {
