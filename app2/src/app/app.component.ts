@@ -37,7 +37,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public toggleCheck = async () => {
-    console.log('as');
     await updateDoc(this.checkRef, {
       checked: this.defaultValue,
     });
