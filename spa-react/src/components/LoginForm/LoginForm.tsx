@@ -18,6 +18,7 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 import { StyledFormSC } from "./styles";
 import { IUserForm } from "./types";
+import Cookies from "universal-cookie";
 
 interface IProps {
   setShow: (value: boolean) => void;
@@ -26,6 +27,7 @@ interface IProps {
 export const LoginForm = ({ setShow }: IProps) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const cookies = new Cookies();
 
   const localStorageKey = "userToken";
 
@@ -43,6 +45,8 @@ export const LoginForm = ({ setShow }: IProps) => {
 
   const setUserTokenToStorage = (token: string) => {
     localStorage.setItem(localStorageKey, token);
+    cookies.set("token", token, { path: "/" });
+    cookies.set("token", token, { path: "/product" });
     dispatch(setUserToken(token));
   };
 
@@ -57,6 +61,7 @@ export const LoginForm = ({ setShow }: IProps) => {
             setUserTokenToStorage(token);
             navigate(routes.HOME);
             setShow(false);
+            clearErrors();
           })
           .catch((error) => {
             setError(getAuthError(error.code));
@@ -85,12 +90,6 @@ export const LoginForm = ({ setShow }: IProps) => {
         )}
         rules={{
           required: false,
-          onChange: () => {
-            if (errors) {
-              clearErrors("password");
-              clearErrors("email");
-            }
-          },
         }}
       />
       <Controller
@@ -109,12 +108,6 @@ export const LoginForm = ({ setShow }: IProps) => {
         )}
         rules={{
           required: false,
-          onChange: () => {
-            if (!errors) {
-              clearErrors("password");
-              clearErrors("email");
-            }
-          },
         }}
       />
       <Button variant={ButtonVariants.primaryGreenLarge} type="submit">

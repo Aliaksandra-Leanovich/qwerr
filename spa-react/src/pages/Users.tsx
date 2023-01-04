@@ -1,14 +1,13 @@
-import React from "react";
-import { EmailsTable } from "../components/EmailsTable/EmailsTable";
-import { useNavigate } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import { Button } from "../components/Button";
+import { EmailsTable } from "../components/EmailsTable/EmailsTable";
 import { ButtonVariants } from "../enums";
 
 export const Users = () => {
-  const navigate = useNavigate();
+  const history = createBrowserHistory();
 
   const handleBack = () => {
-    navigate(-1);
+    history.back();
   };
 
   return (

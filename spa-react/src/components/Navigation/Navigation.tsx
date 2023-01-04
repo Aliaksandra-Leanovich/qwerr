@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 import { LinkVariants } from "../../enums";
 import { routes } from "../../routes";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -16,6 +17,8 @@ export const Navigation = () => {
 
   const { isAuthorized } = useAppSelector(getUserInfo);
 
+  const cookies = new Cookies();
+
   const [show, setShow] = useState(false);
 
   const showModal = () => {
@@ -24,6 +27,7 @@ export const Navigation = () => {
 
   const handleLogout = () => {
     dispatch(unsetUser());
+    cookies.remove("token");
     navigate(routes.HOME);
   };
 

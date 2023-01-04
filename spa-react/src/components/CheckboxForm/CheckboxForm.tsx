@@ -12,11 +12,19 @@ export const CheckboxForm = () => {
   const toggleCheck = async () => {
     const checkedStatus = !checked;
 
-    setChecked(checkedStatus);
-
     await updateDoc(checkRef, {
       checked: checkedStatus,
-    });
+    })
+      .then((checkRef) => {
+        console.log(
+          "A Document Field has been updated in an existing document"
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setChecked(checkedStatus);
   };
 
   return (
