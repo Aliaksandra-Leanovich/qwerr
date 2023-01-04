@@ -27,7 +27,7 @@ export const Navigation = () => {
 
   const handleLogout = () => {
     dispatch(unsetUser());
-    cookies.remove("token");
+    cookies.remove("token", { path: "/" });
     navigate(routes.HOME);
   };
 

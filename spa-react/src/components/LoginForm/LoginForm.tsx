@@ -46,7 +46,6 @@ export const LoginForm = ({ setShow }: IProps) => {
   const setUserTokenToStorage = (token: string) => {
     localStorage.setItem(localStorageKey, token);
     cookies.set("token", token, { path: "/" });
-    cookies.set("token", token, { path: "/product" });
     dispatch(setUserToken(token));
   };
 
