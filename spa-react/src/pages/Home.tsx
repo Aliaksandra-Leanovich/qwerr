@@ -7,9 +7,9 @@ import { MainSection } from "../components/MainSection";
 import { ServicesSection } from "../components/SevicesSection";
 import { SliderSection } from "../components/SliderSection";
 
-export const Home = () => {
+const Home = () => {
   return (
-    <main>
+    <main dir="ltl">
       <Header />
       <MainSection />
       <ServicesSection />
@@ -21,3 +21,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

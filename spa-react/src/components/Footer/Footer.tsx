@@ -1,4 +1,4 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
 import { Colors } from "../../ui";
 import { Logo } from "../Logo";
 import {
@@ -18,58 +18,60 @@ import {
 
 const config = [
   {
-    category: "Landings",
+    category: "first",
     link: "#products",
     subcategories: [
-      { name: "Home", link: "#products" },
-      { name: "Products", link: "#products" },
-      { name: " Services", link: "#services" },
+      { name: "first", link: "#products" },
+      { name: "second", link: "#products" },
+      { name: "third", link: "#services" },
     ],
   },
   {
-    category: "Company",
+    category: "second",
     link: "#services",
     subcategories: [
-      { name: "Home", link: "#blog" },
-      { name: "Careers", link: "#products", label: "Hiring!" },
-      { name: "Services", link: "#services" },
+      { name: "first", link: "#blog" },
+      { name: "second", link: "#products", label: "footer.label" },
+      { name: "third", link: "#services" },
     ],
   },
   {
-    category: "Resources",
+    category: "third",
     link: "#blog",
     subcategories: [
-      { name: "Blog", link: "#blog" },
-      { name: "Products", link: "#products" },
-      { name: "Services", link: "#services" },
+      { name: "first", link: "#blog" },
+      { name: "second", link: "#products" },
+      { name: "third", link: "#services" },
     ],
   },
 ];
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <StyledFooterSC>
       <WrapperSC>
         <ContainerSC>
           <BlockWithLogoSC>
             <Logo color={Colors.PRIMARY} background={Colors.PRIMARY} />
-            <Description>
-              Social media validation business model canvas graphical user
-              interface launch party creative facebook iPad twitter.
-            </Description>
-            <RightsSC>All rights reserved.</RightsSC>
+            <Description>{t("footer.text")}</Description>
+            <RightsSC>{t("footer.rights")}</RightsSC>
           </BlockWithLogoSC>
           <BlockWithLinksSC>
             {config.map((category, index) => (
               <LinksSC key={index}>
                 <CategoryLinkSC href={category.link} key={index}>
-                  {category.category}
+                  {t(`footer.category.${category.category}`)}
                 </CategoryLinkSC>
                 {category.subcategories.map((subcategory, index) => (
                   <ContainerLinkSC key={index}>
-                    <SubcategorydLinkSC>{subcategory.name}</SubcategorydLinkSC>
+                    <SubcategorydLinkSC>
+                      {t(
+                        `footer.subcategories.${category.category}.${subcategory.name}`
+                      )}
+                    </SubcategorydLinkSC>
                     {subcategory.label && (
-                      <LabelSC>{subcategory.label}</LabelSC>
+                      <LabelSC>{t(subcategory.label)}</LabelSC>
                     )}
                   </ContainerLinkSC>
                 ))}

@@ -1,37 +1,23 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  browserLocalPersistence,
-  getAuth,
-  setPersistence,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ButtonVariants } from "../../enums";
-import { getAuthError, validationSchema } from "../../helper";
-import { routes } from "../../routes";
-import { useAppDispatch } from "../../store/hooks";
-import { setUserToken } from "../../store/slices/userSlice";
-import { app } from "../../utils";
+import { validationSchema } from "../../helper";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { StyledFormSC } from "./styles";
 import { IUserForm } from "./types";
-import Cookies from "universal-cookie";
+import { useLogin } from "../../hooks/use-login.hook";
 
 interface IProps {
   setShow: (value: boolean) => void;
 }
 
 export const LoginForm = ({ setShow }: IProps) => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const cookies = new Cookies();
+  const { t } = useTranslation();
 
-  const localStorageKey = "userToken";
-
-  const [error, setError] = useState("");
+  const valueEmail = t("input.value.email");
+  const valuePassword = t("input.value.password");
 
   const {
     register,
@@ -43,33 +29,7 @@ export const LoginForm = ({ setShow }: IProps) => {
     resolver: yupResolver(validationSchema),
   });
 
-  const setUserTokenToStorage = (token: string) => {
-    localStorage.setItem(localStorageKey, token);
-    cookies.set("token", token, { path: "/" });
-    dispatch(setUserToken(token));
-  };
-
-  const onSubmit = (data: IUserForm) => {
-    const auth = getAuth(app);
-    setPersistence(auth, browserLocalPersistence)
-      .then(async () => {
-        return await signInWithEmailAndPassword(auth, data.email, data.password)
-          .then(async (userCredential) => {
-            const token = await userCredential.user.getIdToken();
-
-            setUserTokenToStorage(token);
-            navigate(routes.HOME);
-            setShow(false);
-            clearErrors();
-          })
-          .catch((error) => {
-            setError(getAuthError(error.code));
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const { error, onSubmit } = useLogin(setShow, clearErrors);
 
   return (
     <StyledFormSC onSubmit={handleSubmit(onSubmit)}>
@@ -84,7 +44,7 @@ export const LoginForm = ({ setShow }: IProps) => {
             onChange={onChange}
             errors={errors.email?.message || error}
             register={register}
-            placeholder="Enter your email"
+            placeholder={valueEmail}
           />
         )}
         rules={{
@@ -102,7 +62,7 @@ export const LoginForm = ({ setShow }: IProps) => {
             onChange={onChange}
             errors={errors.password?.message}
             register={register}
-            placeholder="Enter your password"
+            placeholder={valuePassword}
           />
         )}
         rules={{
@@ -110,7 +70,7 @@ export const LoginForm = ({ setShow }: IProps) => {
         }}
       />
       <Button variant={ButtonVariants.primaryGreenLarge} type="submit">
-        Login
+        {t("button.login")}
       </Button>
     </StyledFormSC>
   );

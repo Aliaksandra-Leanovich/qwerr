@@ -1,23 +1,28 @@
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import NativeSelect from "@mui/material/NativeSelect";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
+import { useTranslation } from "react-i18next";
+import { useChangeLanguage } from "src/hooks/use-changeLanguage.hook";
+import { useLogout } from "src/hooks/use-logout.hook";
+import { useLtrRtl } from "src/hooks/use-ltrRtl.hook";
 import { LinkVariants } from "../../enums";
 import { routes } from "../../routes";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useAppSelector } from "../../store/hooks";
 import { getUserInfo } from "../../store/selectors";
-import { unsetUser } from "../../store/slices/userSlice";
 import { Link } from "../Link";
 import { LoginForm } from "../LoginForm";
 import { Modal } from "../Modal/Modal";
 import { ButtonSC, ContainerSC, LinkCustomSC, LinkSC } from "./style";
 
 export const Navigation = () => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const { handleLogout } = useLogout();
+  const { changeLanguage, language } = useChangeLanguage();
+  const { changeRTLorLTR } = useLtrRtl();
 
   const { isAuthorized } = useAppSelector(getUserInfo);
-
-  const cookies = new Cookies();
 
   const [show, setShow] = useState(false);
 
@@ -25,17 +30,31 @@ export const Navigation = () => {
     setShow(!show);
   };
 
-  const handleLogout = () => {
-    dispatch(unsetUser());
-    cookies.remove("token", { path: "/" });
-    navigate(routes.HOME);
-  };
-
   return (
     <ContainerSC>
-      <LinkSC href={routes.PRODUCT}>Product</LinkSC>
-      <LinkSC href={routes.SERVICES}>Services</LinkSC>
-      <LinkCustomSC to={routes.ABOUT}>About</LinkCustomSC>
+      <ButtonSC onClick={() => changeRTLorLTR()}>rtl/ltr</ButtonSC>
+      <FormControl fullWidth>
+        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+          {t("language")}
+        </InputLabel>
+        <NativeSelect
+          defaultValue={language}
+          inputProps={{
+            name: "language",
+            id: "uncontrolled-native",
+          }}
+          sx={{
+            color: "white",
+          }}
+          onChange={changeLanguage}
+        >
+          <option value="ru"> {t("language.russian")}</option>
+          <option value="en"> {t("language.english")}</option>
+        </NativeSelect>
+      </FormControl>
+      <LinkSC href={routes.PRODUCT}>{t("nav.product")}</LinkSC>
+      <LinkSC href={routes.SERVICES}>{t("nav.service")}</LinkSC>
+      <LinkCustomSC to={routes.ABOUT}>{t("nav.about")}</LinkCustomSC>
       <Modal show={show} handleClose={showModal}>
         <LoginForm setShow={setShow} />
       </Modal>
@@ -43,14 +62,14 @@ export const Navigation = () => {
         {isAuthorized ? (
           <>
             <Link to={routes.USERS} variant={LinkVariants.primaryWhiteSmall}>
-              Users
+              {t("button.users")}
             </Link>
             <ButtonSC type="button" onClick={handleLogout}>
-              Logout
+              {t("button.logout")}
             </ButtonSC>
           </>
         ) : (
-          <ButtonSC onClick={showModal}>Log in</ButtonSC>
+          <ButtonSC onClick={showModal}> {t("button.login")}</ButtonSC>
         )}
       </>
     </ContainerSC>

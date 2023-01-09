@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import BackgroundImage from "../../assets/dropdownBackground.svg";
 import { ReactComponent as DropdowmImage } from "../../assets/dropdownImage.svg";
 import { TypographyVariants } from "../../enums";
@@ -15,18 +16,19 @@ import {
 
 const config = [
   {
-    title: "We connect our customers with the best?",
+    title: "first",
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. ",
     image: <DropdowmImage />,
   },
   {
-    title: "Android research & development rockstar? ",
+    title: "second",
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.  ",
     image: <DropdowmImage />,
   },
 ];
 
 export const DropdownSection = () => {
+  const { t } = useTranslation();
   return (
     <SectionSC>
       <ContainerSC>
@@ -35,8 +37,7 @@ export const DropdownSection = () => {
         <ContainerInformationSC>
           <DescriptionBlockSC>
             <Typography variant={TypographyVariants.h3}>
-              We connect our customers with the best, and help them keep up-and
-              stay open.
+              {t("connect.title")}
             </Typography>
           </DescriptionBlockSC>
 

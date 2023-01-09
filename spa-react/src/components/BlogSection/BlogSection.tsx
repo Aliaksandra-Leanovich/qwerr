@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import AuthorImage1 from "../../assets/blogAuth1.svg";
 import AuthorImage2 from "../../assets/blogAuth2.svg";
 import AuthorImage3 from "../../assets/blogAuth3.svg";
@@ -22,54 +23,50 @@ import {
 
 const config = [
   {
-    category: "Category",
-    date: "November 22, 2021",
-    description: "Pitch termsheet backing validation focus release.",
+    category: "blog.card.category",
+    date: "blog.card.date",
+    description: "first",
     authorName: "Chandler Bing",
     authorImage: AuthorImage1,
     image: BlogImg1,
   },
   {
-    category: "Category",
-    date: "November 22, 2021",
-    description:
-      "Seed round direct mailing non-disclosure agreement graphical user interface rockstar.",
+    category: "blog.card.category",
+    date: "blog.card.date",
+    description: "second",
     authorName: "Rachel Green",
     authorImage: AuthorImage2,
     image: BlogImg2,
   },
   {
-    category: "Category",
-    date: "November 22, 2021",
-    description:
-      "Beta prototype sales iPad gen-z marketing network effects value proposition",
+    category: "blog.card.category",
+    date: "blog.card.date",
+    description: "third",
     authorName: "Monica Geller",
     authorImage: AuthorImage3,
     image: BlogImg3,
   },
 
   {
-    category: "Category",
-    date: "November 22, 2021",
-    description:
-      "Seed round direct mailing non-disclosure agreement graphical user interface rockstar.",
+    category: "blog.card.category",
+    date: "blog.card.date",
+    description: "first",
     authorName: "Rachel Green",
     authorImage: AuthorImage2,
     image: BlogImg2,
   },
   {
-    category: "Category",
-    date: "November 22, 2021",
-    description: "Pitch termsheet backing validation focus release.",
+    category: "blog.card.category",
+    date: "blog.card.date",
+    description: "second",
     authorName: "Chandler Bing",
     authorImage: AuthorImage1,
     image: BlogImg1,
   },
   {
-    category: "Category",
-    date: "November 22, 2021",
-    description:
-      "Beta prototype sales iPad gen-z marketing network effects value proposition",
+    category: "blog.card.category",
+    date: "blog.card.date",
+    description: "third",
     authorName: "Monica Geller",
     authorImage: AuthorImage3,
     image: BlogImg3,
@@ -78,6 +75,7 @@ const config = [
 
 export const BlogSection = () => {
   const [index, setIndex] = useState(3);
+  const { t } = useTranslation();
 
   const itemsToRender = config.slice(0, index);
 
@@ -85,11 +83,11 @@ export const BlogSection = () => {
     <SectionSC id="blog">
       <ContainerSC>
         <Typography variant={TypographyVariants.paragraphS} color={Colors.GRAY}>
-          Our Blog
+          {t("blog.title")}
         </Typography>
         <TitleContainerSC>
           <Typography variant={TypographyVariants.h3}>
-            Value proposition accelerator product management venture
+            {t("blog.subtitle")}
           </Typography>
         </TitleContainerSC>
 
@@ -104,20 +102,20 @@ export const BlogSection = () => {
                     variant={TypographyVariants.paragraphXSBold}
                     color={Colors.PRIMARY}
                   >
-                    {block.category}
+                    {t("blog.card.category")}
                   </Typography>
                   <Typography
                     variant={TypographyVariants.paragraphXS}
                     color={Colors.GRAY}
                   >
-                    {block.date}
+                    {t(`${block.date}`)}
                   </Typography>
                 </CategoryBlockSC>
                 <Typography
                   variant={TypographyVariants.paragraphS}
                   color={Colors.INFODARK}
                 >
-                  {block.description}
+                  {t(`blog.card.text.${block.description}`)}
                 </Typography>
               </div>
 
@@ -138,7 +136,7 @@ export const BlogSection = () => {
           onClick={() => setIndex(index + 3)}
           display={index > 3 ? "none" : "block"}
         >
-          Load more
+          {t("blog.button")}
         </LinkSC>
       </ContainerSC>
     </SectionSC>

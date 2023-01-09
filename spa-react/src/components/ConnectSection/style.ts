@@ -94,11 +94,10 @@ export const AdvantageSC = styled.div`
   align-items: center;
 
   column-gap: 12px;
-  padding: 0 20px;
+  padding: 20px;
 
   max-width: 500px;
   width: 100%;
-  height: 68px;
 
   background: #ffffff;
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.08);

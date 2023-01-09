@@ -85,6 +85,7 @@ export const LinkSC = styled.button`
   font-weight: 700;
   font-size: 20px;
   line-height: 36px;
+  text-align: left;
 
   color: #0a2640;
 `;

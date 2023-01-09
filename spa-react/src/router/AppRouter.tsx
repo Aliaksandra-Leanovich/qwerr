@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { MainTemplate } from "../components/MainTemplate/MainTemplate";
-import { Home } from "../pages/Home";
+import Home from "../pages/Home";
 import { Users } from "../pages/Users";
 import { About } from "../pages/About";
 import { routes } from "../routes";

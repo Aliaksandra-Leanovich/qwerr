@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { TypographyVariants } from "../../enums";
 import { Typography } from "../../ui";
 import {
@@ -14,11 +15,12 @@ export const DropdownItem = ({ item }: any) => {
   const handleClick = () => {
     setOpen(!isOpen);
   };
+  const { t } = useTranslation();
   return (
     <DropdownContainerSC>
       <DropdownSC>
         <Typography variant={TypographyVariants.paragraphS}>
-          {item.title}
+          {t(`dropdown.${item.title}`)}
         </Typography>
         <DropdownButtonSC onClick={handleClick} isOpen={isOpen}>
           {item.image}

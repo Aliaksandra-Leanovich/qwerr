@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import CheckImg from "../../assets/checkImg.svg";
 import ConnectImg1 from "../../assets/connectImg1.svg";
 import ConnectImg2 from "../../assets/connectImg2.svg";
@@ -38,17 +39,34 @@ import {
 } from "./style";
 
 const config = [
-  { text: "We connect our customers with the best. ", image: <FeatherImg /> },
-  { text: "Advisor success customer launch party. ", image: <EyeImg /> },
-  { text: "Business-to-consumer long tail. ", image: <SunImg /> },
+  { text: "first", image: <FeatherImg /> },
+  { text: "second", image: <EyeImg /> },
+  { text: "third", image: <SunImg /> },
+];
+
+const columns = [
+  { height: "134px", background: Colors.INFOLIGHT },
+  { height: "92px", background: Colors.INFOLIGHT },
+  { height: "134px", background: Colors.LIGHTBLUE },
+  { height: "92px", background: Colors.LIGHTBLUE },
+  { height: "176px", background: Colors.PRIMARY },
+  { height: "124px", background: Colors.LIGHTBLUE },
+  { height: "150px", background: Colors.LIGHTBLUE },
+  { height: "68px", background: Colors.LIGHTBLUE },
+  { height: "50px", background: Colors.LIGHTBLUE },
+  { height: "28px", background: Colors.LIGHTBLUE },
 ];
 
 export const ConnectSection = () => {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
 
   const showModal = () => {
     setShow(!show);
   };
+
+  const columnUp = columns.slice(0, 8);
+  const columnsDown = columns.slice(7, 9);
 
   return (
     <SectionSC>
@@ -58,18 +76,20 @@ export const ConnectSection = () => {
             <ImageContainerSC height="506px" background={ConnectImg1} />
             <ContainerDiagramSC>
               <DiagramTopSC>
-                <Column height="134px" background={Colors.INFOLIGHT} />
-                <Column height="92px" background={Colors.INFOLIGHT} />
-                <Column height="134px" background={Colors.LIGHTBLUE} />
-                <Column height="92px" background={Colors.LIGHTBLUE} />
-                <Column height="176px" background={Colors.PRIMARY} />
-                <Column height="124px" background={Colors.LIGHTBLUE} />
-                <Column height="150px" background={Colors.LIGHTBLUE} />
-                <Column height="68px" background={Colors.LIGHTBLUE} />
+                {columnUp.map((column) => (
+                  <Column
+                    height={column.height}
+                    background={column.background}
+                  />
+                ))}
               </DiagramTopSC>
               <DiagramBottomSC>
-                <Column height="50px" background={Colors.LIGHTBLUE} />
-                <Column height="28px" background={Colors.LIGHTBLUE} />
+                {columnsDown.map((column) => (
+                  <Column
+                    height={column.height}
+                    background={column.background}
+                  />
+                ))}
               </DiagramBottomSC>
 
               <DescriptionDiagramSC>
@@ -83,7 +103,7 @@ export const ConnectSection = () => {
                   variant={TypographyVariants.subtitle}
                   color={Colors.PRIMARY}
                 >
-                  More income in June
+                  {t("connect.diagram.first")}
                 </Typography>
               </DescriptionDiagramSC>
             </ContainerDiagramSC>
@@ -92,8 +112,7 @@ export const ConnectSection = () => {
           <TextContainerSC>
             <TitleContainerSC>
               <Typography variant={TypographyVariants.h4}>
-                We connect our customers with the best, and help them keep
-                up-and stay open.
+                {t(`connect.title`)}
               </Typography>
             </TitleContainerSC>
 
@@ -102,7 +121,7 @@ export const ConnectSection = () => {
                 <DescriptionSC key={index}>
                   <CheckImgSC src={CheckImg} />
                   <Typography variant={TypographyVariants.paragraphS}>
-                    {item.text}
+                    {t(`connect.subtitle.${item.text}`)}
                   </Typography>
                 </DescriptionSC>
               ))}
@@ -112,7 +131,7 @@ export const ConnectSection = () => {
               variant={ButtonVariants.primaryLarge}
               type="button"
             >
-              Start now
+              {t(`connect.button`)}
             </Button>
           </TextContainerSC>
         </ContainerBlocksSC>
@@ -120,8 +139,7 @@ export const ConnectSection = () => {
           <TextContainerSC>
             <TitleContainerSC>
               <Typography variant={TypographyVariants.h4}>
-                We connect our customers with the best, and help them keep
-                up-and stay open.
+                {t(`connect.title`)}
               </Typography>
             </TitleContainerSC>
 
@@ -131,7 +149,7 @@ export const ConnectSection = () => {
                   <AdvantageSC key={index}>
                     {item.image}
                     <Typography variant={TypographyVariants.paragraphS}>
-                      {item.text}
+                      {t(`connect.subtitle.${item.text}`)}
                     </Typography>
                   </AdvantageSC>
                 ))}
@@ -145,15 +163,15 @@ export const ConnectSection = () => {
               <PersentsBlockSC>
                 <PersentsContainerSC>
                   <DotSC background={Colors.LIGHTBLUE} />
-                  <PersentTextSC>35% - Agile Development</PersentTextSC>
+                  <PersentTextSC>{t("connect.precent.first")} </PersentTextSC>
                 </PersentsContainerSC>
                 <PersentsContainerSC>
                   <DotSC background={Colors.SECONDARY} />
-                  <PersentTextSC>30% - Investor bandwidth</PersentTextSC>
+                  <PersentTextSC>{t("connect.precent.second")}</PersentTextSC>
                 </PersentsContainerSC>
                 <PersentsContainerSC>
                   <DotSC background={Colors.GRAY} />
-                  <PersentTextSC>35% - A/B testing</PersentTextSC>
+                  <PersentTextSC>{t("connect.precent.third")}</PersentTextSC>
                 </PersentsContainerSC>
               </PersentsBlockSC>
             </BlockWithCirclSC>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ArrowRight from "../../assets/arrowRight.svg";
 import ExploreImg1 from "../../assets/exploreImg1.svg";
 import ExploreImg2 from "../../assets/exploreImg2.svg";
@@ -22,29 +23,22 @@ import {
 const config = [
   {
     image: ExploreImg1,
-    title: "Cool feature title",
-    description: " Learning curve network effects return on investment.",
     link: {
       image: ArrowRight,
-      text: "Explore page",
     },
   },
   {
     image: ExploreImg2,
-    title: "Cool feature title",
-    description: " Learning curve network effects return on investment.",
+
     link: {
       image: ArrowRight,
-      text: "Explore page",
     },
   },
   {
     image: ExploreImg3,
-    title: "Cool feature title",
-    description: " Learning curve network effects return on investment.",
+
     link: {
       image: ArrowRight,
-      text: "Explore page",
     },
   },
 ];
@@ -55,20 +49,19 @@ export const ExploreSection = () => {
   const showModal = () => {
     setShow(!show);
   };
+  const { t } = useTranslation();
 
   return (
     <SectionSC>
       <ContainerSC>
-        <TitleSC>
-          Handshake infographic mass market crowdfunding iteration.
-        </TitleSC>
+        <TitleSC>{t("services.subtitle")}</TitleSC>
         <ContainerOfBlocksSC>
           {config.map((item, index) => (
             <BlockSC key={index}>
               <ImageSC src={item.image} alt="explore section" />
               <TitleContainerSC>
                 <Typography variant={TypographyVariants.paragraphM}>
-                  {item.title}
+                  {t("explore.card.title")}
                 </Typography>
               </TitleContainerSC>
 
@@ -76,10 +69,10 @@ export const ExploreSection = () => {
                 variant={TypographyVariants.paragraphS}
                 color={Colors.GRAY}
               >
-                {item.description}
+                {t("explore.card.subtitle")}
               </Typography>
               <LinkBlockSC>
-                <LinkSC onClick={showModal}>{item.link.text}</LinkSC>
+                <LinkSC onClick={showModal}> {t("explore.card.link")} </LinkSC>
                 <img src={item.link.image} alt="arrow" />
               </LinkBlockSC>
             </BlockSC>

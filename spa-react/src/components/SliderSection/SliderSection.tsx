@@ -26,62 +26,56 @@ import {
   TitleContainerSC,
   TitleSC,
 } from "./style";
+import { useTranslation } from "react-i18next";
 
 const config = [
   {
-    comment:
-      "“Buyer buzz partner network disruptive non-disclosure agreement business”",
+    comment: "first",
     authorName: "Albus Dumbledore",
-    authorPosition: " Manager @ Howarts",
+    authorPosition: "first",
     authorImage: AthorImage1,
   },
   {
-    comment:
-      "“Learning curve infrastructure value proposition advisor advisor strategy user experience hypotheses investor.”",
+    comment: "second",
     authorName: "Severus Snape",
-    authorPosition: " Manager @ Slytherin",
+    authorPosition: "second",
     authorImage: AthorImage2,
   },
   {
-    comment:
-      "“Release facebook responsive web design business model canvas seed money monetization.”",
+    comment: "third",
     authorName: "Harry Potter",
-    authorPosition: " Team Leader @ Gryffindor",
+    authorPosition: "third",
     authorImage: AthorImage3,
   },
   {
-    comment:
-      "“Buyer buzz partner network disruptive non-disclosure agreement business”",
+    comment: "first",
     authorName: "Albus Dumbledore",
-    authorPosition: " Manager @ Howarts",
+    authorPosition: "first",
     authorImage: AthorImage1,
   },
   {
-    comment:
-      "“Learning curve infrastructure value proposition advisor advisor strategy user experience hypotheses investor.”",
+    comment: "second",
     authorName: "Severus Snape",
-    authorPosition: " Manager @ Slytherin",
+    authorPosition: "second",
     authorImage: AthorImage2,
   },
   {
-    comment:
-      "“Release facebook responsive web design business model canvas seed money monetization.”",
+    comment: "third",
     authorName: "Harry Potter",
-    authorPosition: " Team Leader @ Gryffindor",
+    authorPosition: "third",
     authorImage: AthorImage3,
   },
 ];
 
 export const SliderSection = () => {
+  const { t } = useTranslation();
   const swiperRef = useRef<SwiperType>();
   return (
     <SectionSC>
       <ContainerSC>
         <BlockSC>
           <TitleContainerSC>
-            <TitleSC>
-              An enterprise template to ramp up your company website
-            </TitleSC>
+            <TitleSC>{t("comment.title")}</TitleSC>
           </TitleContainerSC>
           <ButtonsContainerSC>
             <ButtonArrowSC onClick={() => swiperRef.current?.slidePrev()}>
@@ -110,13 +104,15 @@ export const SliderSection = () => {
             {config.map((comment, index) => (
               <SwiperSlide key={index}>
                 <ContainerSlideSC>
-                  <CommentSliderSC>{comment.comment}</CommentSliderSC>
+                  <CommentSliderSC>
+                    {t(`comment.text.${comment.comment}`)}
+                  </CommentSliderSC>
                   <AuthorSliderSC>
                     <AuthImageSC background={comment.authorImage} />
                     <AuthorInfromationSC>
                       <AuthorNameSC>{comment.authorName}</AuthorNameSC>
                       <AuthorPositionSC>
-                        {comment.authorPosition}
+                        {t(`comment.position.${comment.authorPosition}`)}
                       </AuthorPositionSC>
                     </AuthorInfromationSC>
                   </AuthorSliderSC>
