@@ -57,6 +57,21 @@ const columns = [
   { height: "28px", background: Colors.LIGHTBLUE },
 ];
 
+const percents = [
+  {
+    background: Colors.LIGHTBLUE,
+    text: "first",
+  },
+  {
+    background: Colors.SECONDARY,
+    text: "second",
+  },
+  {
+    background: Colors.GRAY,
+    text: "third",
+  },
+];
+
 export const ConnectSection = () => {
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
@@ -161,18 +176,14 @@ export const ConnectSection = () => {
             <BlockWithCirclSC>
               <CircleSC />
               <PersentsBlockSC>
-                <PersentsContainerSC>
-                  <DotSC background={Colors.LIGHTBLUE} />
-                  <PersentTextSC>{t("connect.precent.first")} </PersentTextSC>
-                </PersentsContainerSC>
-                <PersentsContainerSC>
-                  <DotSC background={Colors.SECONDARY} />
-                  <PersentTextSC>{t("connect.precent.second")}</PersentTextSC>
-                </PersentsContainerSC>
-                <PersentsContainerSC>
-                  <DotSC background={Colors.GRAY} />
-                  <PersentTextSC>{t("connect.precent.third")}</PersentTextSC>
-                </PersentsContainerSC>
+                {percents.map((percent) => (
+                  <PersentsContainerSC>
+                    <DotSC background={percent.background} />
+                    <PersentTextSC>
+                      {t(`connect.precent.${percent.text}`)}
+                    </PersentTextSC>
+                  </PersentsContainerSC>
+                ))}
               </PersentsBlockSC>
             </BlockWithCirclSC>
           </ContainerImageAndDiagramSC>
