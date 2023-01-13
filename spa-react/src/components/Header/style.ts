@@ -1,14 +1,13 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../ui";
 
 export const StyledHeaderSC = styled.header`
   width: 100%;
-  z-index: 2;
+  z-index: 5;
 
   position: fixed;
   background-attachment: fixed;
   background-position: top center;
-  background-color: ${Colors.PRIMARY};
+  background-color: black;
 `;
 
 export const WrapperSC = styled.div`

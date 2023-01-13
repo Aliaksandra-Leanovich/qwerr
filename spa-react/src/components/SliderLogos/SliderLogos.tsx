@@ -8,8 +8,6 @@ import { ReactComponent as PrestoLogo } from "../../assets/PressLogo .svg";
 export const SliderLogos = () => {
   return (
     <WrapperSC>
-      <LeftBlockSC />
-      <RightBlockSC />
       <CustomSwiperSC
         cssMode={true}
         mousewheel={true}
@@ -78,11 +76,7 @@ export const LeftBlockSC = styled.div`
   top: 0;
   left: 0;
 
-  background: linear-gradient(
-    90deg,
-    rgba(10, 38, 64, 1) 22%,
-    rgba(255, 255, 255, 0) 53%
-  );
+  background: linear-gradient(90deg, #000000 22%, rgba(255, 255, 255, 0) 53%);
 `;
 export const RightBlockSC = styled.div`
   width: 40%;
@@ -91,11 +85,7 @@ export const RightBlockSC = styled.div`
   z-index: 1;
   top: 0;
   right: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 47%,
-    rgba(10, 38, 64, 1) 78%
-  );
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 47%, #000000 78%);
 `;
 export const LogoContainerSC = styled.div`
   width: 144px;

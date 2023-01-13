@@ -49,4 +49,11 @@ export const ButtonSC = styled.button`
   line-height: 24px;
 
   color: ${Colors.PRIMARY};
+
+  transition: background-color 0.5s ease-out, border 0.5s ease-out;
+
+  &:hover {
+    background-color: ${Colors.LIGHTBLUE};
+    border: 2px solid ${Colors.LIGHTBLUE};
+  }
 `;

@@ -4,10 +4,12 @@ import { ButtonVariants, TypographyVariants } from "../../enums";
 import { Colors, Typography } from "../../ui";
 import { Bar } from "../Bars";
 import { Button } from "../Button";
+import { Canvas } from "../Canvas/Canvas";
 import { FormWithEmail } from "../FormWithEmail/FormWithEmail";
 import { Modal } from "../Modal/Modal";
 import { SliderLogos } from "../SliderLogos";
 import {
+  CanvasContainerSC,
   ContainerButtonsSC,
   ContainerDescriptionSC,
   ContainerSC,
@@ -27,6 +29,9 @@ export const MainSection = () => {
   return (
     <MainContainerSC>
       <WrapperSC id="product">
+        <CanvasContainerSC>
+          <Canvas />
+        </CanvasContainerSC>
         <ContainerSC>
           <ContainerWithTwoBlocksSC>
             <ContainerDescriptionSC>
@@ -68,6 +73,7 @@ export const MainSection = () => {
           <SliderLogos />
         </ContainerSC>
       </WrapperSC>
+
       <Modal show={show} handleClose={showModal} width="800px">
         <FormWithEmail />
       </Modal>

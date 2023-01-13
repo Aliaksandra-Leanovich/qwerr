@@ -34,7 +34,11 @@ export const Navigation = () => {
     <ContainerSC>
       <ButtonSC onClick={() => changeRTLorLTR()}>rtl/ltr</ButtonSC>
       <FormControl fullWidth>
-        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+        <InputLabel
+          variant="standard"
+          htmlFor="uncontrolled-native"
+          sx={{ color: "white" }}
+        >
           {t("language")}
         </InputLabel>
         <NativeSelect

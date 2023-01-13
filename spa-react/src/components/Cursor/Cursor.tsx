@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "./style.css";
 import classNames from "classnames";
-import gsap from "gsap";
+import { useEffect, useState } from "react";
+import "./style.css";
 
 export function Cursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -9,54 +8,75 @@ export function Cursor() {
   const [linkHovered, setLinkHovered] = useState(false);
   const [hidden, setHidden] = useState(false);
 
-  useEffect(() => {
-    addEventListeners();
-    handleLinkHoverEvents();
-    return () => removeEventListeners();
-  }, []);
+  // let body = document.body;
+  // document.addEventListener("mousemove", (e: any) => {
+  //   let element = document.createElement("div");
+  //   element.setAttribute("class", "cursor");
+  //   element.setAttribute(
+  //     "style",
+  //     `left: ${e.clientX - 10}px; top: ${e.clientY - 10}px;`
+  //   );
 
-  const addEventListeners = () => {
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseenter", onMouseEnter);
-    document.addEventListener("mouseleave", onMouseLeave);
-    document.addEventListener("mousedown", onMouseDown);
-    document.addEventListener("mouseup", onMouseUp);
-  };
+  //   element.onanimationend = () => {
+  //     element.remove();
+  //   };
 
-  const removeEventListeners = () => {
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseenter", onMouseEnter);
-    document.removeEventListener("mouseleave", onMouseLeave);
-    document.removeEventListener("mousedown", onMouseDown);
-    document.removeEventListener("mouseup", onMouseUp);
-  };
+  //   body.insertAdjacentElement("beforeend", element);
+  // });
 
-  const onMouseMove = (e: any) => {
-    setPosition({ x: e.clientX, y: e.clientY });
-  };
+  // document.removeEventListener("mousedown", () => {
+  //   setClicked(true);
+  // });
+  // document.removeEventListener("mouseup", () => {
+  //   setClicked(false);
+  // });
 
-  const onMouseDown = () => {
-    setClicked(true);
-  };
+  // useEffect(() => {
+  //   // addEventListeners();
+  //   handleLinkHoverEvents();
+  //   // return () => removeEventListeners();
+  // }, []);
 
-  const onMouseUp = () => {
-    setClicked(false);
-  };
+  // const addEventListeners = () => {
+  //   document.addEventListener("mouseenter", onMouseEnter);
+  //   document.addEventListener("mouseleave", onMouseLeave);
+  //   document.addEventListener("mousedown", onMouseDown);
+  //   document.addEventListener("mouseup", onMouseUp);
+  // };
 
-  const onMouseLeave = () => {
-    setHidden(true);
-  };
+  // const removeEventListeners = () => {
+  //   document.removeEventListener("mouseenter", onMouseEnter);
+  //   document.removeEventListener("mouseleave", onMouseLeave);
+  //   document.removeEventListener("mousedown", onMouseDown);
+  //   document.removeEventListener("mouseup", onMouseUp);
+  // };
 
-  const onMouseEnter = () => {
-    setHidden(false);
-  };
+  // const OnRemove = (e: any) => {
+  //   e.target.remove();
+  // };
 
-  const handleLinkHoverEvents = () => {
-    document.querySelectorAll("a").forEach((el) => {
-      el.addEventListener("mouseover", () => setLinkHovered(true));
-      el.addEventListener("mouseout", () => setLinkHovered(false));
-    });
-  };
+  // const onMouseDown = () => {
+  //   setClicked(true);
+  // };
+
+  // const onMouseUp = () => {
+  //   setClicked(false);
+  // };
+
+  // const onMouseLeave = () => {
+  //   setHidden(true);
+  // };
+
+  // const onMouseEnter = () => {
+  //   setHidden(false);
+  // };
+
+  // const handleLinkHoverEvents = () => {
+  //   document.querySelectorAll("a").forEach((el) => {
+  //     el.addEventListener("mouseover", () => setLinkHovered(true));
+  //     el.addEventListener("mouseout", () => setLinkHovered(false));
+  //   });
+  // };
 
   const cursorClasses = classNames("cursor", {
     "cursor--clicked": clicked,
@@ -64,10 +84,5 @@ export function Cursor() {
     "cursor--link-hovered": linkHovered,
   });
 
-  return (
-    <div
-      className={cursorClasses}
-      style={{ left: `${position.x}px`, top: `${position.y}px` }}
-    />
-  );
+  return <div className={cursorClasses} />;
 }

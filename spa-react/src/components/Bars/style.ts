@@ -115,7 +115,7 @@ export const CircleMainSC = styled.div`
   transform: rotate(-20deg);
 
   border-radius: 50%;
-  background: radial-gradient(${Colors.PRIMARY} 50%, transparent 41%),
+  background: radial-gradient(#000 50%, transparent 41%),
     conic-gradient(
       ${Colors.SECONDARY} 0% 33%,
       ${Colors.PRIMARY} 33% 66%,
@@ -129,8 +129,8 @@ export const CircleMainSC = styled.div`
     top: 12px;
     left: 12px;
 
-    width: 66px;
-    height: 66px;
+    width: 67px;
+    height: 67px;
 
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.18);

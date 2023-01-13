@@ -25,7 +25,12 @@ export const ContainerWithTwoBlocksSC = styled.div`
     align-items: center;
   }
 `;
-
+export const CanvasContainerSC = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 export const ContainerDescriptionSC = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,6 +40,7 @@ export const ContainerDescriptionSC = styled.div`
   width: 100%;
 
   row-gap: 16px;
+  z-index: 4;
 `;
 export const Block = styled.div`
   height: 432px;
@@ -48,12 +54,13 @@ export const WrapperSC = styled.div`
   align-items: center;
 
   width: 100%;
+  position: relative;
 `;
 export const MainContainerSC = styled.section`
   margin: 0 auto;
   width: 100%;
 
-  background-color: #0a2640;
+  /* background-color: #0a2640; */
 
   position: relative;
 `;
