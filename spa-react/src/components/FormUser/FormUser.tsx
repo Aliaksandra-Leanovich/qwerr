@@ -1,20 +1,33 @@
 import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { useGetUsersFromDB } from "src/hooks/use-getUsers.hook";
+import { useSetUsersToDb } from "src/hooks/use-setUsers.hook";
+import { users } from "src/pages/About";
+interface IProps {
+  show: boolean;
+  showModal: (value: boolean) => void;
+}
 
-export const FormUser = ({ showModal, show }: any) => {
-  const {
-    register,
-    handleSubmit,
-    clearErrors,
-    getValues,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm();
+export const FormUser = ({ showModal, show }: IProps) => {
+  const { handleSubmit, getValues, reset, control } = useForm();
+
+  const { setUsersToDB } = useSetUsersToDb(users);
+  const { getUsers } = useGetUsersFromDB();
 
   const onSubmit = () => {
     const { name, surname } = getValues();
-    console.log(name, surname);
+    const user = {
+      name: name,
+      surname: surname,
+      id: "2",
+      date: new Date().toLocaleString(),
+    };
+
+    users.users.push(user);
+
+    setUsersToDB();
+    getUsers();
+
     showModal(!show);
     reset();
   };
@@ -25,7 +38,7 @@ export const FormUser = ({ showModal, show }: any) => {
         <Controller
           name="name"
           control={control}
-          render={({ field: { onChange, value } }) => (
+          render={({ field: { onChange } }) => (
             <Input type="name" placeholder="name" onChange={onChange} />
           )}
           rules={{
@@ -35,7 +48,7 @@ export const FormUser = ({ showModal, show }: any) => {
         <Controller
           name="surname"
           control={control}
-          render={({ field: { onChange, value } }) => (
+          render={({ field: { onChange } }) => (
             <Input type="surname" placeholder="surname" onChange={onChange} />
           )}
           rules={{

@@ -1,15 +1,12 @@
-import React from "react";
 import { Button } from "@mui/material";
-import { useState } from "react";
 import { Modal } from "src/components/Modal/Modal";
 import { FormUser } from "../FormUser/FormUser";
+interface IProps {
+  show: boolean;
+  showModal: () => void;
+}
 
-export const ModalForm = () => {
-  const [show, setShow] = useState(false);
-  const showModal = () => {
-    setShow(!show);
-  };
-
+export const ModalForm = ({ show, showModal }: IProps) => {
   return (
     <>
       <Button onClick={showModal}> Add User</Button>

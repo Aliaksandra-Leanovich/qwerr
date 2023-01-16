@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { db } from "src/utils/firebase";
 
 export interface IUser {
@@ -11,10 +11,6 @@ export interface IUser {
 
 export const useGetUsersFromDB = () => {
   const [usersFromDB, setUsersFromDB] = useState<IUser[]>();
-
-  useEffect(() => {
-    getUsers();
-  }, []);
 
   const getUsers = () => {
     const usersCollectionRef = collection(db, "usersDB");
@@ -33,5 +29,5 @@ export const useGetUsersFromDB = () => {
       .catch((error) => console.log(error.message));
   };
 
-  return { usersFromDB };
+  return { usersFromDB, getUsers };
 };

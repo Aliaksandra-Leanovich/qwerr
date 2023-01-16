@@ -1,5 +1,4 @@
 import { doc, setDoc } from "firebase/firestore";
-import { useEffect } from "react";
 import { IUser } from "src/components/TableWithUsers/types";
 import { db } from "src/utils/firebase";
 
@@ -18,7 +17,5 @@ export const useSetUsersToDb = (users: IUsers) => {
     }
   };
 
-  useEffect(() => {
-    setUsersToDB();
-  }, []);
+  return { setUsersToDB };
 };
