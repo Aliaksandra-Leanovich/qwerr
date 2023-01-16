@@ -5,7 +5,7 @@ export const TableWithUsers = ({ data }: IProps) => {
     <div>
       {data?.map((user, index) => (
         <li key={index}>
-          {user.name} {user.date}
+          {user.name} {user.date} {user.surname}
         </li>
       ))}
     </div>

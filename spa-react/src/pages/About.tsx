@@ -11,19 +11,19 @@ export const users = {
   users: [
     {
       name: "Alex",
-      surname: "ALex",
+      surname: "Stesh",
       id: "1",
       date: new Date().toLocaleString(),
     },
     {
       name: "Anna",
-      surname: "Anna1",
+      surname: "Udin",
       id: "1",
       date: new Date().toLocaleString(),
     },
     {
       name: "Leonid",
-      surname: "Leonid1",
+      surname: "Agarov",
       id: "1",
       date: new Date().toLocaleString(),
     },

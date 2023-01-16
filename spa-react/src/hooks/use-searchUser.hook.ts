@@ -8,9 +8,12 @@ export const useSearchUser = (users: IUser[]) => {
     setSearchValue(e.target.value);
 
     setFilteredUsers(
-      users?.filter((user) =>
-        user.name.toLowerCase().includes(e.target.value.toLowerCase())
-      )
+      users?.filter((user) => {
+        return (
+          user.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          user.surname.toLowerCase().includes(e.target.value.toLowerCase())
+        );
+      })
     );
   };
 
