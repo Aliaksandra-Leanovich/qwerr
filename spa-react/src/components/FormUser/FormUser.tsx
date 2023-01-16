@@ -1,7 +1,6 @@
 import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useGetUsersFromDB } from "src/hooks/use-getUsers.hook";
-import { useSetUsersToDb } from "src/hooks/use-setUsers.hook";
+import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
 import { users } from "src/pages/About";
 interface IProps {
   show: boolean;

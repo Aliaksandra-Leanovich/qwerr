@@ -1,6 +1,6 @@
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { useUpdateDoc } from "../../hooks/use-updateDoc.hook";
+import { useUpdateDoc } from "../../hooks";
 
 export const CheckboxForm = () => {
   const { toggleCheck } = useUpdateDoc();

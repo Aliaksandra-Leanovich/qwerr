@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { ButtonSC, ContainerInputSC, FormSC, Input } from "./style";
-import { useAddUser } from "../../hooks/use-addUser.hook";
+import { useAddUser } from "../../hooks";
 
 export const FormWithEmail = () => {
   const { register, handleSubmit, reset, getValues, control } = useForm();

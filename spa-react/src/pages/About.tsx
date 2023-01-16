@@ -2,10 +2,12 @@ import { useEffect } from "react";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
 import { TableWithUsers } from "src/components/TableWithUsers/TableWithUsers";
-import { useGetUsersFromDB } from "src/hooks/use-getUsers.hook";
-import { useModalNavigate } from "src/hooks/use-modalNavigate.hook";
-import { useSearchUser } from "src/hooks/use-searchUser.hook";
-import { useSetUsersToDb } from "src/hooks/use-setUsers.hook";
+import {
+  useGetUsersFromDB,
+  useModalNavigate,
+  useSearchUser,
+  useSetUsersToDb,
+} from "src/hooks";
 
 export const users = {
   users: [
