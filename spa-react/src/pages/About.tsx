@@ -1,6 +1,9 @@
-import React from "react";
-import { CheckboxForm } from "src/components/CheckboxForm/CheckboxForm";
+import { TableWithUsers } from "src/components/TableWithUsers/TableWithUsers";
 
 export const About = () => {
-  return <CheckboxForm />;
+  return (
+    <>
+      <TableWithUsers />
+    </>
+  );
 };
