@@ -68,25 +68,6 @@ export const CustomSwiperSC = styled(Swiper)`
   width: 100%;
 `;
 
-export const LeftBlockSC = styled.div`
-  width: 40%;
-  position: absolute;
-  height: 48px;
-  z-index: 1;
-  top: 0;
-  left: 0;
-
-  background: linear-gradient(90deg, #000000 22%, rgba(255, 255, 255, 0) 53%);
-`;
-export const RightBlockSC = styled.div`
-  width: 40%;
-  position: absolute;
-  height: 48px;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 47%, #000000 78%);
-`;
 export const LogoContainerSC = styled.div`
   width: 144px;
   height: 42px;

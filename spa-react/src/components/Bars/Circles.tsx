@@ -18,8 +18,8 @@ const circles = [
 export const Circles = () => {
   return (
     <CirclesContainerSc>
-      {circles.map((circle) => (
-        <CircleSC color={circle.color} />
+      {circles.map((circle, index) => (
+        <CircleSC key={index} color={circle.color} />
       ))}
     </CirclesContainerSc>
   );

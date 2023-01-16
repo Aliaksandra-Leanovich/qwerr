@@ -51,13 +51,21 @@ export const BarVertical = () => {
     <WrapperVerticalSC>
       <Circles />
       <DiagramTopSC>
-        {columnsUp.map((column) => (
-          <Column height={column.height} background={column.background} />
+        {columnsUp.map((column, index) => (
+          <Column
+            key={index}
+            height={column.height}
+            background={column.background}
+          />
         ))}
       </DiagramTopSC>
       <DiagramBottomSC>
-        {columnsDown.map((column) => (
-          <Column height={column.height} background={column.background} />
+        {columnsDown.map((column, index) => (
+          <Column
+            key={index}
+            height={column.height}
+            background={column.background}
+          />
         ))}
       </DiagramBottomSC>
     </WrapperVerticalSC>

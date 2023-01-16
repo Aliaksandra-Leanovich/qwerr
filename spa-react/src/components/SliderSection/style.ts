@@ -9,6 +9,7 @@ export const SectionSC = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   background-color: ${Colors.PRIMARY};
 `;
@@ -17,7 +18,7 @@ export const ContainerSC = styled.div`
   max-width: 1400px;
   width: 100%;
 
-  padding: 96px 100px 96px 150px;
+  padding: 60px 100px 96px 150px;
 
   position: relative;
 `;
@@ -49,7 +50,7 @@ export const ContainerSlideSC = styled.div`
   max-width: 350px;
   width: 100%;
 
-  padding: 40px;
+  padding: 30px 40px;
 
   background-color: ${Colors.INFOLIGHT};
   box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.12);
@@ -99,7 +100,7 @@ export const AuthorPositionSC = styled.p`
 export const ContainerSwiperSC = styled.div`
   padding-right: 50px;
   width: 100%;
-  margin-top: 72px;
+  margin-top: 42px;
 
   position: relative;
 `;

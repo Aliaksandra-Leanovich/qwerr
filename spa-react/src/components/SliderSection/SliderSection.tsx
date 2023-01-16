@@ -1,13 +1,14 @@
 import { useRef } from "react";
-import { Swiper as SwiperType, Navigation } from "swiper";
+import { useTranslation } from "react-i18next";
+import { Navigation, Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { SwiperSlide } from "swiper/react";
+import { ReactComponent as ArrowLeft } from "../../assets/arrowLeft.svg";
+import { ReactComponent as ArrowRight } from "../../assets/arrowRightSlider.svg";
 import AthorImage2 from "../../assets/autherComment2.svg";
 import AthorImage1 from "../../assets/authorComment1.svg";
 import AthorImage3 from "../../assets/authorComment3.svg";
-import { ReactComponent as ArrowRight } from "../../assets/arrowRightSlider.svg";
-import { ReactComponent as ArrowLeft } from "../../assets/arrowLeft.svg";
 import {
   AuthImageSC,
   AuthorInfromationSC,
@@ -26,7 +27,6 @@ import {
   TitleContainerSC,
   TitleSC,
 } from "./style";
-import { useTranslation } from "react-i18next";
 
 const config = [
   {

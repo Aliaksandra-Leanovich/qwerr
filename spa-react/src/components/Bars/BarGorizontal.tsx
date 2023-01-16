@@ -53,8 +53,8 @@ export const BarGorizontal = () => {
     <WrapperSC>
       <Circles />
       <RowsContainerSC>
-        {rows.map((row) => (
-          <RowContainer>
+        {rows.map((row, index) => (
+          <RowContainer key={index}>
             <RowSC width={row.width1} color={row.color1} height={row.height1} />
             <RowSC width={row.width2} color={row.color2} height={row.height2} />
             <Persent>{row.persent}</Persent>

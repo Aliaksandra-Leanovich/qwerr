@@ -5,7 +5,7 @@ export const ContainerSC = styled.div`
   max-width: 1400px;
   width: 100%;
 
-  padding: 162px 100px 64px;
+  padding: 60px 100px 64px;
 `;
 export const ContainerWithTwoBlocksSC = styled.div`
   display: grid;
@@ -52,6 +52,7 @@ export const WrapperSC = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   width: 100%;
   position: relative;

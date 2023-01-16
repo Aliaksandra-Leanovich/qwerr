@@ -91,16 +91,18 @@ export const ConnectSection = () => {
             <ImageContainerSC height="506px" background={ConnectImg1} />
             <ContainerDiagramSC>
               <DiagramTopSC>
-                {columnUp.map((column) => (
+                {columnUp.map((column, index) => (
                   <Column
+                    key={index}
                     height={column.height}
                     background={column.background}
                   />
                 ))}
               </DiagramTopSC>
               <DiagramBottomSC>
-                {columnsDown.map((column) => (
+                {columnsDown.map((column, index) => (
                   <Column
+                    key={index}
                     height={column.height}
                     background={column.background}
                   />
@@ -176,8 +178,8 @@ export const ConnectSection = () => {
             <BlockWithCirclSC>
               <CircleSC />
               <PersentsBlockSC>
-                {percents.map((percent) => (
-                  <PersentsContainerSC>
+                {percents.map((percent, index) => (
+                  <PersentsContainerSC key={index}>
                     <DotSC background={percent.background} />
                     <PersentTextSC>
                       {t(`connect.precent.${percent.text}`)}

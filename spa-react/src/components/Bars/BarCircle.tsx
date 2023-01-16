@@ -34,8 +34,13 @@ export const BarCircle = () => {
         <CircleMainSC />
 
         <RowsCircleContainerSC>
-          {rows.map((row) => (
-            <RowSC width={row.width} color={row.color} height={row.height} />
+          {rows.map((row, index) => (
+            <RowSC
+              key={index}
+              width={row.width}
+              color={row.color}
+              height={row.height}
+            />
           ))}
         </RowsCircleContainerSC>
       </ContainerWithCircleANdRows>

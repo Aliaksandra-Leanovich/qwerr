@@ -6,6 +6,7 @@ import { Bar } from "../Bars";
 import { Button } from "../Button";
 import { Canvas } from "../Canvas/Canvas";
 import { FormWithEmail } from "../FormWithEmail/FormWithEmail";
+import { Header } from "../Header";
 import { Modal } from "../Modal/Modal";
 import { SliderLogos } from "../SliderLogos";
 import {
@@ -32,6 +33,7 @@ export const MainSection = () => {
         <CanvasContainerSC>
           <Canvas />
         </CanvasContainerSC>
+        <Header />
         <ContainerSC>
           <ContainerWithTwoBlocksSC>
             <ContainerDescriptionSC>
