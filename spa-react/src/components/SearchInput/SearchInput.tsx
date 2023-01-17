@@ -13,7 +13,7 @@ const SearchInput = ({ searchValue, handleSearch, placeholder }: IInput) => {
       placeholder={placeholder}
       value={searchValue}
       onChange={handleSearch}
-    ></Input>
+    />
   );
 };
 

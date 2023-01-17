@@ -8,4 +8,4 @@ export { useModalNavigate } from "./use-modalNavigate.hook";
 export { useSearchUser } from "./use-searchUser.hook";
 export { useSetUsersToDb } from "./use-setUsers.hook";
 export { useUpdateDoc } from "./use-updateDoc.hook";
-export { useCreateUsers } from "./use-createUsers.hook";
+export { useGenerateUsers } from "./use-generateUsers.hook";

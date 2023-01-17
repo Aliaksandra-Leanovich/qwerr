@@ -1,6 +1,10 @@
 import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useCreateUsers, useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
+import {
+  useGenerateUsers,
+  useGetUsersFromDB,
+  useSetUsersToDb,
+} from "src/hooks";
 
 interface IProps {
   show: boolean;
@@ -10,26 +14,32 @@ interface IProps {
 export const FormUser = ({ showModal, show }: IProps) => {
   const { handleSubmit, getValues, reset, control } = useForm();
 
-  const { users } = useCreateUsers();
+  const { users } = useGenerateUsers();
   const { setUsersToDB } = useSetUsersToDb(users);
   const { getUsers } = useGetUsersFromDB();
 
   const onSubmit = () => {
     const { name, surname } = getValues();
-    const user = {
+
+    const userNew = {
       name: name,
       surname: surname,
       id: "2",
       date: new Date().toLocaleString(),
     };
 
-    users.users.push(user);
-
+    // users.users.forEach((user) => {
+    //   if (user.name === userNew.name && user.surname === userNew.surname) {
+    //     console.log("already exist");
+    //   } else {
+    users.users.push(userNew);
     setUsersToDB();
     getUsers();
 
     showModal(!show);
     reset();
+    //   }
+    // });
   };
 
   return (
