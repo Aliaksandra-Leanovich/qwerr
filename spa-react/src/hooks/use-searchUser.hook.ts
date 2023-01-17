@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { IUser } from "src/components/TableWithUsers/types";
+import { IUser } from "src/components/Table/types";
 import { useAppSelector } from "src/store/hooks";
 import { getAllUsers } from "src/store/selectors/userSelector";
 

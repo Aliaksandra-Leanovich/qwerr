@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
-import { TableWithUsers } from "src/components/TableWithUsers/TableWithUsers";
+import { Table } from "src/components/Table/Table";
 import {
   useGenerateUsers,
   useGetUsersFromDB,
@@ -58,7 +58,7 @@ export const About = () => {
         <>
           <div>
             {filteredUsers.length > 0 ? (
-              <TableWithUsers data={filteredUsers} />
+              <Table data={filteredUsers} />
             ) : (
               <p>Oooops 🙈</p>
             )}

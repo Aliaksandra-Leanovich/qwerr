@@ -1,5 +1,5 @@
 import { doc, setDoc } from "firebase/firestore";
-import { IUser } from "src/components/TableWithUsers/types";
+import { IUser } from "src/components/Table/types";
 import { db } from "src/utils/firebase";
 
 interface IUsers {
