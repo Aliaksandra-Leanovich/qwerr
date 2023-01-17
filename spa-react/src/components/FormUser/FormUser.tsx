@@ -1,7 +1,7 @@
 import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
-import { users } from "src/pages/About";
+import { useCreateUsers, useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
+
 interface IProps {
   show: boolean;
   showModal: (value: boolean) => void;
@@ -10,6 +10,7 @@ interface IProps {
 export const FormUser = ({ showModal, show }: IProps) => {
   const { handleSubmit, getValues, reset, control } = useForm();
 
+  const { users } = useCreateUsers();
   const { setUsersToDB } = useSetUsersToDb(users);
   const { getUsers } = useGetUsersFromDB();
 

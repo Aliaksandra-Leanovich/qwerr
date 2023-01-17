@@ -5,5 +5,5 @@ export interface IUser {
   date: string;
 }
 export interface IProps {
-  data: IUser[] | undefined;
+  data: IUser[];
 }
