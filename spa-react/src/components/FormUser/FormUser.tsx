@@ -4,6 +4,7 @@ import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getAllUsers } from "src/store/selectors/userSelector";
 import { setNewUser } from "src/store/slices/usersSlice";
+import uuid from "react-uuid";
 
 interface IProps {
   show: boolean;
@@ -25,7 +26,7 @@ export const FormUser = ({ showModal, show }: IProps) => {
     const userNew = {
       name: name,
       surname: surname,
-      id: "2",
+      id: uuid(),
       date: new Date().toLocaleString(),
     };
 

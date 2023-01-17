@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
 import { TableWithUsers } from "src/components/TableWithUsers/TableWithUsers";
@@ -9,7 +9,6 @@ import {
   useSearchUser,
   useSetUsersToDb,
 } from "src/hooks";
-import { IUser } from "src/hooks/use-getUsers.hook";
 
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getAllUsers } from "src/store/selectors/userSelector";

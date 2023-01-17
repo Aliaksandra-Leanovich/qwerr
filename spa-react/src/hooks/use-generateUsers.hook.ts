@@ -1,3 +1,5 @@
+import uuid from "react-uuid";
+
 export const useGenerateUsers = () => {
   const firstname = [
     "Marquis",
@@ -43,7 +45,7 @@ export const useGenerateUsers = () => {
     return {
       name: rand_first,
       surname: rand_last,
-      id: "1",
+      id: uuid(),
       date: new Date().toLocaleString().slice(0, 10).replace(/-/g, "/"),
     };
   };
