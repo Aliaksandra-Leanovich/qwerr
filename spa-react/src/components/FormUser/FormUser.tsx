@@ -1,10 +1,9 @@
 import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import {
-  useGenerateUsers,
-  useGetUsersFromDB,
-  useSetUsersToDb,
-} from "src/hooks";
+import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { getAllUsers } from "src/store/selectors/userSelector";
+import { setNewUser } from "src/store/slices/usersSlice";
 
 interface IProps {
   show: boolean;
@@ -14,9 +13,11 @@ interface IProps {
 export const FormUser = ({ showModal, show }: IProps) => {
   const { handleSubmit, getValues, reset, control } = useForm();
 
-  const { users } = useGenerateUsers();
-  const { setUsersToDB } = useSetUsersToDb(users);
+  const users = useAppSelector(getAllUsers);
+  const { setUsersToDB } = useSetUsersToDb(users.users);
   const { getUsers } = useGetUsersFromDB();
+
+  const dispatch = useAppDispatch();
 
   const onSubmit = () => {
     const { name, surname } = getValues();
@@ -28,18 +29,12 @@ export const FormUser = ({ showModal, show }: IProps) => {
       date: new Date().toLocaleString(),
     };
 
-    // users.users.forEach((user) => {
-    //   if (user.name === userNew.name && user.surname === userNew.surname) {
-    //     console.log("already exist");
-    //   } else {
-    users.users.push(userNew);
+    dispatch(setNewUser(userNew));
     setUsersToDB();
     getUsers();
 
     showModal(!show);
     reset();
-    //   }
-    // });
   };
 
   return (

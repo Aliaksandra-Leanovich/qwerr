@@ -20,6 +20,7 @@ export const useGetUsersFromDB = () => {
           data: doc.data(),
           id: doc.id,
         }));
+
         setUsersFromDB(
           users.map((user) => {
             return user.data.users;
@@ -28,6 +29,6 @@ export const useGetUsersFromDB = () => {
       })
       .catch((error) => console.log(error.message));
   };
-
+  console.log("get", usersFromDB);
   return { usersFromDB, getUsers };
 };

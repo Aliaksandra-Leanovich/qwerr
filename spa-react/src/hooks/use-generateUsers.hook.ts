@@ -1,13 +1,3 @@
-// export const usersData = {
-//   // users: [
-//   //   {
-//   //     name: "Alex",
-//   //     surname: "Stesh",
-//   //     id: "1",
-//   //     date: new Date().toLocaleString().slice(0, 10).replace(/-/g, "/"),
-//   //   },
-//   // ],
-// };
 export const useGenerateUsers = () => {
   const firstname = [
     "Marquis",
@@ -58,10 +48,9 @@ export const useGenerateUsers = () => {
     };
   };
 
-  const users = {
-    users: [...new Set(Array.from({ length: 100 }, () => generateUsers()))],
-  };
+  const generatedUsers = [
+    ...new Set(Array.from({ length: 100 }, () => generateUsers())),
+  ];
 
-  console.log(users);
-  return { users, generateUsers };
+  return { generateUsers, generatedUsers };
 };

@@ -10,22 +10,34 @@ import {
   useSetUsersToDb,
 } from "src/hooks";
 
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { getAllUsers } from "src/store/selectors/userSelector";
+import { setInitialUsers } from "src/store/slices/usersSlice";
+
 export const About = () => {
-  const { users, generateUsers } = useGenerateUsers();
-  const { setUsersToDB } = useSetUsersToDb(users);
+  const users = useAppSelector(getAllUsers);
+  const { generateUsers } = useGenerateUsers();
+  const { setUsersToDB } = useSetUsersToDb(users.users);
   const { getUsers, usersFromDB } = useGetUsersFromDB();
   const { show, showModal } = useModalNavigate();
+  const { generatedUsers } = useGenerateUsers();
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setInitialUsers(generatedUsers));
+  }, [dispatch]);
 
   useEffect(() => {
     generateUsers();
     setUsersToDB();
     getUsers();
-  }, []);
+  }, [users]);
 
   const { filteredUsers, handleSearchName, searchValueName } = useSearchUser(
-    users.users
+    users.users.users
   );
-  console.log(filteredUsers);
+
   return (
     <>
       <SearchInput
