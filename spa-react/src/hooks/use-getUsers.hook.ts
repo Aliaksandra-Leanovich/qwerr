@@ -29,6 +29,6 @@ export const useGetUsersFromDB = () => {
       })
       .catch((error) => console.log(error.message));
   };
-  console.log("get", usersFromDB);
+
   return { usersFromDB, getUsers };
 };
