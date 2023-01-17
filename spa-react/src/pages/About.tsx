@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
 import { TableWithUsers } from "src/components/TableWithUsers/TableWithUsers";
@@ -9,6 +9,7 @@ import {
   useSearchUser,
   useSetUsersToDb,
 } from "src/hooks";
+import { IUser } from "src/hooks/use-getUsers.hook";
 
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getAllUsers } from "src/store/selectors/userSelector";
@@ -21,11 +22,15 @@ export const About = () => {
   const { getUsers, usersFromDB } = useGetUsersFromDB();
   const { show, showModal } = useModalNavigate();
   const { generatedUsers } = useGenerateUsers();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { filteredUsers, handleSearchName, searchValueName, setFilteredUsers } =
+    useSearchUser();
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(setInitialUsers(generatedUsers));
+    setFilteredUsers(generatedUsers);
   }, [dispatch]);
 
   useEffect(() => {
@@ -34,9 +39,11 @@ export const About = () => {
     getUsers();
   }, [users]);
 
-  const { filteredUsers, handleSearchName, searchValueName } = useSearchUser(
-    users.users.users
-  );
+  useEffect(() => {
+    if (users.users.users.length && isLoading) {
+      setIsLoading(!isLoading);
+    }
+  }, [users, isLoading]);
 
   return (
     <>
@@ -46,14 +53,18 @@ export const About = () => {
         placeholder="search by name"
       />
       <ModalForm show={show} showModal={showModal} />
-      {usersFromDB && (
-        <div>
-          {filteredUsers!.length > 0 ? (
-            <TableWithUsers data={filteredUsers} />
-          ) : (
-            <p>Oooops 🙈</p>
-          )}
-        </div>
+      {isLoading ? (
+        <div>Loading....</div>
+      ) : (
+        <>
+          <div>
+            {filteredUsers.length > 0 ? (
+              <TableWithUsers data={filteredUsers} />
+            ) : (
+              <p>Oooops 🙈</p>
+            )}
+          </div>
+        </>
       )}
     </>
   );
