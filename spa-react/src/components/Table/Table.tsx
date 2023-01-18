@@ -35,7 +35,13 @@ export const Table = ({ data }: IProps) => {
             <TableCell sx={{ fontWeight: "600" }}>Name</TableCell>
             <TableCell sx={{ fontWeight: "600" }}>Surname</TableCell>
             <TableCell sx={{ fontWeight: "600" }}>Date</TableCell>
-            <TableCell sx={{ fontWeight: "600" }}>
+            <TableCell
+              sx={{
+                fontWeight: "600",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               Sum
               <FormControlLabel
                 control={<Checkbox onChange={toggleCheck} />}

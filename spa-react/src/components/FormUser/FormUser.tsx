@@ -6,6 +6,7 @@ import { getAllUsers } from "src/store/selectors/userSelector";
 import { setNewUser } from "src/store/slices/usersSlice";
 import uuid from "react-uuid";
 import { FormSC, WrapperSC } from "./styles";
+import { useCalculateCode } from "src/hooks/use-calculateCode.hook";
 
 interface IProps {
   show: boolean;
@@ -21,15 +22,19 @@ export const FormUser = ({ showModal, show }: IProps) => {
 
   const dispatch = useAppDispatch();
 
+  const { calculateCodeSum } = useCalculateCode();
+
   const onSubmit = () => {
     const { name, surname } = getValues();
+
+    let sum = calculateCodeSum(surname);
 
     const userNew = {
       name: name,
       surname: surname,
       id: uuid(),
       date: new Date().toLocaleString(),
-      sum: 0,
+      sum: sum,
     };
 
     dispatch(setNewUser(userNew));
