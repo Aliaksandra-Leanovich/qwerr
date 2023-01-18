@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getAllUsers } from "src/store/selectors/userSelector";
 import { setNewUser } from "src/store/slices/usersSlice";
 import uuid from "react-uuid";
+import { FormSC, WrapperSC } from "./styles";
 
 interface IProps {
   show: boolean;
@@ -39,13 +40,13 @@ export const FormUser = ({ showModal, show }: IProps) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <WrapperSC>
+      <FormSC onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="name"
           control={control}
           render={({ field: { onChange } }) => (
-            <Input type="name" placeholder="name" onChange={onChange} />
+            <Input type="name" placeholder="Name" onChange={onChange} />
           )}
           rules={{
             required: false,
@@ -55,14 +56,16 @@ export const FormUser = ({ showModal, show }: IProps) => {
           name="surname"
           control={control}
           render={({ field: { onChange } }) => (
-            <Input type="surname" placeholder="surname" onChange={onChange} />
+            <Input type="surname" placeholder="Surname" onChange={onChange} />
           )}
           rules={{
             required: false,
           }}
         />
-        <Button type="submit">Register</Button>
-      </form>
-    </div>
+        <Button type="submit" variant="contained">
+          Register
+        </Button>
+      </FormSC>
+    </WrapperSC>
   );
 };

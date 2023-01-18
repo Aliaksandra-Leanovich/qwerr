@@ -1,6 +1,7 @@
 export interface IStylesProps {
   show: boolean;
   width?: string;
+  color?: string;
 }
 
 export interface IModalProps {
@@ -8,4 +9,5 @@ export interface IModalProps {
   show: boolean;
   children: JSX.Element;
   width?: string;
+  color: string;
 }

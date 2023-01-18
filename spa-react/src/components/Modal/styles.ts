@@ -15,7 +15,7 @@ export const WrapperSC = styled.div<IStylesProps>`
 
 export const ContainerSC = styled.div<IStylesProps>`
   position: fixed;
-  background: ${Colors.PRIMARY};
+  background: ${({ color }) => color};
 
   padding: 20px 30px 60px 60px;
   max-width: 560px;

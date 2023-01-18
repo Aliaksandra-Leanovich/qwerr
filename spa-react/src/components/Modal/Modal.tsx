@@ -9,10 +9,16 @@ import {
 } from "./styles";
 import { IModalProps } from "./types";
 
-export const Modal = ({ handleClose, show, children, width }: IModalProps) => {
+export const Modal = ({
+  handleClose,
+  show,
+  children,
+  width,
+  color,
+}: IModalProps) => {
   return (
     <WrapperSC show={show}>
-      <ContainerSC show={show} width={width}>
+      <ContainerSC show={show} width={width} color={color}>
         <ContainerButtonSC>
           <ButtonSC type="button" onClick={handleClose}>
             <CrossIcon />

@@ -1,3 +1,5 @@
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
 import { IUser } from "./types";
 interface IProps {
   user: IUser;
@@ -15,9 +17,9 @@ export const Field = ({ user }: IProps) => {
 
   calculateCodeSum(user.surname);
   return (
-    <div>
-      <p>{user.surname}</p>
-      <p>{sum}</p>
-    </div>
+    <TableRow>
+      <TableCell>{user.surname}</TableCell>
+      <TableCell>{sum}</TableCell>
+    </TableRow>
   );
 };
