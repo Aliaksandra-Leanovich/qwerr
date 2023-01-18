@@ -3,6 +3,7 @@ export interface IUser {
   surname: string;
   id: string;
   date: string;
+  sum: number;
 }
 export interface IProps {
   data: IUser[];

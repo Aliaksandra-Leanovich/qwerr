@@ -29,6 +29,7 @@ export const FormUser = ({ showModal, show }: IProps) => {
       surname: surname,
       id: uuid(),
       date: new Date().toLocaleString(),
+      sum: 0,
     };
 
     dispatch(setNewUser(userNew));

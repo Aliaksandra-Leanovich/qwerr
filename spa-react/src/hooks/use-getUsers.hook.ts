@@ -7,6 +7,7 @@ export interface IUser {
   surname: string;
   id: string;
   date: string;
+  sum: number;
 }
 
 export const useGetUsersFromDB = () => {
