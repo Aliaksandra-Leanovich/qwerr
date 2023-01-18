@@ -39,13 +39,14 @@ export const ContainerButtonSC = styled.div`
   align-self: flex-end;
 `;
 
-export const ButtonSC = styled.button`
+export const ButtonSC = styled.button<IStylesProps>`
   width: 20px;
 
   cursor: pointer;
 
   svg {
     fill: ${Colors.INFOLIGHT};
+    fill: ${({ fill }) => fill};
   }
 
   &:hover {

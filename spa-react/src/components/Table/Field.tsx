@@ -18,7 +18,9 @@ export const Field = ({ user }: IProps) => {
   calculateCodeSum(user.surname);
   return (
     <TableRow>
+      <TableCell>{user.name}</TableCell>
       <TableCell>{user.surname}</TableCell>
+      <TableCell>{user.date}</TableCell>
       <TableCell>{sum}</TableCell>
     </TableRow>
   );

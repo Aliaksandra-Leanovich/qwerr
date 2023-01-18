@@ -15,12 +15,13 @@ export const Modal = ({
   children,
   width,
   color,
+  fill,
 }: IModalProps) => {
   return (
     <WrapperSC show={show}>
       <ContainerSC show={show} width={width} color={color}>
         <ContainerButtonSC>
-          <ButtonSC type="button" onClick={handleClose}>
+          <ButtonSC type="button" onClick={handleClose} fill={fill}>
             <CrossIcon />
           </ButtonSC>
         </ContainerButtonSC>

@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
@@ -45,11 +46,20 @@ export const About = () => {
   }, [users, isLoading]);
 
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "30px 0",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <SearchInput
         searchValue={searchValueName}
         handleSearch={handleSearchName}
-        placeholder="search by name"
+        placeholder="Search by name/surname"
       />
       <ModalForm show={show} showModal={showModal} />
       {isLoading ? (
@@ -65,6 +75,6 @@ export const About = () => {
           </div>
         </>
       )}
-    </>
+    </Box>
   );
 };

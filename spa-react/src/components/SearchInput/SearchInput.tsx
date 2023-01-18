@@ -1,4 +1,4 @@
-import { Input } from "@mui/material";
+import { TextField } from "@mui/material";
 import { ChangeEvent } from "react";
 
 interface IInput {
@@ -9,8 +9,11 @@ interface IInput {
 
 const SearchInput = ({ searchValue, handleSearch, placeholder }: IInput) => {
   return (
-    <Input
-      placeholder={placeholder}
+    <TextField
+      id="outlined-size-small"
+      size="small"
+      sx={{ width: "250px" }}
+      label={placeholder}
       value={searchValue}
       onChange={handleSearch}
     />

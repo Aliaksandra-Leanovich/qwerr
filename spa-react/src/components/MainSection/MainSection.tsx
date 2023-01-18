@@ -81,6 +81,7 @@ export const MainSection = () => {
         handleClose={showModal}
         width="800px"
         color={Colors.PRIMARY}
+        fill={Colors.INFOLIGHT}
       >
         <FormWithEmail />
       </Modal>

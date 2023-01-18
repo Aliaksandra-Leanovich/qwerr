@@ -11,11 +11,13 @@ import TableBody from "@mui/material/TableBody";
 export const Table = ({ data }: IProps) => {
   return (
     <TableContainer component={Paper}>
-      <MuiTable sx={{ maxWidth: 650 }} aria-label="simple table">
+      <MuiTable sx={{ width: "800px" }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>surname</TableCell>
-            <TableCell>sum</TableCell>
+            <TableCell sx={{ fontWeight: "600" }}>Name</TableCell>
+            <TableCell sx={{ fontWeight: "600" }}>Surname</TableCell>
+            <TableCell sx={{ fontWeight: "600" }}>Date</TableCell>
+            <TableCell sx={{ fontWeight: "600" }}>Sum</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
