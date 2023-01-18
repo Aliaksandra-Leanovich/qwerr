@@ -40,7 +40,7 @@ export const About = () => {
   }, [users]);
 
   useEffect(() => {
-    if (users.users.users.length && isLoading) {
+    if (users?.users?.users?.length && isLoading) {
       setIsLoading(!isLoading);
     }
   }, [users, isLoading]);
@@ -67,7 +67,7 @@ export const About = () => {
       ) : (
         <>
           <div>
-            {filteredUsers.length > 0 ? (
+            {filteredUsers?.length > 0 ? (
               <Table data={filteredUsers} />
             ) : (
               <p>Oooops 🙈</p>

@@ -12,10 +12,10 @@ export const useSearchUser = () => {
     setSearchValue(e.target.value);
 
     setFilteredUsers(
-      users.users.users.filter((user) => {
+      users?.users?.users?.filter((user) => {
         return (
-          user.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
-          user.surname.toLowerCase().includes(e.target.value.toLowerCase())
+          user?.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          user?.surname.toLowerCase().includes(e.target.value.toLowerCase())
         );
       })
     );
