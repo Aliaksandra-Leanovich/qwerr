@@ -4,14 +4,10 @@ export interface IProps {
   users: IUser[];
 }
 interface IInitialState {
-  users: {
-    users: IUser[];
-  };
+  users: IUser[];
 }
 const initialState: IInitialState = {
-  users: {
-    users: [],
-  },
+  users: [],
 };
 
 const usersSlice = createSlice({
@@ -19,12 +15,10 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     setNewUser: (state, { payload }: PayloadAction<IUser>) => {
-      state.users = {
-        users: [...state.users.users, payload],
-      };
+      state.users = [...state.users, payload];
     },
     setInitialUsers: (state, action) => {
-      state.users.users = action.payload;
+      state.users = action.payload;
     },
   },
 });

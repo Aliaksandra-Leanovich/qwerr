@@ -2,15 +2,10 @@ import { doc, setDoc } from "firebase/firestore";
 import { IUser } from "src/components/Table/types";
 import { db } from "src/utils/firebase";
 
-interface IUsers {
-  users: IUser[];
-}
-
-export const useSetUsersToDb = (users: IUsers) => {
-  const setUsersToDB = async () => {
+export const useSetUsersToDb = () => {
+  const setUsersToDB = async (id: string, user: IUser) => {
     try {
-      const docRef = await setDoc(doc(db, "usersDB", "users"), users);
-
+      const docRef = await setDoc(doc(db, "usersDBNEW", id), user);
       console.log("Document written with ID: ", docRef);
     } catch (event) {
       console.error("Error adding document: ", event);

@@ -16,11 +16,8 @@ interface IProps {
 export const FormUser = ({ showModal, show }: IProps) => {
   const { handleSubmit, getValues, reset, control } = useForm();
 
-  const users = useAppSelector(getAllUsers);
-  const { setUsersToDB } = useSetUsersToDb(users.users);
+  const { setUsersToDB } = useSetUsersToDb();
   const { getUsers } = useGetUsersFromDB();
-
-  const dispatch = useAppDispatch();
 
   const { calculateCodeSum } = useCalculateCode();
 
@@ -36,13 +33,12 @@ export const FormUser = ({ showModal, show }: IProps) => {
       date: new Date().toLocaleString(),
       sum: sum,
     };
-
-    dispatch(setNewUser(userNew));
-    setUsersToDB();
-    getUsers();
+    setUsersToDB(userNew.id, userNew);
 
     showModal(!show);
     reset();
+
+    getUsers();
   };
 
   return (

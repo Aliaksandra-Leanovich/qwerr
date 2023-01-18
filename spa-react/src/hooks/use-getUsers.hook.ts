@@ -11,10 +11,10 @@ export interface IUser {
 }
 
 export const useGetUsersFromDB = () => {
-  const [usersFromDB, setUsersFromDB] = useState<IUser[]>();
+  const [usersFromDB, setUsersFromDB] = useState<any>();
 
   const getUsers = () => {
-    const usersCollectionRef = collection(db, "usersDB");
+    const usersCollectionRef = collection(db, "usersDBNEW");
     getDocs(usersCollectionRef)
       .then((response) => {
         const users = response.docs.map((doc) => ({
@@ -22,11 +22,7 @@ export const useGetUsersFromDB = () => {
           id: doc.id,
         }));
 
-        setUsersFromDB(
-          users.map((user) => {
-            return user.data.users;
-          })
-        );
+        setUsersFromDB(users.map((item) => item.data));
       })
       .catch((error) => console.log(error.message));
   };

@@ -17,9 +17,11 @@ import { setInitialUsers } from "src/store/slices/usersSlice";
 
 export const About = () => {
   const users = useAppSelector(getAllUsers);
+
   const { generateUsers } = useGenerateUsers();
-  const { setUsersToDB } = useSetUsersToDb(users.users);
+  const { setUsersToDB } = useSetUsersToDb();
   const { getUsers, usersFromDB } = useGetUsersFromDB();
+
   const { show, showModal } = useModalNavigate();
   const { generatedUsers } = useGenerateUsers();
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -28,22 +30,29 @@ export const About = () => {
 
   const dispatch = useAppDispatch();
 
+  const putUsersToDb = () => {
+    generatedUsers.forEach((user) => {
+      setUsersToDB(user.id, user);
+    });
+  };
+
   useEffect(() => {
-    dispatch(setInitialUsers(generatedUsers));
-    setFilteredUsers(generatedUsers);
-  }, [dispatch]);
+    dispatch(setInitialUsers(usersFromDB));
+    setFilteredUsers(usersFromDB);
+    console.log(users);
+  }, [dispatch, usersFromDB]);
 
   useEffect(() => {
     generateUsers();
-    setUsersToDB();
+    putUsersToDb();
     getUsers();
-  }, [users]);
+  }, []);
 
   useEffect(() => {
-    if (users?.users?.users?.length && isLoading) {
+    if (usersFromDB?.length && isLoading) {
       setIsLoading(!isLoading);
     }
-  }, [users, isLoading]);
+  }, [users, isLoading, filteredUsers]);
 
   return (
     <Box
