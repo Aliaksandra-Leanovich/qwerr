@@ -46,8 +46,10 @@ export const Table = ({ data }: IDataProps) => {
       <MuiTable sx={{ width: "800px" }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            {fields.map((item) => (
-              <TableCell sx={{ fontWeight: "600" }}>{t(item.title)}</TableCell>
+            {fields.map((item, index) => (
+              <TableCell sx={{ fontWeight: "600" }} key={index}>
+                {t(item.title)}
+              </TableCell>
             ))}
 
             <TableCell
