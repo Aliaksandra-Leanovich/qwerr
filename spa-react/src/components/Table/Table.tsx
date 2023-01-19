@@ -35,16 +35,21 @@ export const Table = ({ data }: IDataProps) => {
     }
   };
 
+  const fields = [
+    { title: "field.first" },
+    { title: "field.second" },
+    { title: "field.third" },
+  ];
+
   return (
     <TableContainer component={Paper}>
       <MuiTable sx={{ width: "800px" }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: "600" }}>{t("field.first")}</TableCell>
-            <TableCell sx={{ fontWeight: "600" }}>
-              {t("field.second")}
-            </TableCell>
-            <TableCell sx={{ fontWeight: "600" }}>{t("field.third")}</TableCell>
+            {fields.map((item) => (
+              <TableCell sx={{ fontWeight: "600" }}>{t(item.title)}</TableCell>
+            ))}
+
             <TableCell
               sx={{
                 fontWeight: "600",
