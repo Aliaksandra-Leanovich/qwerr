@@ -50,7 +50,7 @@ export const Table = ({ data }: IProps) => {
               {t("field.forth")}
               <FormControlLabel
                 control={<Checkbox onChange={toggleCheck} />}
-                label="To highest"
+                label={t("checkbox.field")}
               />
             </TableCell>
           </TableRow>

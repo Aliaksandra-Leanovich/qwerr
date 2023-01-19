@@ -70,5 +70,6 @@
   "loadingData": "Loading...",
   "noData": "Oooops 🙈",
   "button.open.modal": "Add user",
-  "search.input": "Search by name/surname"
+  "search.input": "Search by name/surname",
+  "checkbox.field": "To highest"
 }
