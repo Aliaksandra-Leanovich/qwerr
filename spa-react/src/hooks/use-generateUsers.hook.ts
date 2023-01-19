@@ -3,7 +3,7 @@ import { date } from "src/utils";
 import { useCalculateCode } from "./use-calculateCode.hook";
 
 export const useGenerateUsers = () => {
-  const usersCount = 100;
+  const usersCount = 3;
   const { calculateCodeSum } = useCalculateCode();
   const firstname = [
     "Marquis",

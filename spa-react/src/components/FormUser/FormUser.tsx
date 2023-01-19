@@ -2,24 +2,17 @@ import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import uuid from "react-uuid";
-import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
-import { useCalculateCode } from "src/hooks/use-calculateCode.hook";
-import { date } from "src/utils";
+import { useCalculateCode, useSetUsersToDb } from "src/hooks";
 import { FormSC, WrapperSC } from "./styles";
+import { IFormProps } from "./types";
 
-interface IProps {
-  show: boolean;
-  showModal: (value: boolean) => void;
-}
+export const FormUser = ({ showModal, show }: IFormProps) => {
+  const { t } = useTranslation();
 
-export const FormUser = ({ showModal, show }: IProps) => {
   const { handleSubmit, getValues, reset, control } = useForm();
 
   const { setUsersToDB } = useSetUsersToDb();
-  const { getUsers } = useGetUsersFromDB();
   const { calculateCodeSum } = useCalculateCode();
-
-  const { t } = useTranslation();
 
   const onSubmit = () => {
     const { name, surname } = getValues();
@@ -30,15 +23,14 @@ export const FormUser = ({ showModal, show }: IProps) => {
       name: name,
       surname: surname,
       id: uuid(),
-      date: date,
+      date: new Date().toLocaleString(),
       sum: sum,
     };
+
     setUsersToDB(userNew.id, userNew);
 
     showModal(!show);
     reset();
-
-    getUsers();
   };
 
   return (

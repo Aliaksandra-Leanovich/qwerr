@@ -1,10 +1,8 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import { IUser } from "./types";
-interface IProps {
-  user: IUser;
-}
-export const Field = ({ user }: IProps) => {
+import { IUserProps } from "./types";
+
+export const Field = ({ user }: IUserProps) => {
   return (
     <TableRow>
       <TableCell>{user.name}</TableCell>

@@ -7,14 +7,21 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Field } from "./Field";
-import { IProps } from "./types";
+import { Field } from "./";
+import { IDataProps, IUser } from "./types";
 
-export const Table = ({ data }: IProps) => {
+export const Table = ({ data }: IDataProps) => {
+  const { t } = useTranslation();
+
   const [checked, setChecked] = useState(false);
-  const [filtered, setFiltered] = useState(data);
+  const [filtered, setFiltered] = useState<IUser[]>([]);
+
+  const result = useMemo(
+    () => (filtered.length ? filtered : data),
+    [filtered, data]
+  );
 
   const toggleCheck = () => {
     setChecked(!checked);
@@ -27,8 +34,6 @@ export const Table = ({ data }: IProps) => {
       setFiltered(data);
     }
   };
-
-  const { t } = useTranslation();
 
   return (
     <TableContainer component={Paper}>
@@ -56,7 +61,7 @@ export const Table = ({ data }: IProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filtered.map((user) => (
+          {result?.map((user) => (
             <Field key={user.id} user={user} />
           ))}
         </TableBody>

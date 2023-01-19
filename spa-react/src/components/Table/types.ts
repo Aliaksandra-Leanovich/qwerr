@@ -5,6 +5,10 @@ export interface IUser {
   date: string;
   sum: number;
 }
-export interface IProps {
+export interface IDataProps {
   data: IUser[];
+}
+
+export interface IUserProps {
+  user: IUser;
 }

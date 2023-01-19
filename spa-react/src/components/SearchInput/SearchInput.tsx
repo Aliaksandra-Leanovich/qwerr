@@ -1,13 +1,11 @@
 import { TextField } from "@mui/material";
-import { ChangeEvent } from "react";
+import { IInputProps } from "./types";
 
-interface IInput {
-  searchValue: string;
-  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
-}
-
-const SearchInput = ({ searchValue, handleSearch, placeholder }: IInput) => {
+const SearchInput = ({
+  searchValue,
+  handleSearch,
+  placeholder,
+}: IInputProps) => {
   return (
     <TextField
       id="outlined-size-small"

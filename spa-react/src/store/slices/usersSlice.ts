@@ -1,11 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "src/hooks/use-getUsers.hook";
-export interface IProps {
-  users: IUser[];
-}
-interface IInitialState {
-  users: IUser[];
-}
+import { IUser } from "src/components/Table/types";
+import { IInitialState } from "../types";
+
 const initialState: IInitialState = {
   users: [],
 };
