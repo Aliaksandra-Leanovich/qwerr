@@ -1,7 +1,9 @@
 import uuid from "react-uuid";
+import { date } from "src/utils";
 import { useCalculateCode } from "./use-calculateCode.hook";
 
 export const useGenerateUsers = () => {
+  const usersCount = 100;
   const { calculateCodeSum } = useCalculateCode();
   const firstname = [
     "Marquis",
@@ -50,13 +52,13 @@ export const useGenerateUsers = () => {
       name: rand_first,
       surname: rand_last,
       id: uuid(),
-      date: new Date().toLocaleString().slice(0, 10).replace(/-/g, "/"),
+      date: date,
       sum: sum,
     };
   };
 
   const generatedUsers = [
-    ...new Set(Array.from({ length: 100 }, () => generateUsers())),
+    ...new Set(Array.from({ length: usersCount }, () => generateUsers())),
   ];
 
   return { generateUsers, generatedUsers };

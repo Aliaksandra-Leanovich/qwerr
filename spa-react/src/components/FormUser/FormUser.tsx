@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import uuid from "react-uuid";
 import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
 import { useCalculateCode } from "src/hooks/use-calculateCode.hook";
+import { date } from "src/utils";
 import { FormSC, WrapperSC } from "./styles";
 
 interface IProps {
@@ -29,7 +30,7 @@ export const FormUser = ({ showModal, show }: IProps) => {
       name: name,
       surname: surname,
       id: uuid(),
-      date: new Date().toLocaleString(),
+      date: date,
       sum: sum,
     };
     setUsersToDB(userNew.id, userNew);
