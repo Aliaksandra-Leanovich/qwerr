@@ -12,6 +12,9 @@ const resources = {
     translation: translationsRU,
   },
 };
+const DETECTION_OPTIONS = {
+  order: ["navigator"],
+};
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -20,8 +23,12 @@ i18n
     resources,
     fallbackLng: "en", // default language
     keySeparator: false, // we do not use keys in form messages.welcome
+    detection: DETECTION_OPTIONS,
     interpolation: {
       escapeValue: false, // react already safes from xss
+    },
+    react: {
+      useSuspense: true,
     },
   });
 

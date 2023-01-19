@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { Modal } from "src/components/Modal/Modal";
 import { Colors } from "src/ui";
 import { FormUser } from "../FormUser/FormUser";
@@ -8,10 +9,11 @@ interface IProps {
 }
 
 export const ModalForm = ({ show, showModal }: IProps) => {
+  const { t } = useTranslation();
   return (
     <>
       <Button onClick={showModal} sx={{ margin: "20px 0" }} variant="outlined">
-        Add User
+        {t("button.open.modal")}
       </Button>
       <Modal
         show={show}

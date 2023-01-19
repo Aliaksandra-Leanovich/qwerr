@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
 import { Table } from "src/components/Table/Table";
@@ -30,6 +31,8 @@ export const About = () => {
 
   const dispatch = useAppDispatch();
 
+  const { t } = useTranslation();
+
   const putUsersToDb = () => {
     generatedUsers.forEach((user) => {
       setUsersToDB(user.id, user);
@@ -39,7 +42,6 @@ export const About = () => {
   useEffect(() => {
     dispatch(setInitialUsers(usersFromDB));
     setFilteredUsers(usersFromDB);
-    console.log(users);
   }, [dispatch, usersFromDB]);
 
   useEffect(() => {
@@ -68,18 +70,18 @@ export const About = () => {
       <SearchInput
         searchValue={searchValueName}
         handleSearch={handleSearchName}
-        placeholder="Search by name/surname"
+        placeholder={t("search.input")}
       />
       <ModalForm show={show} showModal={showModal} />
       {isLoading ? (
-        <div>Loading....</div>
+        <div> {t("loadingData")}</div>
       ) : (
         <>
           <div>
             {filteredUsers?.length > 0 ? (
               <Table data={filteredUsers} />
             ) : (
-              <p>Oooops 🙈</p>
+              <p> {t("noData")}</p>
             )}
           </div>
         </>

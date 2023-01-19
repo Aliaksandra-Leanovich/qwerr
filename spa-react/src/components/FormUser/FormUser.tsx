@@ -1,12 +1,10 @@
 import { Button, Input } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
-import { useAppDispatch, useAppSelector } from "src/store/hooks";
-import { getAllUsers } from "src/store/selectors/userSelector";
-import { setNewUser } from "src/store/slices/usersSlice";
+import { useTranslation } from "react-i18next";
 import uuid from "react-uuid";
-import { FormSC, WrapperSC } from "./styles";
+import { useGetUsersFromDB, useSetUsersToDb } from "src/hooks";
 import { useCalculateCode } from "src/hooks/use-calculateCode.hook";
+import { FormSC, WrapperSC } from "./styles";
 
 interface IProps {
   show: boolean;
@@ -18,8 +16,9 @@ export const FormUser = ({ showModal, show }: IProps) => {
 
   const { setUsersToDB } = useSetUsersToDb();
   const { getUsers } = useGetUsersFromDB();
-
   const { calculateCodeSum } = useCalculateCode();
+
+  const { t } = useTranslation();
 
   const onSubmit = () => {
     const { name, surname } = getValues();
@@ -65,7 +64,7 @@ export const FormUser = ({ showModal, show }: IProps) => {
           }}
         />
         <Button type="submit" variant="contained">
-          Register
+          {t("button.modal.form")}
         </Button>
       </FormSC>
     </WrapperSC>
