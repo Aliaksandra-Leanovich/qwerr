@@ -9,3 +9,4 @@ export { useSetUsersToDb } from "./use-setUsers.hook";
 export { useUpdateDoc } from "./use-updateDoc.hook";
 export { useGenerateUsers } from "./use-generateUsers.hook";
 export { useCalculateCode } from "./use-calculateCode.hook";
+export { useConvertDate } from "./use-convertDate.hook";
