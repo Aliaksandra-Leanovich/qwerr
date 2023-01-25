@@ -5,16 +5,18 @@ export interface IDate {
 }
 
 export interface IMessage {
-  date: { seconds: number; nanoseconds: number };
+  date: string;
   id: string;
   message: string;
-  senderEmail: string;
-  senderName: string;
+  sender: {
+    name: string;
+    email: string;
+    id: string;
+  };
   receivers: [];
 }
 
 export interface IProps {
   message: IMessage;
-  handleDelete: (value: IMessage) => void;
   handleEdit: (value: IMessage) => void;
 }

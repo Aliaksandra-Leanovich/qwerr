@@ -57,9 +57,9 @@ export const {
   setChatId,
   setUser,
   setNewMessage,
-  setSenderId,
   deleteMessage,
   setReceiverEmail,
+  setSenderId,
   setValue,
   resetAllMessages,
 } = chatSlice.actions;

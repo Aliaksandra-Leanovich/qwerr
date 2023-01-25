@@ -71,9 +71,6 @@ export const Navigation = () => {
         {isAuthorized ? (
           <>
             <LinkCustomSC to={routes.CHATS}>{t("nav.chat")}</LinkCustomSC>
-            {/* <Link to={routes.USERS} variant={LinkVariants.primaryWhiteSmall}>
-              {t("button.users")}
-            </Link> */}
             <ButtonSC type="button" onClick={handleLogout}>
               {t("button.logout")}
             </ButtonSC>

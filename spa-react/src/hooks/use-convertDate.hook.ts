@@ -1,5 +1,5 @@
-export const useConvertDate = (seconds: number) => {
-  let date = new Date(seconds * 1000);
+export const useConvertDate = (date: string) => {
+  let tempDate = new Date(date);
 
   const options: Intl.DateTimeFormatOptions = {
     month: "long",
@@ -9,7 +9,7 @@ export const useConvertDate = (seconds: number) => {
     minute: "2-digit",
   };
   let newDate = new Intl.DateTimeFormat("en-GB", options).format(
-    new Date(date)
+    new Date(tempDate)
   );
 
   return { newDate };

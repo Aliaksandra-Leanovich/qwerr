@@ -1,5 +1,6 @@
+import { useHandleDelete } from "src/hooks/use-hadleDelete.hook";
 import { useAppSelector } from "src/store/hooks";
-import { getUserEmail } from "src/store/selectors";
+import { getUserInfo } from "src/store/selectors";
 import { ReactComponent as Delete } from "../../assets/delete.svg";
 import { ReactComponent as Edit } from "../../assets/edit.svg";
 import {
@@ -10,24 +11,26 @@ import {
 } from "./style";
 import { IProps } from "./types";
 
-export const MessageWithoutAvatar = ({
-  message,
-  handleDelete,
-  handleEdit,
-}: IProps) => {
-  const userEmail = useAppSelector(getUserEmail);
+export const MessageWithoutAvatar = ({ message, handleEdit }: IProps) => {
+  const { email } = useAppSelector(getUserInfo);
+  const { handleDelete } = useHandleDelete(message);
+
+  const onClick = () => {
+    handleEdit(message);
+  };
+
   return (
     <MessageWithoutAvatarSC>
       <TextSC>{message.message}</TextSC>
       <ButtonContainerSC>
-        {message.senderEmail === userEmail && (
-          <ButtonSC onClick={() => handleDelete(message)}>
+        {message.sender.email === email && (
+          <ButtonSC onClick={handleDelete}>
             <Delete />
           </ButtonSC>
         )}
-        {message.senderEmail === userEmail && (
+        {message.sender.email === email && (
           <>
-            <ButtonSC onClick={() => handleEdit(message)}>
+            <ButtonSC onClick={onClick}>
               <Edit />
             </ButtonSC>
           </>

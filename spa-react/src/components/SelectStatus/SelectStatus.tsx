@@ -9,7 +9,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "src/store/hooks";
-import { getUserId } from "src/store/selectors";
+import { getUserInfo } from "src/store/selectors";
 import { db } from "src/utils/firebase";
 import { StatusCircleSC } from "./style";
 
@@ -23,14 +23,13 @@ export const SelectStatus = () => {
   const { t } = useTranslation();
 
   const [status, setStatus] = useState("active");
-  const userId = useAppSelector(getUserId);
+  const { id } = useAppSelector(getUserInfo);
 
   const handleChange = async (event: SelectChangeEvent) => {
     setStatus(event.target.value);
-    await updateDoc(doc(db, "users", userId), {
+    await updateDoc(doc(db, "users", id), {
       status: event.target.value,
     });
-    console.log("set", event.target.value);
   };
 
   return (

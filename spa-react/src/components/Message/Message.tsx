@@ -1,6 +1,7 @@
 import { useConvertDate } from "src/hooks";
+import { useHandleDelete } from "src/hooks/use-hadleDelete.hook";
 import { useAppSelector } from "src/store/hooks";
-import { getUserEmail } from "src/store/selectors/userSelector";
+import { getUserInfo } from "src/store/selectors/userSelector";
 import { ReactComponent as Delete } from "../../assets/delete.svg";
 import { ReactComponent as Edit } from "../../assets/edit.svg";
 import {
@@ -15,28 +16,33 @@ import {
 } from "./style";
 import { IProps } from "./types";
 
-export const Message = ({ message, handleEdit, handleDelete }: IProps) => {
-  const userEmail = useAppSelector(getUserEmail);
-  const date = useConvertDate(message.date.seconds);
+export const Message = ({ message, handleEdit }: IProps) => {
+  const { email } = useAppSelector(getUserInfo);
+  const { newDate } = useConvertDate(message.date);
+  const { handleDelete } = useHandleDelete(message);
+
+  const onClick = () => {
+    handleEdit(message);
+  };
 
   return (
     <MessageSC>
-      <PictureSC>{message.senderName[0].toUpperCase()}</PictureSC>
+      <PictureSC>{message.sender.name[0]}</PictureSC>
       <InfoSC>
         <InfoPersonSC>
-          <NameSC>{message.senderName}</NameSC>
-          <Date>{date.newDate}</Date>
+          <NameSC>{message.sender.name}</NameSC>
+          <Date>{newDate}</Date>
         </InfoPersonSC>
         <TextSC>{message.message}</TextSC>
       </InfoSC>
 
-      {message.senderEmail === userEmail && (
-        <ButtonSC onClick={() => handleDelete(message)}>
+      {message.sender.email === email && (
+        <ButtonSC onClick={handleDelete}>
           <Delete />
         </ButtonSC>
       )}
-      {message.senderEmail === userEmail && (
-        <ButtonSC onClick={() => handleEdit(message)}>
+      {message.sender.email === email && (
+        <ButtonSC onClick={onClick}>
           <Edit />
         </ButtonSC>
       )}
