@@ -51,6 +51,7 @@ export const useLogin = (
       email: data.email,
       id: uuid(),
       name: data.name,
+      status: "active",
     };
     try {
       const docRef = await setDoc(doc(db, "users", user.id), user);

@@ -75,5 +75,9 @@
   "search.input": "Search by name/surname",
   "checkbox.field": "To highest",
   "chat.empty": "Select a conversation",
-  "input.change": "Type a message"
+  "input.change": "Type a message",
+  "status.active": "Active",
+  "status.away": "Away",
+  "status.doNotDisturb": "Do not disturb",
+  "status": "Status"
 }
