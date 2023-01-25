@@ -38,4 +38,12 @@ export const PictureSC = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: relative;
+`;
+
+export const StatusContainerSC = styled.div`
+  position: absolute;
+  bottom: 8;
+  left: 20;
 `;

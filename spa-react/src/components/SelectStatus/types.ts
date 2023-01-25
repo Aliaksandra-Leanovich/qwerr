@@ -7,5 +7,5 @@ export interface IPropsStyle {
   background: string;
 }
 export interface IStatus {
-  variant: StatusVariants;
+  variant: string;
 }

@@ -8,7 +8,14 @@ import {
   setSenderId,
 } from "src/store/slices/chatSlice";
 import { db } from "src/utils/firebase";
-import { ChatsSectionSC, ContainerSC, PictureSC, UserSC } from "./style";
+import { StatusCircleSC } from "../SelectStatus/style";
+import {
+  ChatsSectionSC,
+  ContainerSC,
+  PictureSC,
+  StatusContainerSC,
+  UserSC,
+} from "./style";
 import { IUser } from "./types";
 
 export const Sidebar = () => {
@@ -47,6 +54,9 @@ export const Sidebar = () => {
       {users?.map((user) => (
         <ContainerSC key={user.id}>
           <PictureSC>{user.name[0].charAt(0).toUpperCase()}</PictureSC>
+          <StatusContainerSC>
+            <StatusCircleSC variant={user.status} />
+          </StatusContainerSC>
           <UserSC onClick={() => handleSelect(user.id)}>{user.name}</UserSC>
         </ContainerSC>
       ))}

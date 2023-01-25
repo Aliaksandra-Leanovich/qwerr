@@ -2,6 +2,7 @@ export interface IUser {
   id: string;
   email: string;
   name: string;
+  status: string;
 }
 
 export interface IChat {
@@ -17,4 +18,5 @@ export interface IUsers {
   id: string;
   email: string;
   name: string;
+  status: string;
 }

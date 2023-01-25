@@ -12,7 +12,12 @@ import { useAppSelector } from "src/store/hooks";
 import { getUserId } from "src/store/selectors";
 import { db } from "src/utils/firebase";
 import { StatusCircleSC } from "./style";
-import { StatusVariants } from "./types";
+
+const config = [
+  { value: "active", text: "status.active" },
+  { value: "away", text: "status.away" },
+  { value: "doNotDisturb", text: "status.doNotDisturb" },
+];
 
 export const SelectStatus = () => {
   const { t } = useTranslation();
@@ -46,18 +51,16 @@ export const SelectStatus = () => {
           },
         }}
       >
-        <MenuItem value={StatusVariants.active} sx={{ display: "flex" }}>
-          <StatusCircleSC variant={StatusVariants.active} />
-          {t("status.active")}
-        </MenuItem>
-        <MenuItem value={StatusVariants.away} sx={{ display: "flex" }}>
-          <StatusCircleSC variant={StatusVariants.away} />
-          {t("status.away")}
-        </MenuItem>
-        <MenuItem value={StatusVariants.doNotDisturb}>
-          <StatusCircleSC variant={StatusVariants.doNotDisturb} />
-          {t("status.doNotDisturb")}
-        </MenuItem>
+        {config.map((item, index) => (
+          <MenuItem
+            key={index}
+            value={item.value}
+            sx={{ display: "flex", alignItems: "center", columnGap: "6px" }}
+          >
+            <StatusCircleSC variant={item.value} />
+            {t(item.text)}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

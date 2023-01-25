@@ -1,17 +1,18 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { IStatus, StatusVariants } from "./types";
+import { Colors } from "src/ui";
+import { IStatus } from "./types";
 
-const variantStyles = (variant = StatusVariants.active) =>
+const variantStyles = (variant = "active") =>
   ({
     active: css`
-      background: green;
+      background: ${Colors.GREEN};
     `,
     away: css`
-      background: gray;
+      background: ${Colors.LIGHTGRAY};
     `,
     doNotDisturb: css`
-      background: red;
+      background: ${Colors.RED};
     `,
   }[variant]);
 
