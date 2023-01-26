@@ -4,10 +4,14 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import uuid from "react-uuid";
 import { useAppDispatch } from "src/store/hooks";
+import { db } from "src/utils/firebase";
 import Cookies from "universal-cookie";
+import { IUserForm } from "../components/LoginForm/types";
 import { getAuthError } from "../helper";
 import { routes } from "../routes";
 import {
@@ -17,10 +21,6 @@ import {
   setUserToken,
 } from "../store/slices/userSlice";
 import { app } from "../utils";
-import { IUserForm } from "../components/LoginForm/types";
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "src/utils/firebase";
-import uuid from "react-uuid";
 
 export const useLogin = (
   setShow: (value: boolean) => void,

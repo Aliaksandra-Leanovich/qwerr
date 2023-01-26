@@ -1,12 +1,6 @@
-import React from "react";
 import { StatusCircleSC } from "../SelectStatus/style";
-import { IUser } from "../Sidebar/types";
 import { ContainerSC, PictureSC, StatusContainerSC, UserSC } from "./style";
-
-export interface IProps {
-  user: IUser;
-  handleSelect: (value: string) => void;
-}
+import { IProps } from "./types";
 
 export const User = ({ user, handleSelect }: IProps) => {
   const onClick = () => {
