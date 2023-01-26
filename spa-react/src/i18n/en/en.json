@@ -61,5 +61,15 @@
   "footer.label": "Hiring!",
   "language": "Language",
   "language.russian": "Russian",
-  "language.english": "English"
+  "language.english": "English",
+  "field.first": "Name",
+  "field.second": "Surname",
+  "field.third": "Date",
+  "field.forth": "Sum",
+  "button.modal.form": "Register",
+  "loadingData": "Loading...",
+  "noData": "Oooops 🙈",
+  "button.open.modal": "Add user",
+  "search.input": "Search by name/surname",
+  "checkbox.field": "To highest"
 }

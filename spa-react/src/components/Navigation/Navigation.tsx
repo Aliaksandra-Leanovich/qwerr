@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useChangeLanguage } from "src/hooks/use-changeLanguage.hook";
 import { useLogout } from "src/hooks/use-logout.hook";
 import { useLtrRtl } from "src/hooks/use-ltrRtl.hook";
+import { Colors } from "src/ui";
 import { LinkVariants } from "../../enums";
 import { routes } from "../../routes";
 import { useAppSelector } from "../../store/hooks";
@@ -59,7 +60,12 @@ export const Navigation = () => {
       <LinkSC href={routes.PRODUCT}>{t("nav.product")}</LinkSC>
       <LinkSC href={routes.SERVICES}>{t("nav.service")}</LinkSC>
       <LinkCustomSC to={routes.ABOUT}>{t("nav.about")}</LinkCustomSC>
-      <Modal show={show} handleClose={showModal}>
+      <Modal
+        show={show}
+        handleClose={showModal}
+        color={Colors.PRIMARY}
+        fill={Colors.INFOLIGHT}
+      >
         <LoginForm setShow={setShow} />
       </Modal>
       <>

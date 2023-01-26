@@ -1,6 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
 import { UseFormGetValues } from "react-hook-form";
-
 import { db } from "../utils/firebase";
 
 export const useAddUser = (

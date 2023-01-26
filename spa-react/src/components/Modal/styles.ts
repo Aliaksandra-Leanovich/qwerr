@@ -15,7 +15,7 @@ export const WrapperSC = styled.div<IStylesProps>`
 
 export const ContainerSC = styled.div<IStylesProps>`
   position: fixed;
-  background: ${Colors.PRIMARY};
+  background: ${({ color }) => color};
 
   padding: 20px 30px 60px 60px;
   max-width: 560px;
@@ -39,13 +39,14 @@ export const ContainerButtonSC = styled.div`
   align-self: flex-end;
 `;
 
-export const ButtonSC = styled.button`
+export const ButtonSC = styled.button<IStylesProps>`
   width: 20px;
 
   cursor: pointer;
 
   svg {
     fill: ${Colors.INFOLIGHT};
+    fill: ${({ fill }) => fill};
   }
 
   &:hover {

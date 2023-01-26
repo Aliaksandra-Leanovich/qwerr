@@ -3,11 +3,11 @@ import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { ButtonVariants } from "../../enums";
 import { validationSchema } from "../../helper";
+import { useLogin } from "../../hooks";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { StyledFormSC } from "./styles";
 import { IUserForm } from "./types";
-import { useLogin } from "../../hooks/use-login.hook";
 
 interface IProps {
   setShow: (value: boolean) => void;

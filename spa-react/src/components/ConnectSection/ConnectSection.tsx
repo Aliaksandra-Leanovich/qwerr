@@ -191,7 +191,13 @@ export const ConnectSection = () => {
           </ContainerImageAndDiagramSC>
         </ContainerBlocksSC>
       </ContainerSC>
-      <Modal show={show} handleClose={showModal} width="800px">
+      <Modal
+        show={show}
+        handleClose={showModal}
+        width="800px"
+        color={Colors.PRIMARY}
+        fill={Colors.INFOLIGHT}
+      >
         <FormWithEmail />
       </Modal>
     </SectionSC>
