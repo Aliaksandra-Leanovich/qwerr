@@ -1,12 +1,13 @@
 import { Box } from "@mui/material";
 import { collection, onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ModalForm } from "src/components/ModalForm/ModalForm";
 import SearchInput from "src/components/SearchInput/SearchInput";
 import { Table } from "src/components/Table";
 import { IUser } from "src/components/Table/types";
 import { useModalNavigate, useSearchUser } from "src/hooks";
+import { useBroadcastChannel } from "src/hooks/use-broadcastChannel.hook";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getAllUsers } from "src/store/selectors/userSelector";
 import { setInitialUsers } from "src/store/slices/usersSlice";
@@ -16,6 +17,14 @@ export const About = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const users = useAppSelector(getAllUsers);
+
+  const { channel } = useBroadcastChannel();
+
+  channel.onmessage = function (event) {
+    if (event.data) {
+      console.log(event.data);
+    }
+  };
 
   const [usersFromDB, setUsersFromDB] = useState<IUser[]>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
