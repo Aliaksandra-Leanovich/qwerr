@@ -13,8 +13,9 @@ import { getUserInfo } from "../../store/selectors";
 import { LoginForm } from "../LoginForm";
 import { Modal } from "../Modal/Modal";
 import { ButtonSC, ContainerSC, LinkCustomSC, LinkSC } from "./style";
+import { INavigationProps } from "./TopNavigation";
 
-export const Navigation = () => {
+export const Navigation = ({ isOpen }: INavigationProps) => {
   const { t } = useTranslation();
 
   const { handleLogout } = useLogout();
@@ -30,7 +31,7 @@ export const Navigation = () => {
   };
 
   return (
-    <ContainerSC>
+    <ContainerSC isOpen={isOpen}>
       <ButtonSC onClick={() => changeRTLorLTR()}>rtl/ltr</ButtonSC>
       <FormControl fullWidth>
         <InputLabel

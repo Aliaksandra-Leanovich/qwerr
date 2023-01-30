@@ -4,7 +4,7 @@ export const StyledHeaderSC = styled.header`
   width: 100%;
   z-index: 5;
 
-  /* position: fixed; */
+  position: relative;
   background-attachment: fixed;
   background-position: top center;
   background-color: transparent;

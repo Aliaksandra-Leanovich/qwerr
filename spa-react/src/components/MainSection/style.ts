@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { media } from "../../ui";
+import { Colors, media } from "../../ui";
 
 export const ContainerSC = styled.div`
   max-width: 1400px;
@@ -30,6 +30,10 @@ export const CanvasContainerSC = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  ${media.LAPTOP} {
+    display: none;
+  }
 `;
 export const ContainerDescriptionSC = styled.div`
   display: flex;
@@ -41,11 +45,12 @@ export const ContainerDescriptionSC = styled.div`
 
   row-gap: 16px;
   z-index: 4;
-`;
-export const Block = styled.div`
-  height: 432px;
-
-  background-color: #62626224;
+  ${media.LAPTOP} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const WrapperSC = styled.div`
@@ -56,12 +61,14 @@ export const WrapperSC = styled.div`
 
   width: 100%;
   position: relative;
+
+  ${media.LAPTOP} {
+    background-color: ${Colors.INFODARK};
+  }
 `;
 export const MainContainerSC = styled.section`
   margin: 0 auto;
   width: 100%;
-
-  /* background-color: #0a2640; */
 
   position: relative;
 `;
