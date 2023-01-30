@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors } from "src/ui";
+import { Colors, media } from "src/ui";
 
 export const ChatsSectionSC = styled.div`
   width: 100%;
@@ -40,6 +40,11 @@ export const ChatSectionSC = styled.div`
   padding: 0 40px;
 
   overflow: hidden;
+
+  ${media.TABLET} {
+    border-left: 0;
+    border-top: 1px solid ${Colors.LIGHTGRAY};
+  }
 `;
 
 export const ImageContainerSC = styled.div`
@@ -91,4 +96,8 @@ export const ContainerChatSC = styled.div`
 
   overflow: hidden;
   height: 100%;
+
+  ${media.TABLET} {
+    grid-template-columns: 1fr;
+  }
 `;

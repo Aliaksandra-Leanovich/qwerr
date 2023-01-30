@@ -1,7 +1,7 @@
 import { StyledBurger } from "./style";
 import { IBurgerProps } from "./types";
 
-export const Burger = ({ isOpen, setOpen, color }: IBurgerProps) => {
+export const BurgerChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
   const handleClick = () => {
     setOpen(!isOpen);
 

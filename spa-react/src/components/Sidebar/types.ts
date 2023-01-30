@@ -20,3 +20,7 @@ export interface IUsers {
   name: string;
   status: string;
 }
+
+export interface IStylesProps {
+  isOpen: boolean;
+}

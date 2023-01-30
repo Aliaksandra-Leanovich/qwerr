@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
-import React from "react";
+import { IBurgerProps } from "../Burger/types";
+import { BurgerChat } from "../BurgerChat.tsx";
 import { SelectStatus } from "../SelectStatus/SelectStatus";
 
-export const HeaderChat = () => {
+export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
   return (
     <HeaderSC>
+      {/* <BurgerChat isOpen={isOpen} setOpen={setOpen} color={color} /> */}
       <SelectStatus />
     </HeaderSC>
   );

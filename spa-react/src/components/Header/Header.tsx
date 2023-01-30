@@ -16,7 +16,7 @@ export const Header = () => {
           <Logo background={Colors.SECONDARY} color={Colors.INFOLIGHT} />
           <TopNavigation isOpen={isOpen} />
           <RightNavigation isOpen={isOpen} />
-          <Burger isOpen={isOpen} setOpen={setOpen} />
+          <Burger isOpen={isOpen} setOpen={setOpen} color={Colors.INFOLIGHT} />
         </ContainerSC>
       </WrapperSC>
     </StyledHeaderSC>
