@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IStylesProps } from "./types";
 
 export const WrapperSC = styled.div<IStylesProps>`
@@ -32,6 +32,10 @@ export const ContainerSC = styled.div<IStylesProps>`
 
   main {
     overflow: ${({ show }) => (show ? "hidden" : "auto")};
+  }
+
+  ${media.TABLET} {
+    padding: 10px 15px 30px 30px;
   }
 `;
 

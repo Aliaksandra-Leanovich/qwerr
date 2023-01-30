@@ -10,6 +10,10 @@ export const SectionSC = styled.section`
   align-items: center;
 
   margin-top: 158px;
+
+  ${media.TABLET} {
+    margin-top: 100px;
+  }
 `;
 
 export const ContainerSC = styled.div`
@@ -21,6 +25,10 @@ export const ContainerSC = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.TABLET} {
+    padding: 0 60px;
+  }
 `;
 
 export const TitleContainerSC = styled.div`
@@ -44,6 +52,10 @@ export const ContainerOfBlocksSC = styled.div`
 
     column-gap: 50px;
     row-gap: 40px;
+  }
+
+  ${media.TABLET} {
+    grid-template-columns: repeat(1, 300px);
   }
 `;
 
@@ -95,6 +107,10 @@ export const LinkSC = styled.button<IPropsButton>`
   border: 2px solid #0a2640;
   border-radius: 56px;
   display: ${({ display }) => display};
+
+  ${media.TABLET} {
+    margin-top: 44px;
+  }
 `;
 
 export const AuthorImageSC = styled.div<IProps>`

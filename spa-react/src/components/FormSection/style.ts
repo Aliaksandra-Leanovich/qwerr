@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 
 export const SectionSC = styled.section`
   width: 100%;
@@ -9,6 +9,10 @@ export const SectionSC = styled.section`
   align-items: center;
 
   margin-top: 124px;
+
+  ${media.TABLET} {
+    margin-top: 80px;
+  }
 `;
 
 export const ContainerSC = styled.div`
@@ -23,4 +27,8 @@ export const ContainerSC = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 50px;
+
+  ${media.TABLET} {
+    padding: 72px 60px;
+  }
 `;

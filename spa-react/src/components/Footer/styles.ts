@@ -32,11 +32,21 @@ export const BlockWithLogoSC = styled.div`
 
   max-width: 300px;
   width: 100%;
+
+  ${media.TABLET} {
+    row-gap: 20px;
+  }
 `;
 
 export const BlockWithLinksSC = styled.div`
   display: flex;
   column-gap: 96px;
+
+  ${media.TABLET} {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+  }
 `;
 
 export const SubcategorydLinkSC = styled.p`
@@ -88,6 +98,9 @@ export const RightsSC = styled.p`
   color: #777777;
 
   margin-top: 24px;
+  ${media.TABLET} {
+    margin-top: 10px;
+  }
 `;
 
 export const LabelSC = styled.div`

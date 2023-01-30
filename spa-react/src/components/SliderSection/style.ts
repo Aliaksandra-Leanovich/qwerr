@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Swiper } from "swiper/react";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IStylesProps } from "./types";
 
 export const SectionSC = styled.section`
@@ -12,6 +12,10 @@ export const SectionSC = styled.section`
   position: relative;
 
   background-color: ${Colors.PRIMARY};
+
+  ${media.TABLET} {
+    text-align: center;
+  }
 `;
 
 export const ContainerSC = styled.div`
@@ -21,6 +25,10 @@ export const ContainerSC = styled.div`
   padding: 60px 100px 96px 150px;
 
   position: relative;
+
+  ${media.TABLET} {
+    padding: 60px 20px 96px;
+  }
 `;
 
 export const TitleContainerSC = styled.div`
@@ -28,14 +36,6 @@ export const TitleContainerSC = styled.div`
   width: 100%;
 
   display: flex;
-`;
-
-export const TitleSC = styled.h3`
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 72px;
-
-  color: ${Colors.INFOLIGHT};
 `;
 
 export const CustomSwiperSC = styled(Swiper)`
@@ -98,11 +98,16 @@ export const AuthorPositionSC = styled.p`
 `;
 
 export const ContainerSwiperSC = styled.div`
-  padding-right: 50px;
   width: 100%;
   margin-top: 42px;
 
   position: relative;
+
+  ${media.TABLET} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ButtonsContainerSC = styled.div`
@@ -110,6 +115,9 @@ export const ButtonsContainerSC = styled.div`
   align-self: flex-end;
 
   column-gap: 28px;
+  ${media.TABLET} {
+    align-self: center;
+  }
 `;
 
 export const ButtonArrowSC = styled.button`
@@ -120,4 +128,9 @@ export const BlockSC = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  ${media.TABLET} {
+    flex-direction: column;
+    row-gap: 30px;
+  }
 `;

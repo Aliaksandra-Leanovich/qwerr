@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ArrowRight from "../../assets/arrowRight.svg";
 import ExploreImg1 from "../../assets/exploreImg1.svg";
@@ -17,7 +17,6 @@ import {
   LinkSC,
   SectionSC,
   TitleContainerSC,
-  TitleSC,
 } from "./style";
 
 const config = [
@@ -54,14 +53,16 @@ export const ExploreSection = () => {
   return (
     <SectionSC>
       <ContainerSC>
-        <TitleSC>{t("services.subtitle")}</TitleSC>
+        <Typography variant={TypographyVariants.h3}>
+          {t("services.subtitle")}
+        </Typography>
         <ContainerOfBlocksSC>
           {config.map((item, index) => (
             <BlockSC key={index}>
               <ImageSC src={item.image} alt="explore section" />
               <TitleContainerSC>
                 <Typography variant={TypographyVariants.paragraphM}>
-                  {t("explore.card.title")}
+                  {t("explore.card.title")}ø
                 </Typography>
               </TitleContainerSC>
 

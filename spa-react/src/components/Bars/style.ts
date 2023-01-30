@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IPropsColumn, IPropsRow } from "./types";
 
 export const WrapperSC = styled.div`
@@ -10,6 +10,10 @@ export const WrapperSC = styled.div`
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(34.3553px);
   border-radius: 15px;
+
+  ${media.TABLET} {
+    max-width: 364px;
+  }
 `;
 
 export const CirclesContainerSc = styled.div`
@@ -70,6 +74,13 @@ export const StyledBarsSC = styled.div`
 export const BarsBottomSC = styled.div`
   display: flex;
   column-gap: 28px;
+
+  ${media.TABLET} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 26px;
+  }
 `;
 
 export const WrapperVerticalSC = styled.div`

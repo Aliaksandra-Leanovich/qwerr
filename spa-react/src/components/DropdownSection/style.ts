@@ -14,6 +14,10 @@ export const ContainerSC = styled.div`
   width: 100%;
 
   padding: 124px 160px 0;
+
+  ${media.TABLET} {
+    padding: 60px 20px 0;
+  }
 `;
 
 export const ContainerImageSC = styled.div<IProps>`

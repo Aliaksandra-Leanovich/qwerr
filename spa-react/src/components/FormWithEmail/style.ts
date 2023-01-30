@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 
 export const ContainerInputSC = styled.div`
   max-width: 370px;
@@ -14,6 +14,11 @@ export const FormSC = styled.form`
   justify-content: center;
 
   column-gap: 24px;
+  ${media.TABLET} {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+  }
 `;
 
 export const Input = styled.input`

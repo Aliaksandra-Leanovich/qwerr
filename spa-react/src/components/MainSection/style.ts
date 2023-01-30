@@ -6,6 +6,11 @@ export const ContainerSC = styled.div`
   width: 100%;
 
   padding: 60px 100px 64px;
+
+  ${media.TABLET} {
+    padding: 30px;
+    text-align: center;
+  }
 `;
 export const ContainerWithTwoBlocksSC = styled.div`
   display: grid;
@@ -95,4 +100,10 @@ export const ContainerButtonsSC = styled.div`
   column-gap: 24px;
 
   margin-top: 24px;
+
+  ${media.TABLET} {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+  }
 `;

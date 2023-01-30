@@ -17,6 +17,10 @@ export const ContainerSC = styled.div`
   width: 100%;
 
   padding: 0 100px 126px;
+
+  ${media.LAPTOP} {
+    padding: 0 32px 140px 32px;
+  }
 `;
 
 export const ContainerBlocksSC = styled.div`
@@ -34,7 +38,9 @@ export const ContainerBlocksSC = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     row-gap: 30px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -44,10 +50,17 @@ export const ImageContainerSC = styled.div<IPropsStyle>`
 
   background-image: url(${({ background }) => background});
   background-repeat: no-repeat;
+
+  ${media.TABLET} {
+    width: 294px;
+    height: 400px;
+    /* background-position: center; */
+  }
 `;
 
 export const ImageSC = styled.img`
   width: 100%;
+  /* height: 100%; */
 `;
 
 export const TextContainerSC = styled.div`
@@ -65,6 +78,10 @@ export const DescriptionBlockSC = styled.div`
 
   row-gap: 24px;
   margin: 40px 0 56px;
+
+  ${media.LAPTOP} {
+    margin: 20px 0 26px;
+  }
 `;
 export const DescriptionSC = styled.div`
   display: flex;
@@ -99,7 +116,7 @@ export const AdvantageSC = styled.div`
   max-width: 500px;
   width: 100%;
 
-  background: #ffffff;
+  background: ${Colors.INFOLIGHT};
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
 
@@ -121,7 +138,7 @@ export const AdvantageSC = styled.div`
 
     svg {
       path {
-        stroke: #fff;
+        stroke: ${Colors.INFOLIGHT};
       }
     }
   }
@@ -136,6 +153,10 @@ export const ContainerImageAndDiagramSC = styled.div`
   display: block;
   justify-content: center;
   align-items: center;
+
+  ${media.TABLET} {
+    width: 294px;
+  }
 `;
 
 export const ContainerDiagramSC = styled.div`
@@ -151,6 +172,11 @@ export const ContainerDiagramSC = styled.div`
   background: ${Colors.INFOLIGHT};
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
   border-radius: 12px;
+
+  ${media.TABLET} {
+    top: 160px;
+    left: 30px;
+  }
 `;
 
 export const DiagramTopSC = styled.div`
@@ -191,6 +217,13 @@ export const BlockWithCirclSC = styled.div`
   background: ${Colors.INFOLIGHT};
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
   border-radius: 12px;
+
+  ${media.TABLET} {
+    top: 210px;
+    left: 30px;
+
+    padding: 28px 36px;
+  }
 `;
 
 export const CircleSC = styled.div`
