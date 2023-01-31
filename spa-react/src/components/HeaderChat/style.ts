@@ -116,7 +116,7 @@ export const SettingsContainerSC = styled.div<IStylesProps>`
   border-left: 1px solid ${Colors.SECONDARY};
 
   ${media.TABLET} {
-    height: 90vh;
+    height: 100vh;
     width: 100%;
     border: 0;
   }
@@ -149,7 +149,7 @@ export const ButtonBackSC = styled.button`
   svg {
     height: 44px;
     width: 44px;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
 
     path {
       stroke: ${Colors.SECONDARY};

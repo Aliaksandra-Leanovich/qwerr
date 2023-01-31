@@ -54,7 +54,7 @@ export const useLogin = (
       status: "active",
     };
     try {
-      const docRef = await setDoc(doc(db, "users", user.email), user);
+      const docRef = await setDoc(doc(db, "users", user.id), user);
       setUserToStorage(user.id, user.email, user.name);
       console.log("Document written with ID: ", docRef);
     } catch (event) {

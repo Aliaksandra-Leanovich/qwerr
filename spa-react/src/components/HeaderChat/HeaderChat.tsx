@@ -47,10 +47,10 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
           <UserSC>{name}</UserSC>
         </ContainerUserSC>
       )}
-      <ButtonSettingsSC onMouseEnter={handleMouse}>
+      <ButtonSettingsSC onClick={handleMouse}>
         <Settings />
       </ButtonSettingsSC>
-      <SettingsContainerSC onMouseLeave={handleMouse} settings={settings}>
+      <SettingsContainerSC settings={settings}>
         {name && (
           <ContainerSettingUserSC>
             <PictureSettingSC>
@@ -59,7 +59,7 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
             <UserSC>{name}</UserSC>
           </ContainerSettingUserSC>
         )}
-        <ButtonBackSC>
+        <ButtonBackSC onClick={handleMouse}>
           <ArrowLeft />
         </ButtonBackSC>
 
