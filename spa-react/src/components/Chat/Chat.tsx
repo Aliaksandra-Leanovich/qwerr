@@ -16,7 +16,8 @@ export const Chat = () => {
     const diffrentUser = message.sender.id !== previous.sender.id;
     if (diffrentUser) return true;
 
-    const hasBeenaWhile = +message.date - +previous.date > 60;
+    const hasBeenaWhile =
+      (+new Date(message.date) - +new Date(previous.date)) / 1000 > 60;
     return hasBeenaWhile;
   };
 
