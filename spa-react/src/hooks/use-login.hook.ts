@@ -56,6 +56,7 @@ export const useLogin = (
     try {
       const docRef = await setDoc(doc(db, "users", user.id), user);
       setUserToStorage(user.id, user.email, user.name);
+      await setDoc(doc(db, "userChats", user.id), {});
       console.log("Document written with ID: ", docRef);
     } catch (event) {
       console.error("Error adding document: ", event);

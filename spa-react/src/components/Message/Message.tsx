@@ -18,7 +18,7 @@ import { IProps } from "./types";
 
 export const Message = ({ message, handleEdit }: IProps) => {
   const { email } = useAppSelector(getUserInfo);
-  const { newDate } = useConvertDate(message.date);
+  const { newDate } = useConvertDate(message.sendAt);
   const { handleDelete } = useHandleDelete(message);
 
   const onClick = () => {

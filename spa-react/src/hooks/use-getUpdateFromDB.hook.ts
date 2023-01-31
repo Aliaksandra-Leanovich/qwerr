@@ -3,60 +3,57 @@ import { useEffect, useState } from "react";
 import { IMessage } from "src/components/Message/types";
 import { Collections } from "src/enums";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
-import { getChatInformation, getUserInfo } from "src/store/selectors";
+import { getChatInformation } from "src/store/selectors";
 import { resetAllMessages, setNewMessage } from "src/store/slices/chatSlice";
 import { db } from "src/utils/firebase";
 
 export const useGetUpdateFromDB = () => {
   const dispatch = useAppDispatch();
 
-  const { messages, receiverEmail } = useAppSelector(getChatInformation);
-  const { email } = useAppSelector(getUserInfo);
-
-  const [sent, setSent] = useState<IMessage[]>();
+  const { messages, chatId, receiveChatId } =
+    useAppSelector(getChatInformation);
   const [receive, setReceive] = useState<IMessage[]>();
+  const [sent, setSent] = useState<IMessage[]>();
 
   useEffect(() => {
-    if (email) {
-      onSnapshot(collection(db, Collections.messages), (querySnapshot) => {
-        let messages: any[] = [];
+    if (chatId && receiveChatId) {
+      onSnapshot(
+        collection(db, Collections.chats, chatId, Collections.messages),
+        (querySnapshot) => {
+          let messages: any[] = [];
 
-        let filteredSent: IMessage[] = [];
-        let filteredReceive: IMessage[] = [];
-
-        querySnapshot.forEach((doc) => {
-          messages.push(doc.data());
-        });
-
-        messages?.map((message) => {
-          return message.receivers.map((receiver: string) => {
-            return (
-              (receiver === receiverEmail && filteredSent.push(message)) ||
-              (receiver === email && filteredReceive.push(message))
-            );
+          querySnapshot.forEach((doc) => {
+            messages.push(doc.data());
           });
-        });
+          setReceive(messages);
+        }
+      );
+      onSnapshot(
+        collection(db, Collections.chats, receiveChatId, Collections.messages),
+        (querySnapshot) => {
+          let messages: any[] = [];
 
-        setSent(filteredSent);
-        setReceive(filteredReceive);
-      });
+          querySnapshot.forEach((doc) => {
+            messages.push(doc.data());
+          });
+          setSent(messages);
+        }
+      );
     }
-  }, [receiverEmail, email, dispatch]);
+  }, [chatId, dispatch, receiveChatId]);
 
   useEffect(() => {
     dispatch(resetAllMessages());
-
-    sent?.map((item) => {
-      return dispatch(setNewMessage(item));
+    receive?.map((message) => {
+      return dispatch(setNewMessage(message));
     });
-
-    receive?.map((item) => {
-      return dispatch(setNewMessage(item));
+    sent?.map((message) => {
+      return dispatch(setNewMessage(message));
     });
-  }, [dispatch, sent, receive]);
+  }, [receive, sent, dispatch]);
 
   let sortedByTime = [...messages].sort(
-    (a, b) => +new Date(a.date) - +new Date(b.date)
+    (a, b) => +new Date(a.sendAt) - +new Date(b.sendAt)
   );
 
   return { sortedByTime };
