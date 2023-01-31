@@ -6,7 +6,6 @@ import {
   WrapperSC,
 } from "src/components/Chat/style";
 import { HeaderChat } from "src/components/HeaderChat/HeaderChat";
-import { RightSidebar } from "src/components/Sidebar/RightSidebar";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { Colors } from "src/ui";
 
@@ -15,11 +14,14 @@ export const Chats = () => {
   return (
     <WrapperSC>
       <ContainerSC>
-        <HeaderChat isOpen={isOpen} setOpen={setOpen} color={Colors.BLUE} />
+        <HeaderChat
+          isOpen={isOpen}
+          setOpen={setOpen}
+          color={Colors.SECONDARY}
+        />
         <ContainerChatSC>
-          {/* <RightSidebar isOpen={isOpen} /> */}
-          <Sidebar />
-          <Chat />
+          <Sidebar isOpen={isOpen} setOpen={setOpen} />
+          <Chat isOpen={isOpen} />
         </ContainerChatSC>
       </ContainerSC>
     </WrapperSC>

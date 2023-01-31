@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import { Colors } from "src/ui";
 
 export const FormSC = styled.form`
-  width: 90%;
+  width: 98%;
   height: 60px;
   padding: 0 24px 0 20px;
 
-  border: 1px solid ${Colors.LIGHTGRAY};
-  background-color: ${Colors.INFOLIGHT};
+  border: 1px solid ${Colors.INFODARK};
+  background: ${Colors.GRAY};
   border-radius: 240px;
 
   display: flex;
@@ -20,13 +20,18 @@ export const Input = styled.input`
   font-weight: 300;
   font-family: "Roboto", sans-serif;
   font-size: 1em;
+  color: ${Colors.INFOLIGHT};
 
   width: 100%;
+  background: ${Colors.GRAY};
 
   border-radius: 240px;
 
   &:focus {
     outline: none;
+  }
+  &::placeholder {
+    color: ${Colors.INFOLIGHT};
   }
 `;
 
@@ -43,7 +48,7 @@ export const ButtonSC = styled.button`
   &:hover {
     svg {
       path {
-        fill: ${Colors.BLUE};
+        fill: ${Colors.CHAT_SECONDARY};
       }
     }
   }

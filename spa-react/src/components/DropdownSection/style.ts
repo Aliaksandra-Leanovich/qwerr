@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { media } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IProps, IPropsOpen } from "./types";
 
 export const SectionSC = styled.section`
@@ -71,7 +71,7 @@ export const DropdownContainerSC = styled.div`
 
   padding-bottom: 16px;
 
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px solid ${Colors.LIGHTGRAY};
 
   display: flex;
   flex-direction: column;

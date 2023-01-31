@@ -4,7 +4,7 @@ import { IUser } from "src/components/Sidebar/types";
 import { Collections } from "src/enums";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getUserInfo } from "src/store/selectors";
-import { setReceiverEmail, setSenderId } from "src/store/slices/chatSlice";
+import { setReceiverEmail, setSenderEmail } from "src/store/slices/chatSlice";
 import { db } from "src/utils/firebase";
 
 export const useGetUsersFromDB = () => {
@@ -22,12 +22,12 @@ export const useGetUsersFromDB = () => {
       });
       setUsers(users);
     });
-  }, []);
+  }, [users]);
 
-  const handleSelect = async (id: string) => {
-    dispatch(setSenderId(id));
+  const handleSelect = async (email: string) => {
+    dispatch(setSenderEmail(email));
 
-    const receiver = users?.find((user) => user.id === id);
+    const receiver = users?.find((user) => user.email === email);
     dispatch(setReceiverEmail(receiver!.email));
   };
 

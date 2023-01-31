@@ -6,8 +6,8 @@ export const StyledBurger = styled.button<IStylesProps>`
   display: none;
   ${media.TABLET} {
     position: absolute;
-    top: 20%;
-    left: 2rem;
+    top: 18%;
+    left: 36px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Colors, media } from "src/ui";
+import { IStylesProps } from "../Sidebar/types";
 
 export const ChatsSectionSC = styled.div`
   width: 100%;
@@ -10,14 +11,6 @@ export const ChatsSectionSC = styled.div`
   align-items: center;
 `;
 
-export const TextSC = styled.p`
-  color: black;
-  align-self: center;
-
-  font-size: 24px;
-  line-height: 26px;
-  font-weight: 300;
-`;
 export const ContainerMessagesSC = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -28,14 +21,14 @@ export const ContainerMessagesSC = styled.div`
   height: calc(100% - 80px);
 `;
 
-export const ChatSectionSC = styled.div`
+export const ChatSectionSC = styled.div<IStylesProps>`
   width: 100%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
 
-  border-left: 1px solid ${Colors.LIGHTGRAY};
+  border-left: 1px solid ${Colors.CHAT_SECONDARY};
 
   padding: 0 40px;
 
@@ -43,22 +36,7 @@ export const ChatSectionSC = styled.div`
 
   ${media.TABLET} {
     border-left: 0;
-    border-top: 1px solid ${Colors.LIGHTGRAY};
-  }
-`;
-
-export const ImageContainerSC = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-bottom: 20px;
-  svg {
-    width: 50px;
-
-    path {
-      fill: ${Colors.BLUE};
-    }
+    display: ${({ isOpen }) => (isOpen ? "none" : "flex")};
   }
 `;
 
@@ -68,25 +46,25 @@ export const WrapperSC = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 0;
-  background-color: #ededed;
+  /* padding: 100px 0; */
+  background: ${Colors.INFODARK};
 `;
 
 export const ContainerSC = styled.div`
+  /* width: 100%;
+  max-width: 1400px;
+  height: 100%; */
+  /* padding: 100px 0; */
   width: 100%;
-  max-width: 1200px;
-  height: 80%;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
 
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 20px;
-  background-color: ${Colors.INFOLIGHT};
+  /* border-radius: 20px; */
+  /* background: rgba(255, 255, 255, 0.18); */
 
-  padding: 10px;
-
-  overflow: hidden;
+  /* padding: 10px; */
 `;
 
 export const ContainerChatSC = styled.div`
@@ -96,8 +74,45 @@ export const ContainerChatSC = styled.div`
 
   overflow: hidden;
   height: 100%;
+  position: relative;
 
   ${media.TABLET} {
     grid-template-columns: 1fr;
+  }
+`;
+
+export const SelectContsinerSC = styled.div<IStylesProps>`
+  width: 100;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
+
+  border-left: 1px solid ${Colors.CHAT_SECONDARY};
+
+  ${media.TABLET} {
+    border-left: 0;
+    display: ${({ isOpen }) => (isOpen ? "none" : "flex")};
+  }
+`;
+
+export const TextSC = styled.p`
+  color: ${Colors.CHAT_SECONDARY};
+
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 300;
+`;
+
+export const ImageSC = styled.div`
+  svg {
+    width: 44px;
+
+    path {
+      fill: ${Colors.CHAT_SECONDARY};
+    }
   }
 `;

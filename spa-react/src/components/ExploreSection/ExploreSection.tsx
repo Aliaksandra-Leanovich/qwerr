@@ -62,7 +62,7 @@ export const ExploreSection = () => {
               <ImageSC src={item.image} alt="explore section" />
               <TitleContainerSC>
                 <Typography variant={TypographyVariants.paragraphM}>
-                  {t("explore.card.title")}ø
+                  {t("explore.card.title")}
                 </Typography>
               </TitleContainerSC>
 

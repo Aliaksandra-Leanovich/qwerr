@@ -47,7 +47,10 @@ export const ContainerOfBlocksSC = styled.div`
     row-gap: 30px;
   }
   ${media.TABLET} {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

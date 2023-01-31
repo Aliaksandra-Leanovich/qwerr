@@ -90,17 +90,29 @@ const variantTypography = {
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
+    ${media.TABLET} {
+      font-size: 14px;
+      line-height: 16px;
+    }
   `,
 
   paragraphS: css`
     font-weight: 400;
     font-size: 20px;
     line-height: 32px;
+    ${media.TABLET} {
+      font-size: 16px;
+      line-height: 18px;
+    }
   `,
   paragraphSBold: css`
     font-weight: 700;
     font-size: 20px;
     line-height: 32px;
+    ${media.TABLET} {
+      font-size: 16px;
+      line-height: 18px;
+    }
   `,
   paragraphM: css`
     font-weight: 400;
@@ -134,6 +146,9 @@ const variantTypography = {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+    ${media.PHONE} {
+      line-height: 16px;
+    }
   `,
 };
 

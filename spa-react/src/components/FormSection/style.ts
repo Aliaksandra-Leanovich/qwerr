@@ -29,6 +29,7 @@ export const ContainerSC = styled.div`
   row-gap: 50px;
 
   ${media.TABLET} {
-    padding: 72px 60px;
+    row-gap: 36px;
+    padding: 62px 20px;
   }
 `;

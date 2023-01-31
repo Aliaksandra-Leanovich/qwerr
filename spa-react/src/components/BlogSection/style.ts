@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { media } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IProps, IPropsButton } from "./types";
 
 export const SectionSC = styled.section`
@@ -48,10 +48,11 @@ export const ContainerOfBlocksSC = styled.div`
   margin-top: 80px;
 
   ${media.LAPTOP} {
+    margin-top: 40px;
     grid-template-columns: repeat(2, 300px);
 
     column-gap: 50px;
-    row-gap: 40px;
+    row-gap: 50px;
   }
 
   ${media.TABLET} {
@@ -102,9 +103,9 @@ export const LinkSC = styled.button<IPropsButton>`
   font-size: 20px;
   line-height: 28px;
 
-  color: #0a2640;
+  color: ${Colors.PRIMARY};
 
-  border: 2px solid #0a2640;
+  border: 2px solid ${Colors.PRIMARY};
   border-radius: 56px;
   display: ${({ display }) => display};
 

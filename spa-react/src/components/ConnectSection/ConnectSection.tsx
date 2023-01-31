@@ -45,16 +45,16 @@ const config = [
 ];
 
 const columns = [
-  { height: "134px", background: Colors.INFOLIGHT },
-  { height: "92px", background: Colors.INFOLIGHT },
-  { height: "134px", background: Colors.LIGHTBLUE },
-  { height: "92px", background: Colors.LIGHTBLUE },
-  { height: "176px", background: Colors.PRIMARY },
-  { height: "124px", background: Colors.LIGHTBLUE },
-  { height: "150px", background: Colors.LIGHTBLUE },
-  { height: "68px", background: Colors.LIGHTBLUE },
-  { height: "50px", background: Colors.LIGHTBLUE },
-  { height: "28px", background: Colors.LIGHTBLUE },
+  { height: "134px", background: Colors.INFOLIGHT, minHeight: "74px" },
+  { height: "92px", background: Colors.INFOLIGHT, minHeight: "32px" },
+  { height: "134px", background: Colors.LIGHTBLUE, minHeight: "74px" },
+  { height: "92px", background: Colors.LIGHTBLUE, minHeight: "32px" },
+  { height: "176px", background: Colors.PRIMARY, minHeight: "116px" },
+  { height: "124px", background: Colors.LIGHTBLUE, minHeight: "64px" },
+  { height: "150px", background: Colors.LIGHTBLUE, minHeight: "90px" },
+  { height: "68px", background: Colors.LIGHTBLUE, minHeight: "8px" },
+  { height: "50px", background: Colors.LIGHTBLUE, minHeight: "5px" },
+  { height: "28px", background: Colors.LIGHTBLUE, minHeight: "8px" },
 ];
 
 const percents = [
@@ -88,13 +88,16 @@ export const ConnectSection = () => {
       <ContainerSC>
         <ContainerBlocksSC>
           <ContainerImageAndDiagramSC>
-            <ImageContainerSC height="506px" background={ConnectImg1} />
+            <ImageContainerSC height="506px">
+              <img src={ConnectImg1} alt="person" />
+            </ImageContainerSC>
             <ContainerDiagramSC>
               <DiagramTopSC>
                 {columnUp.map((column, index) => (
                   <Column
                     key={index}
                     height={column.height}
+                    minHeight={column.minHeight}
                     background={column.background}
                   />
                 ))}
@@ -105,6 +108,7 @@ export const ConnectSection = () => {
                     key={index}
                     height={column.height}
                     background={column.background}
+                    minHeight={column.minHeight}
                   />
                 ))}
               </DiagramBottomSC>
@@ -174,7 +178,9 @@ export const ConnectSection = () => {
             </DescriptionBlockSC>
           </TextContainerSC>
           <ContainerImageAndDiagramSC>
-            <ImageContainerSC height="524px" background={ConnectImg2} />
+            <ImageContainerSC height="524px">
+              <img src={ConnectImg2} alt="person" />
+            </ImageContainerSC>
             <BlockWithCirclSC>
               <CircleSC />
               <PersentsBlockSC>
