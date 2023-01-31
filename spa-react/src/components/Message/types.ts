@@ -5,7 +5,7 @@ export interface IDate {
 }
 
 export interface IMessage {
-  date: string;
+  sendAt: string;
   id: string;
   message: string;
   sender: {
@@ -13,7 +13,6 @@ export interface IMessage {
     email: string;
     id: string;
   };
-  receivers: [];
 }
 
 export interface IProps {

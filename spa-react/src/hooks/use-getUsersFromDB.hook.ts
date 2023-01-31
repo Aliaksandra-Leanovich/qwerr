@@ -1,16 +1,20 @@
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { IUser } from "src/components/Sidebar/types";
 import { Collections } from "src/enums";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getUserInfo } from "src/store/selectors";
-import { setReceiverEmail, setSenderId } from "src/store/slices/chatSlice";
+import {
+  setChatId,
+  setReceiveChatId,
+  setSenderId,
+} from "src/store/slices/chatSlice";
 import { db } from "src/utils/firebase";
 
 export const useGetUsersFromDB = () => {
   const [users, setUsers] = useState<IUser[]>();
 
-  const { email } = useAppSelector(getUserInfo);
+  const { id, email } = useAppSelector(getUserInfo);
 
   const dispatch = useAppDispatch();
 
@@ -24,11 +28,22 @@ export const useGetUsersFromDB = () => {
     });
   }, []);
 
-  const handleSelect = async (id: string) => {
+  const handleSelect = async (userId: string) => {
     dispatch(setSenderId(id));
 
-    const receiver = users?.find((user) => user.id === id);
-    dispatch(setReceiverEmail(receiver!.email));
+    const receiver = users?.find((item) => item.id === userId);
+
+    const sendId = id + userId;
+    const receiveId = userId + id;
+
+    dispatch(setChatId(sendId));
+    dispatch(setReceiveChatId(receiveId));
+
+    await setDoc(doc(db, Collections.chats, sendId), {
+      participants: [receiver?.email, email],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    });
   };
 
   let senderIndex = users?.map((item) => item.email).indexOf(email!);

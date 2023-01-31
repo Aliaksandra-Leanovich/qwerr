@@ -1,5 +1,4 @@
-import { StatusCircleSC } from "../SelectStatus/style";
-import { ContainerSC, PictureSC, StatusContainerSC, UserSC } from "./style";
+import { ContainerSC, PictureSC, UserSC } from "./style";
 import { IProps } from "./types";
 
 export const User = ({ user, handleSelect }: IProps) => {
@@ -10,9 +9,6 @@ export const User = ({ user, handleSelect }: IProps) => {
   return (
     <ContainerSC key={user.id}>
       <PictureSC>{user.name[0].charAt(0).toUpperCase()}</PictureSC>
-      <StatusContainerSC>
-        <StatusCircleSC variant={user.status} />
-      </StatusContainerSC>
       <UserSC onClick={onClick}>{user.name}</UserSC>
     </ContainerSC>
   );
