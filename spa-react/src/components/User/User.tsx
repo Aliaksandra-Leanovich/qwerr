@@ -3,7 +3,7 @@ import { IProps } from "./types";
 
 export const User = ({ user, handleSelect, setOpen }: IProps) => {
   const onClick = () => {
-    handleSelect(user.email);
+    handleSelect(user.id);
     setOpen(false);
   };
 

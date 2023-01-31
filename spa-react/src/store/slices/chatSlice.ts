@@ -31,7 +31,6 @@ const chatSlice = createSlice({
     },
     setSenderEmail: (state, action) => {
       state.emailSender = action.payload;
-
     },
     setUser: (state, action) => {
       state.user = action.payload;
@@ -55,7 +54,6 @@ export const {
   setUser,
   setNewMessage,
 
-  setReceiverEmail,
   setSenderEmail,
 
   setReceiveChatId,

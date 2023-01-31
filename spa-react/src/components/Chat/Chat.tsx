@@ -19,7 +19,7 @@ export const Chat = ({ isOpen }: IStylesProps) => {
   const { messageId, edit, setMessageId, setEdit, handleEdit } = useHadleEdit();
   const { sortedByTime } = useGetUpdateFromDB();
 
-  const { emailSender } = useAppSelector(getChatInformation);
+  const { chatId } = useAppSelector(getChatInformation);
 
   const shouldShowAvatar = (previous: IMessage, message: IMessage) => {
     const isFirst = !previous;
@@ -35,7 +35,7 @@ export const Chat = ({ isOpen }: IStylesProps) => {
 
   return (
     <>
-      {emailSender ? (
+      {chatId ? (
         <ChatSectionSC isOpen={isOpen}>
           <ContainerMessagesSC>
             {sortedByTime?.map((message, index) => {
