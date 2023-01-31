@@ -4,11 +4,13 @@ import { IUser } from "src/components/Sidebar/types";
 import { Collections } from "src/enums";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getUserInfo } from "src/store/selectors";
+
 import {
   setChatId,
   setReceiveChatId,
   setSenderId,
 } from "src/store/slices/chatSlice";
+
 import { db } from "src/utils/firebase";
 
 export const useGetUsersFromDB = () => {
@@ -26,7 +28,8 @@ export const useGetUsersFromDB = () => {
       });
       setUsers(users);
     });
-  }, []);
+  }, [users]);
+
 
   const handleSelect = async (userId: string) => {
     dispatch(setSenderId(id));
@@ -44,6 +47,7 @@ export const useGetUsersFromDB = () => {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     });
+
   };
 
   let senderIndex = users?.map((item) => item.email).indexOf(email!);

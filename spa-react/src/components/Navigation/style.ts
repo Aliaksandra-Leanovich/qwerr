@@ -1,13 +1,54 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 
-export const ContainerSC = styled.div`
+export interface IStylesProps {
+  isOpen: boolean;
+}
+
+export const ContainerSC = styled.div<IStylesProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  flex-direction: row;
   column-gap: 40px;
+
+  ${media.LAPTOP} {
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    padding: 40px 0;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+`;
+
+export const ContainerRightSC = styled.div<IStylesProps>`
+  background: ${Colors.INFODARK};
+
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 60px 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  ${media.LAPTOP} {
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    background: ${Colors.INFODARK};
+  }
+  ${media.PHONE} {
+    width: 100%;
+  }
+  main {
+    overflow: ${({ isOpen }) => (isOpen ? "hidden" : "auto")};
+  }
+`;
+export const ContainerTopNavigationSC = styled.div`
+  display: flex;
+  ${media.LAPTOP} {
+    display: none;
+  }
 `;
 
 export const LinkSC = styled.a`

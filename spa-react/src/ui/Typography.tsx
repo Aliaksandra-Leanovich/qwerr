@@ -45,52 +45,110 @@ const variantTypography = {
     font-weight: 700;
     font-size: 56px;
     line-height: 64px;
+    ${media.TABLET} {
+      font-size: 44px;
+      line-height: 50px;
+    }
+    ${media.PHONE} {
+      font-size: 26px;
+      line-height: 30px;
+    }
   `,
   h3: css`
     font-weight: 300;
     font-size: 48px;
     line-height: 72px;
+    ${media.TABLET} {
+      font-size: 36px;
+      line-height: 38px;
+      text-align: center;
+    }
+    ${media.PHONE} {
+      font-size: 26px;
+      line-height: 30px;
+    }
   `,
   h4: css`
     font-weight: 300;
     font-size: 36px;
     line-height: 56px;
+    ${media.TABLET} {
+      font-size: 26px;
+      line-height: 28px;
+    }
   `,
   paragraphXS: css`
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
+    ${media.TABLET} {
+      font-size: 14px;
+      line-height: 16px;
+    }
   `,
   paragraphXSBold: css`
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
+    ${media.TABLET} {
+      font-size: 14px;
+      line-height: 16px;
+    }
   `,
 
   paragraphS: css`
     font-weight: 400;
     font-size: 20px;
     line-height: 32px;
+    ${media.TABLET} {
+      font-size: 16px;
+      line-height: 18px;
+    }
   `,
   paragraphSBold: css`
     font-weight: 700;
     font-size: 20px;
     line-height: 32px;
+    ${media.TABLET} {
+      font-size: 16px;
+      line-height: 18px;
+    }
   `,
   paragraphM: css`
     font-weight: 400;
     font-size: 24px;
     line-height: 36px;
+
+    ${media.TABLET} {
+      font-size: 20px;
+      line-height: 22px;
+    }
+    ${media.PHONE} {
+      font-size: 18px;
+      line-height: 20px;
+    }
   `,
   paragraphMBold: css`
     font-weight: 700;
     font-size: 24px;
     line-height: 36px;
+
+    ${media.TABLET} {
+      font-size: 20px;
+      line-height: 22px;
+    }
+    ${media.PHONE} {
+      font-size: 18px;
+      line-height: 20px;
+    }
   `,
   subtitle: css`
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+    ${media.PHONE} {
+      line-height: 16px;
+    }
   `,
 };
 

@@ -16,6 +16,11 @@ export const ContainerSC = styled.div`
   width: 100%;
 
   padding: 0 100px;
+
+  ${media.TABLET} {
+    padding: 0 30px;
+    text-align: center;
+  }
 `;
 
 export const TitleSC = styled.h3`
@@ -41,6 +46,12 @@ export const ContainerOfBlocksSC = styled.div`
     grid-gap: 50px;
     row-gap: 30px;
   }
+  ${media.TABLET} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ImageSC = styled.img`
@@ -53,6 +64,10 @@ export const BlockSC = styled.div`
 
   max-width: 300px;
   width: 100%;
+
+  ${media.TABLET} {
+    align-items: center;
+  }
 `;
 
 export const TitleContainerSC = styled.div`

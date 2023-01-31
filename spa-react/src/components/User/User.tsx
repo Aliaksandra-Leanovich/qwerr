@@ -1,9 +1,10 @@
 import { ContainerSC, PictureSC, UserSC } from "./style";
 import { IProps } from "./types";
 
-export const User = ({ user, handleSelect }: IProps) => {
+export const User = ({ user, handleSelect, setOpen }: IProps) => {
   const onClick = () => {
-    handleSelect(user.id);
+    handleSelect(user.email);
+    setOpen(false);
   };
 
   return (

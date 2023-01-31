@@ -5,7 +5,7 @@ export const PictureSC = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #d6d6d6;
+  background-color: ${Colors.CHAT_SECONDARY};
   color: black;
 
   display: flex;
@@ -40,7 +40,7 @@ export const Date = styled.p`
   font-size: 12px;
   line-height: 14px;
   font-weight: 300;
-  color: #878787;
+  color: ${Colors.PROGRESSLIGHT};
 `;
 
 export const ButtonSC = styled.button`
@@ -55,7 +55,7 @@ export const ButtonSC = styled.button`
     transition: fill 0.3s ease-out;
 
     &:hover {
-      fill: ${Colors.BLUE};
+      fill: ${Colors.CHAT_SECONDARY};
     }
   }
 `;
@@ -63,6 +63,7 @@ export const ButtonSC = styled.button`
 export const MessageSC = styled.div`
   display: flex;
   column-gap: 10px;
+  color: ${Colors.INFOLIGHT};
 
   &:hover {
     button {
@@ -75,6 +76,7 @@ export const MessageWithoutAvatarSC = styled.div`
   padding: 0 40px;
   display: flex;
   column-gap: 180px;
+  color: ${Colors.INFOLIGHT};
 
   &:hover {
     button {

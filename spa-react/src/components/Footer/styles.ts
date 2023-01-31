@@ -10,6 +10,9 @@ export const WrapperSC = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 100px;
+  ${media.TABLET} {
+    padding: 50px 30px;
+  }
 `;
 
 export const ContainerSC = styled.div`
@@ -32,11 +35,27 @@ export const BlockWithLogoSC = styled.div`
 
   max-width: 300px;
   width: 100%;
+
+  ${media.TABLET} {
+    row-gap: 20px;
+  }
 `;
 
 export const BlockWithLinksSC = styled.div`
   display: flex;
+
   column-gap: 96px;
+
+  ${media.TABLET} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+  ${media.PHONE} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const SubcategorydLinkSC = styled.p`
@@ -44,7 +63,7 @@ export const SubcategorydLinkSC = styled.p`
   font-size: 20px;
   line-height: 32px;
 
-  color: #777777;
+  color: ${Colors.GRAY};
 
   &:hover {
     color: ${Colors.PRIMARY};
@@ -70,6 +89,10 @@ export const LinksSC = styled.div`
   row-gap: 32px;
 
   cursor: pointer;
+
+  ${media.TABLET} {
+    row-gap: 12px;
+  }
 `;
 
 export const Description = styled.p`
@@ -77,7 +100,7 @@ export const Description = styled.p`
   font-size: 16px;
   line-height: 28px;
 
-  color: #777777;
+  color: ${Colors.GRAY};
 `;
 
 export const RightsSC = styled.p`
@@ -85,9 +108,13 @@ export const RightsSC = styled.p`
   font-size: 16px;
   line-height: 28px;
 
-  color: #777777;
+  color: ${Colors.GRAY};
 
   margin-top: 24px;
+
+  ${media.TABLET} {
+    margin-top: 10px;
+  }
 `;
 
 export const LabelSC = styled.div`
@@ -95,9 +122,9 @@ export const LabelSC = styled.div`
   font-size: 13px;
   line-height: 28px;
 
-  color: #0a2640;
+  color: ${Colors.PRIMARY};
 
-  background: #65e4a3;
+  background: ${Colors.SECONDARY};
   border-radius: 120px;
 
   padding: 4px 14px;

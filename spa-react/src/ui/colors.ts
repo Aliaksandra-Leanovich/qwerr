@@ -17,4 +17,7 @@ export enum Colors {
   LIGHTGRAY = "#d6d6d6",
 
   GREEN = "#009D10",
+
+  CHAT_SECONDARY = "#2AB27B",
+  CHAT_PRIMARY = "#939BA2",
 }

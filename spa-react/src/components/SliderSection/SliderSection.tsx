@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { TypographyVariants } from "src/enums";
+import { Colors, Typography } from "src/ui";
 import { Navigation, Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -25,7 +27,6 @@ import {
   CustomSwiperSC,
   SectionSC,
   TitleContainerSC,
-  TitleSC,
 } from "./style";
 
 const config = [
@@ -75,7 +76,12 @@ export const SliderSection = () => {
       <ContainerSC>
         <BlockSC>
           <TitleContainerSC>
-            <TitleSC>{t("comment.title")}</TitleSC>
+            <Typography
+              variant={TypographyVariants.h3}
+              color={Colors.INFOLIGHT}
+            >
+              {t("comment.title")}
+            </Typography>
           </TitleContainerSC>
           <ButtonsContainerSC>
             <ButtonArrowSC onClick={() => swiperRef.current?.slidePrev()}>

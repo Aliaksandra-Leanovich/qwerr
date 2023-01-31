@@ -6,11 +6,12 @@ export const UserSC = styled.li`
   font-size: 18px;
   line-height: 22px;
   font-weight: 500;
+  color: ${Colors.INFOLIGHT};
 
   transition: color 0.5s ease-in-out;
 
   &:hover {
-    color: ${Colors.BLUE};
+    color: ${Colors.CHAT_SECONDARY};
     cursor: pointer;
   }
 `;
@@ -18,13 +19,17 @@ export const ContainerSC = styled.div`
   display: flex;
   align-items: center;
   column-gap: 6px;
+
+  margin-bottom: 20px;
+
+  width: 100%;
 `;
 
 export const PictureSC = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background-color: ${Colors.LIGHTGRAY};
+  background-color: ${Colors.CHAT_SECONDARY};
   color: black;
 
   display: flex;

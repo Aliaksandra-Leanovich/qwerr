@@ -9,7 +9,7 @@ export const StyledInputSC = styled.input`
   padding: 12px 32px;
   width: 100%;
 
-  border: 2px solid #ffffff;
+  border: 2px solid ${Colors.INFOLIGHT};
   border-radius: 240px;
 
   &:focus {
