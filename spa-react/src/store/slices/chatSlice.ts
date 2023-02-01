@@ -3,8 +3,6 @@ import { IMessage } from "src/components/Message/types";
 
 interface IInitial {
   chatId: string;
-  receiveChatId: string;
-
   user: {};
   messages: IMessage[];
   emailSender: string;
@@ -12,7 +10,6 @@ interface IInitial {
 }
 const initialState: IInitial = {
   chatId: "",
-  receiveChatId: "",
   user: {},
   messages: [],
   emailSender: "",
@@ -26,9 +23,7 @@ const chatSlice = createSlice({
     setChatId: (state, action) => {
       state.chatId = action.payload;
     },
-    setReceiveChatId: (state, action) => {
-      state.receiveChatId = action.payload;
-    },
+
     setSenderEmail: (state, action) => {
       state.emailSender = action.payload;
     },
@@ -53,11 +48,7 @@ export const {
   setChatId,
   setUser,
   setNewMessage,
-
   setSenderEmail,
-
-  setReceiveChatId,
-
   setValue,
   resetAllMessages,
 } = chatSlice.actions;

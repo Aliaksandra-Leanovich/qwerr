@@ -8,7 +8,7 @@ import { db } from "src/utils/firebase";
 export const useSetMessageToDB = () => {
   const { chatId } = useAppSelector(getChatInformation);
   const { email, name, id } = useAppSelector(getUserInfo);
-  console.log(chatId);
+
   const setMessageToDB = async (message: string) => {
     let setId = uuid();
 

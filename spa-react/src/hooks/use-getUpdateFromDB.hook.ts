@@ -1,4 +1,4 @@
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { IMessage } from "src/components/Message/types";
 import { Collections } from "src/enums";
@@ -33,7 +33,7 @@ export const useGetUpdateFromDB = () => {
 
   useEffect(() => {
     dispatch(resetAllMessages());
-
+    setLastMessageToDB();
     sent?.map((message) => {
       return dispatch(setNewMessage(message));
     });
@@ -42,6 +42,13 @@ export const useGetUpdateFromDB = () => {
   let sortedByTime = [...messages].sort(
     (a, b) => +new Date(a.sendAt) - +new Date(b.sendAt)
   );
+  let lastMessage = sortedByTime.slice(-1);
+
+  const setLastMessageToDB = async () => {
+    await updateDoc(doc(db, Collections.chats, chatId), {
+      lastMessage: lastMessage,
+    });
+  };
 
   return { sortedByTime };
 };

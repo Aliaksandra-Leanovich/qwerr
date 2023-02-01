@@ -13,11 +13,13 @@ export const ChatsSectionSC = styled.div`
 
 export const ContainerMessagesSC = styled.div`
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   flex-direction: column;
   row-gap: 20px;
 
-  overflow-y: scroll;
+  /* overflow: scroll; */
+  overflow: auto;
+  position: relative;
   height: calc(100% - 80px);
 `;
 
@@ -32,7 +34,8 @@ export const ChatSectionSC = styled.div<IStylesProps>`
 
   padding: 0 40px;
 
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: auto;
 
   ${media.TABLET} {
     border-left: 0;
@@ -45,26 +48,19 @@ export const WrapperSC = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* padding: 100px 0; */
+  overflow: auto;
   background: ${Colors.INFODARK};
 `;
 
 export const ContainerSC = styled.div`
-  /* width: 100%;
-  max-width: 1400px;
-  height: 100%; */
-  /* padding: 100px 0; */
   width: 100%;
-  height: 100vh;
+  height: 100%;
+
+  /* overflow: hidden; */
+  overflow: auto;
 
   display: flex;
   flex-direction: column;
-
-  /* border-radius: 20px; */
-  /* background: rgba(255, 255, 255, 0.18); */
-
-  /* padding: 10px; */
 `;
 
 export const ContainerChatSC = styled.div`
@@ -72,9 +68,9 @@ export const ContainerChatSC = styled.div`
   justify-content: center;
   grid-template-columns: 1fr 3fr;
 
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: auto;
   height: 100%;
-  position: relative;
 
   ${media.TABLET} {
     grid-template-columns: 1fr;

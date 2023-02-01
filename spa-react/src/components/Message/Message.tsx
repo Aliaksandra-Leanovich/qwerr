@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useConvertDate } from "src/hooks";
 import { useHandleDelete } from "src/hooks/use-hadleDelete.hook";
 import { useAppSelector } from "src/store/hooks";
@@ -21,12 +22,20 @@ export const Message = ({ message, handleEdit }: IProps) => {
   const { newDate } = useConvertDate(message.sendAt);
   const { handleDelete } = useHandleDelete(message);
 
+  const ref = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [message]);
+
   const onClick = () => {
     handleEdit(message);
   };
 
   return (
-    <MessageSC>
+    <MessageSC ref={ref}>
       <PictureSC>{message.sender.name[0]}</PictureSC>
       <InfoSC>
         <InfoPersonSC>
