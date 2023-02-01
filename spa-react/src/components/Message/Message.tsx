@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import { useConvertDate } from "src/hooks";
+import { useConvertDate, useScrollMessage } from "src/hooks";
 import { useHandleDelete } from "src/hooks/use-hadleDelete.hook";
 import { useAppSelector } from "src/store/hooks";
 import { getUserInfo } from "src/store/selectors/userSelector";
@@ -18,17 +17,18 @@ import {
 import { IProps } from "./types";
 
 export const Message = ({ message, handleEdit }: IProps) => {
+  const { ref } = useScrollMessage(message);
   const { email } = useAppSelector(getUserInfo);
   const { newDate } = useConvertDate(message.sendAt);
   const { handleDelete } = useHandleDelete(message);
 
-  const ref = useRef<null | HTMLDivElement>(null);
+  // const ref = useRef<null | HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [message]);
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     ref.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [message]);
 
   const onClick = () => {
     handleEdit(message);

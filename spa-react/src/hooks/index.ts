@@ -16,3 +16,4 @@ export { useHandleDelete } from "./use-hadleDelete.hook";
 export { useGetUsersFromDB } from "./use-getUsersFromDB.hook";
 export { useHadleEdit } from "./use-handleEdit.hook";
 export { useSetMessageToDB } from "./use-setMessageToDB.hook";
+export { useScrollMessage } from "./use-scrollMessage.hook";
