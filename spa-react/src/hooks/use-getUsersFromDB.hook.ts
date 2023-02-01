@@ -10,7 +10,7 @@ import { db } from "src/utils/firebase";
 export const useGetUsersFromDB = () => {
   const [users, setUsers] = useState<IUser[]>();
 
-  const { email } = useAppSelector(getUserInfo);
+  const { id } = useAppSelector(getUserInfo);
 
   const dispatch = useAppDispatch();
 
@@ -24,15 +24,15 @@ export const useGetUsersFromDB = () => {
     });
   }, [users]);
 
-  const getChatId = (receiverEmail: string) => {
+  const getChatId = (receiverId: string) => {
     const chatsRef = collection(db, Collections.chats);
     getDocs(chatsRef)
       .then((response) => {
         response.docs.map((doc) => {
           const { participants } = doc.data();
-          participants.some((el: string) => el === email) &&
-            participants.some((el: string) => el === receiverEmail) &&
-            dispatch(setChatId(doc.data().id));
+          participants.some((el: string) => el === id) &&
+            participants.some((el: string) => el === receiverId) &&
+            dispatch(setChatId(doc.id));
         });
       })
       .catch((error) => console.log(error.message));
@@ -41,10 +41,10 @@ export const useGetUsersFromDB = () => {
   const handleSelect = async (userId: string) => {
     const receiver = users?.find((item) => item.id === userId);
 
-    getChatId(receiver!.email);
+    getChatId(receiver!.id);
   };
 
-  let senderIndex = users?.map((item) => item.email).indexOf(email!);
+  let senderIndex = users?.map((item) => item.id).indexOf(id!);
   users?.splice(senderIndex!, 1);
 
   return { handleSelect, users };

@@ -19,16 +19,8 @@ import { IProps } from "./types";
 export const Message = ({ message, handleEdit }: IProps) => {
   const { ref } = useScrollMessage(message);
   const { email } = useAppSelector(getUserInfo);
-  const { newDate } = useConvertDate(message.sendAt);
+  const { newDate } = useConvertDate(message.createdAt);
   const { handleDelete } = useHandleDelete(message);
-
-  // const ref = useRef<null | HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     ref.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [message]);
 
   const onClick = () => {
     handleEdit(message);
@@ -42,7 +34,7 @@ export const Message = ({ message, handleEdit }: IProps) => {
           <NameSC>{message.sender.name}</NameSC>
           <Date>{newDate}</Date>
         </InfoPersonSC>
-        <TextSC>{message.message}</TextSC>
+        <TextSC>{message.text}</TextSC>
       </InfoSC>
 
       {message.sender.email === email && (

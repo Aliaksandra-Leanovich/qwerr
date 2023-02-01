@@ -11,7 +11,7 @@ export const useHadleEdit = () => {
 
   const handleEdit = async (message: IMessage) => {
     if (message) {
-      dispatch(setValue(message.message));
+      dispatch(setValue(message.text));
 
       setEdit(true);
       setMessageId(message.id);

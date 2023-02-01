@@ -29,7 +29,8 @@ export const Chat = ({ isOpen }: IStylesProps) => {
     if (diffrentUser) return true;
 
     const hasBeenaWhile =
-      (+new Date(message.sendAt) - +new Date(previous.sendAt)) / 1000 > 60;
+      (+new Date(message.createdAt) - +new Date(previous.createdAt)) / 1000 >
+      60;
     return hasBeenaWhile;
   };
 

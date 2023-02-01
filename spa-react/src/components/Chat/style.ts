@@ -13,14 +13,20 @@ export const ChatsSectionSC = styled.div`
 
 export const ContainerMessagesSC = styled.div`
   display: flex;
-  /* justify-content: flex-end; */
+
+  /* flex-flow: column nowrap; */
   flex-direction: column;
+
   row-gap: 20px;
 
-  /* overflow: scroll; */
   overflow: auto;
   position: relative;
+
   height: calc(100% - 80px);
+
+  & :first-child {
+    margin-top: auto;
+  }
 `;
 
 export const ChatSectionSC = styled.div<IStylesProps>`
@@ -33,8 +39,7 @@ export const ChatSectionSC = styled.div<IStylesProps>`
   border-left: 1px solid ${Colors.CHAT_SECONDARY};
 
   padding: 0 40px;
-
-  /* overflow: hidden; */
+  position: relative;
   overflow: auto;
 
   ${media.TABLET} {
@@ -56,7 +61,6 @@ export const ContainerSC = styled.div`
   width: 100%;
   height: 100%;
 
-  /* overflow: hidden; */
   overflow: auto;
 
   display: flex;
@@ -68,7 +72,6 @@ export const ContainerChatSC = styled.div`
   justify-content: center;
   grid-template-columns: 1fr 3fr;
 
-  /* overflow: hidden; */
   overflow: auto;
   height: 100%;
 

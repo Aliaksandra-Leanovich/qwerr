@@ -40,7 +40,7 @@ export const useGetUpdateFromDB = () => {
   }, [sent, dispatch]);
 
   let sortedByTime = [...messages].sort(
-    (a, b) => +new Date(a.sendAt) - +new Date(b.sendAt)
+    (a, b) => +new Date(a.createdAt) - +new Date(b.createdAt)
   );
   let lastMessage = sortedByTime.slice(-1);
 

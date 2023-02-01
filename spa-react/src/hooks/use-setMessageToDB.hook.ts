@@ -17,9 +17,9 @@ export const useSetMessageToDB = () => {
         setDoc(
           doc(db, Collections.chats, chatId, Collections.messages, setId),
           {
-            message: message,
+            text: message,
             id: setId,
-            sendAt: new Date().toISOString(),
+            createdAt: new Date().toISOString(),
             sender: {
               email: email,
               name: name,

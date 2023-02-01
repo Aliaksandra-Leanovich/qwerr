@@ -46,10 +46,10 @@ export const useLogin = (
     dispatch(setUserName(name));
   };
 
-  const setUsersToDB = async (data: IUserForm) => {
+  const setUsersToDB = async (data: IUserForm, uid: string) => {
     const user = {
       email: data.email,
-      id: uuid(),
+      id: uid,
       name: data.name,
       status: "active",
     };
@@ -70,7 +70,9 @@ export const useLogin = (
         return await signInWithEmailAndPassword(auth, data.email, data.password)
           .then(async (userCredential) => {
             const token = await userCredential.user.getIdToken();
-            setUsersToDB(data);
+            const uid = userCredential.user.uid;
+
+            setUsersToDB(data, uid);
             setShow(false);
             clearErrors();
             setUserTokenToStorage(token);

@@ -21,7 +21,7 @@ export const MessageWithoutAvatar = ({ message, handleEdit }: IProps) => {
 
   return (
     <MessageWithoutAvatarSC>
-      <TextSC>{message.message}</TextSC>
+      <TextSC>{message.text}</TextSC>
       <ButtonContainerSC>
         {message.sender.email === email && (
           <ButtonSC onClick={handleDelete}>

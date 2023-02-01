@@ -5,9 +5,9 @@ export interface IDate {
 }
 
 export interface IMessage {
-  sendAt: string;
+  createdAt: string;
   id: string;
-  message: string;
+  text: string;
   sender: {
     name: string;
     email: string;
