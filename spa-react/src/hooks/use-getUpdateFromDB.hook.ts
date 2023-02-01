@@ -10,13 +10,12 @@ import { db } from "src/utils/firebase";
 export const useGetUpdateFromDB = () => {
   const dispatch = useAppDispatch();
 
-  const { messages, chatId, receiveChatId } =
-    useAppSelector(getChatInformation);
-  const [receive, setReceive] = useState<IMessage[]>();
+  const { messages, chatId } = useAppSelector(getChatInformation);
+
   const [sent, setSent] = useState<IMessage[]>();
 
   useEffect(() => {
-    if (chatId && receiveChatId) {
+    if (chatId) {
       onSnapshot(
         collection(db, Collections.chats, chatId, Collections.messages),
         (querySnapshot) => {
@@ -25,32 +24,20 @@ export const useGetUpdateFromDB = () => {
           querySnapshot.forEach((doc) => {
             messages.push(doc.data());
           });
-          setReceive(messages);
-        }
-      );
-      onSnapshot(
-        collection(db, Collections.chats, receiveChatId, Collections.messages),
-        (querySnapshot) => {
-          let messages: any[] = [];
 
-          querySnapshot.forEach((doc) => {
-            messages.push(doc.data());
-          });
           setSent(messages);
         }
       );
     }
-  }, [chatId, dispatch, receiveChatId]);
+  }, [chatId, dispatch]);
 
   useEffect(() => {
     dispatch(resetAllMessages());
-    receive?.map((message) => {
-      return dispatch(setNewMessage(message));
-    });
+
     sent?.map((message) => {
       return dispatch(setNewMessage(message));
     });
-  }, [receive, sent, dispatch]);
+  }, [sent, dispatch]);
 
   let sortedByTime = [...messages].sort(
     (a, b) => +new Date(a.sendAt) - +new Date(b.sendAt)
