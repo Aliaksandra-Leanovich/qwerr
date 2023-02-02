@@ -12,7 +12,7 @@ export const WrapperSC = styled.div`
   border-radius: 15px;
 
   ${media.TABLET} {
-    max-width: 364px;
+    max-width: 324px;
   }
 `;
 
@@ -79,6 +79,14 @@ export const StyledBarsSC = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 26px;
+
+  ${media.LAPTOP} {
+    align-self: center;
+  }
+
+  ${media.TABLET} {
+    align-self: flex-start;
+  }
 `;
 export const BarsBottomSC = styled.div`
   display: flex;

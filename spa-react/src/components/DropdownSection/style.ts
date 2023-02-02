@@ -13,7 +13,7 @@ export const ContainerSC = styled.div`
   max-width: 1400px;
   width: 100%;
 
-  padding: 124px 160px 0;
+  padding: 124px 100px 0;
 
   ${media.TABLET} {
     padding: 60px 20px 0;

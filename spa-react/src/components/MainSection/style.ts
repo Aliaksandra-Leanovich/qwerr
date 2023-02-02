@@ -5,10 +5,14 @@ export const ContainerSC = styled.div`
   max-width: 1400px;
   width: 100%;
 
-  padding: 60px 100px 64px;
+  padding: 100px 100px 64px;
+
+  ${media.LAPTOP} {
+    padding: 120px 30px 30px 30px;
+  }
 
   ${media.TABLET} {
-    padding: 120px 30px 30px 30px;
+    padding: 100px 30px 30px 30px;
   }
 `;
 export const ContainerWithTwoBlocksSC = styled.div`
@@ -25,7 +29,6 @@ export const ContainerWithTwoBlocksSC = styled.div`
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 `;
 export const CanvasContainerSC = styled.div`
@@ -48,11 +51,16 @@ export const ContainerDescriptionSC = styled.div`
 
   row-gap: 16px;
   z-index: 4;
+
   ${media.LAPTOP} {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+  }
+
+  ${media.TABLET} {
+    text-align: left;
+    align-self: flex-start;
   }
 `;
 
@@ -98,6 +106,10 @@ export const ContainerButtonsSC = styled.div`
   column-gap: 24px;
 
   margin-top: 24px;
+
+  ${media.LAPTOP} {
+    align-self: center;
+  }
 
   ${media.TABLET} {
     flex-direction: column;

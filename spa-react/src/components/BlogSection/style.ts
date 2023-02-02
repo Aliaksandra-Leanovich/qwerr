@@ -51,6 +51,11 @@ export const ContainerOfBlocksSC = styled.div`
   width: 100%;
   margin-top: 80px;
 
+  ${media.DESKTOP} {
+    grid-template-columns: repeat(3, 300px);
+    column-gap: 60px;
+  }
+
   ${media.LAPTOP} {
     margin-top: 40px;
     grid-template-columns: repeat(2, 300px);

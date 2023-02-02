@@ -19,15 +19,8 @@ export const ContainerSC = styled.div`
 
   ${media.TABLET} {
     padding: 0 30px;
+    text-align: left;
   }
-`;
-
-export const TitleSC = styled.h3`
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 72px;
-
-  text-align: center;
 `;
 
 export const ContainerOfBlocksSC = styled.div`
@@ -39,6 +32,11 @@ export const ContainerOfBlocksSC = styled.div`
   width: 100%;
 
   margin-top: 80px;
+
+  ${media.DESKTOP} {
+    grid-template-columns: repeat(3, 260px);
+    grid-gap: 80px;
+  }
 
   ${media.LAPTOP} {
     grid-template-columns: repeat(2, 300px);

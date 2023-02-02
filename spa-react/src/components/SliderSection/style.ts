@@ -18,7 +18,7 @@ export const ContainerSC = styled.div`
   max-width: 1400px;
   width: 100%;
 
-  padding: 60px 100px 96px 150px;
+  padding: 60px 100px 96px 100px;
 
   position: relative;
 
