@@ -32,7 +32,7 @@ export const HeaderSC = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 30px;
+  padding: 0 30px 0 6px;
   border-bottom: 1px solid ${Colors.SECONDARY};
 
   ${media.TABLET} {
@@ -97,11 +97,10 @@ export const ButtonSettingsSC = styled.button`
 `;
 
 export const SettingsContainerSC = styled.div<IStylesProps>`
-  justify-content: space-between;
-  align-items: center;
   flex-direction: column;
 
   display: ${({ settings }) => (settings ? "flex" : "none")};
+  row-gap: 60px;
 
   position: absolute;
 
@@ -120,6 +119,14 @@ export const SettingsContainerSC = styled.div<IStylesProps>`
     width: 100%;
     border: 0;
   }
+`;
+
+export const ContainerUserInfoSC = styled.div`
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  row-gap: 16px;
 `;
 
 export const ContainerSettingUserSC = styled.div`
@@ -154,7 +161,11 @@ export const ButtonBackSC = styled.button`
     path {
       stroke: ${Colors.SECONDARY};
     }
-
+    &:hover {
+      path {
+        stroke: ${Colors.LIGHTBLUE};
+      }
+    }
     transition: fill 0.3s ease-out;
   }
 `;

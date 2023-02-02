@@ -30,6 +30,7 @@ export const useGetUsersFromDB = () => {
       .then((response) => {
         response.docs.map((doc) => {
           const { participants } = doc.data();
+
           participants.some((el: string) => el === id) &&
             participants.some((el: string) => el === receiverId) &&
             dispatch(setChatId(doc.id));

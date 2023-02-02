@@ -4,7 +4,7 @@ import { IStylesProps } from "./types";
 
 export const WrapperSC = styled.div<IStylesProps>`
   display: ${({ show }) => (show ? "block" : "none")};
-
+  z-index: 3;
   position: fixed;
   top: 0;
   left: 0;

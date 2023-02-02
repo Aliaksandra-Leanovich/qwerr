@@ -13,6 +13,7 @@ export const useGetUpdateFromDB = () => {
   const { messages, chatId } = useAppSelector(getChatInformation);
 
   const [sent, setSent] = useState<IMessage[]>();
+  const [message, setMessage] = useState<string>();
 
   useEffect(() => {
     if (chatId) {
@@ -33,7 +34,7 @@ export const useGetUpdateFromDB = () => {
 
   useEffect(() => {
     dispatch(resetAllMessages());
-    setLastMessageToDB();
+
     sent?.map((message) => {
       return dispatch(setNewMessage(message));
     });
@@ -42,13 +43,24 @@ export const useGetUpdateFromDB = () => {
   let sortedByTime = [...messages].sort(
     (a, b) => +new Date(a.createdAt) - +new Date(b.createdAt)
   );
-  let lastMessage = sortedByTime.slice(-1);
+  let lastMessage = sortedByTime.slice(-1)[0];
 
   const setLastMessageToDB = async () => {
     await updateDoc(doc(db, Collections.chats, chatId), {
-      lastMessage: lastMessage,
+      lastMessage: lastMessage.text,
     });
   };
 
-  return { sortedByTime };
+  const getLastMessage = () => {
+    onSnapshot(doc(db, Collections.chats, chatId), (doc) => {
+      let temp = doc.data()!.lastMessage;
+      setMessage(temp);
+    });
+  };
+  useEffect(() => {
+    setLastMessageToDB();
+    getLastMessage();
+  }, [lastMessage]);
+
+  return { sortedByTime, message };
 };

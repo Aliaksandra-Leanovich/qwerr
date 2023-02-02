@@ -7,11 +7,11 @@ export const ChatsSectionSC = styled.div<IStylesProps>`
   display: flex;
   flex-direction: column;
 
-  padding: 10px 30px;
+  padding: 10px 0;
   background: rgba(255, 255, 255, 0.18);
 
   ${media.TABLET} {
-    padding: 60px 30px;
+    padding: 40px 0;
     position: absolute;
 
     height: 100%;

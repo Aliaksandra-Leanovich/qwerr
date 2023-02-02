@@ -13,6 +13,7 @@ import {
   ButtonSC,
   ButtonSettingsSC,
   ContainerSettingUserSC,
+  ContainerUserInfoSC,
   ContainerUserSC,
   HeaderSC,
   PictureSC,
@@ -51,21 +52,23 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
         <Settings />
       </ButtonSettingsSC>
       <SettingsContainerSC settings={settings}>
-        {name && (
-          <ContainerSettingUserSC>
-            <PictureSettingSC>
-              {name[0].charAt(0).toUpperCase()}
-            </PictureSettingSC>
-            <UserSC>{name}</UserSC>
-          </ContainerSettingUserSC>
-        )}
         <ButtonBackSC onClick={handleMouse}>
           <ArrowLeft />
         </ButtonBackSC>
+        <ContainerUserInfoSC>
+          {name && (
+            <ContainerSettingUserSC>
+              <PictureSettingSC>
+                {name[0].charAt(0).toUpperCase()}
+              </PictureSettingSC>
+              <UserSC>{name}</UserSC>
+            </ContainerSettingUserSC>
+          )}
 
-        <ButtonSC type="button" onClick={onClick}>
-          {t("button.logout")}
-        </ButtonSC>
+          <ButtonSC type="button" onClick={onClick}>
+            {t("button.logout")}
+          </ButtonSC>
+        </ContainerUserInfoSC>
       </SettingsContainerSC>
     </HeaderSC>
   );

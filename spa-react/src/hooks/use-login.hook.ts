@@ -7,7 +7,6 @@ import {
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import uuid from "react-uuid";
 import { useAppDispatch } from "src/store/hooks";
 import { db } from "src/utils/firebase";
 import Cookies from "universal-cookie";
