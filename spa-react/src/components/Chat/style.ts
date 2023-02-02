@@ -24,7 +24,7 @@ export const ContainerMessagesSC = styled.div`
 
   height: calc(100% - 80px);
 
-  & :first-child {
+  & :first-of-type {
     margin-top: auto;
   }
 `;

@@ -39,23 +39,27 @@ export const Chat = ({ isOpen }: IStylesProps) => {
       {chatId ? (
         <ChatSectionSC isOpen={isOpen}>
           <ContainerMessagesSC>
-            {sortedByTime?.map((message, index) => {
-              const previous = sortedByTime[index - 1];
-              const showAvatar = shouldShowAvatar(previous, message);
-              return showAvatar ? (
-                <Message
-                  key={message.id}
-                  message={message}
-                  handleEdit={handleEdit}
-                />
-              ) : (
-                <MessageWithoutAvatar
-                  key={message.id}
-                  message={message}
-                  handleEdit={handleEdit}
-                />
-              );
-            })}
+            {!sortedByTime ? (
+              <p>no messages yet</p>
+            ) : (
+              sortedByTime?.map((message, index) => {
+                const previous = sortedByTime[index - 1];
+                const showAvatar = shouldShowAvatar(previous, message);
+                return showAvatar ? (
+                  <Message
+                    key={message.id}
+                    message={message}
+                    handleEdit={handleEdit}
+                  />
+                ) : (
+                  <MessageWithoutAvatar
+                    key={message.id}
+                    message={message}
+                    handleEdit={handleEdit}
+                  />
+                );
+              })
+            )}
           </ContainerMessagesSC>
           <InputChat
             messageId={messageId}

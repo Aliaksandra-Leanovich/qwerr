@@ -17,7 +17,7 @@ export const useEditMessage = (
         await updateDoc(
           doc(db, Collections.chats, chatId, Collections.messages, messageId),
           {
-            message: message,
+            text: message,
           }
         );
 

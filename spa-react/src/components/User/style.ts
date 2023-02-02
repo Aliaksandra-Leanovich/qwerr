@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Colors } from "src/ui";
 
-export const UserSC = styled.li`
+export const UserSC = styled.div`
   list-style-type: none;
   font-size: 18px;
   line-height: 22px;
@@ -51,7 +51,7 @@ export const StatusContainerSC = styled.div`
   left: 20;
 `;
 
-export const DecriptionSC = styled.p`
+export const DecriptionSC = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 2px;

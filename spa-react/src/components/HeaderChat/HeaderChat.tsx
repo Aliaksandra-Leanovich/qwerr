@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useLogout } from "src/hooks";
 import { routes } from "src/routes";
-import { useAppSelector } from "src/store/hooks";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getUserInfo } from "src/store/selectors";
 import { IBurgerProps } from "../Burger/types";
 import { BurgerChat } from "../BurgerChat.tsx";
@@ -22,13 +22,23 @@ import {
   UserSC,
 } from "./style";
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { Collections } from "src/enums";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "src/utils/firebase";
+import { setUserName } from "src/store/slices/userSlice";
 
 export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
   const [settings, setSettings] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { handleLogout } = useLogout();
-  const { name } = useAppSelector(getUserInfo);
+  const { name, id } = useAppSelector(getUserInfo);
+  const [edit, setEdit] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const { register, control, getValues, reset, handleSubmit } = useForm();
+
   const onClick = () => {
     handleLogout();
 
@@ -37,6 +47,31 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
 
   const handleMouse = () => {
     setSettings(!settings);
+  };
+  const handleEdit = async () => {
+    if (!edit) {
+      setEdit(!edit);
+      reset((formValues) => ({
+        ...formValues,
+        userName: name,
+      }));
+    } else {
+      const { userName } = getValues();
+
+      await updateDoc(doc(db, Collections.users, id), {
+        name: userName,
+      });
+      dispatch(setUserName(userName));
+
+      console.log(userName);
+
+      reset((formValues) => ({
+        ...formValues,
+        userName: "",
+      }));
+
+      setEdit(!edit);
+    }
   };
 
   return (
@@ -61,7 +96,24 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
               <PictureSettingSC>
                 {name[0].charAt(0).toUpperCase()}
               </PictureSettingSC>
-              <UserSC>{name}</UserSC>
+              {edit ? (
+                <form onSubmit={handleSubmit(handleEdit)}>
+                  <Controller
+                    control={control}
+                    name="userName"
+                    render={() => (
+                      <input type="text" {...register("userName")} />
+                    )}
+                  />
+                  {/* <button type="submit">done</button> */}
+                </form>
+              ) : (
+                <UserSC>{name}</UserSC>
+              )}
+
+              <ButtonSC type="submit" onClick={handleEdit}>
+                {edit ? "done" : "edit"}
+              </ButtonSC>
             </ContainerSettingUserSC>
           )}
 

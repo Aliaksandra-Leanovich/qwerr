@@ -17,3 +17,4 @@ export { useGetUsersFromDB } from "./use-getUsersFromDB.hook";
 export { useHadleEdit } from "./use-handleEdit.hook";
 export { useSetMessageToDB } from "./use-setMessageToDB.hook";
 export { useScrollMessage } from "./use-scrollMessage.hook";
+export { useGetLastMessage } from "./use-getLastMessage.hook";

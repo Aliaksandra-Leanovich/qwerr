@@ -1,4 +1,4 @@
-import { useGetUpdateFromDB } from "src/hooks";
+import { useGetLastMessage } from "src/hooks";
 import {
   ContainerSC,
   DecriptionSC,
@@ -9,7 +9,7 @@ import {
 import { IProps } from "./types";
 
 export const User = ({ user, handleSelect, setOpen }: IProps) => {
-  const { message } = useGetUpdateFromDB();
+  const { message } = useGetLastMessage();
 
   const onClick = () => {
     handleSelect(user.id);
