@@ -19,7 +19,6 @@ export const ContainerSC = styled.div`
 
   ${media.TABLET} {
     padding: 0 30px;
-    text-align: center;
   }
 `;
 
@@ -47,6 +46,7 @@ export const ContainerOfBlocksSC = styled.div`
     row-gap: 30px;
   }
   ${media.TABLET} {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,10 +64,6 @@ export const BlockSC = styled.div`
 
   max-width: 300px;
   width: 100%;
-
-  ${media.TABLET} {
-    align-items: center;
-  }
 `;
 
 export const TitleContainerSC = styled.div`
@@ -102,5 +98,5 @@ export const LinkSC = styled.button`
   line-height: 36px;
   text-align: left;
 
-  color: #0a2640;
+  color: ${Colors.PRIMARY};
 `;

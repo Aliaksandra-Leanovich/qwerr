@@ -86,8 +86,6 @@ export const BarsBottomSC = styled.div`
 
   ${media.TABLET} {
     display: flex;
-    align-items: center;
-    justify-content: center;
     column-gap: 16px;
   }
   ${media.PHONE} {

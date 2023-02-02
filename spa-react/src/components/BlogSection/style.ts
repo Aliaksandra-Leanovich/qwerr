@@ -12,7 +12,7 @@ export const SectionSC = styled.section`
   margin-top: 158px;
 
   ${media.TABLET} {
-    margin-top: 100px;
+    margin-top: 60px;
   }
 `;
 
@@ -27,13 +27,17 @@ export const ContainerSC = styled.div`
   align-items: center;
 
   ${media.TABLET} {
-    padding: 0 60px;
+    padding: 0 40px;
   }
 `;
 
 export const TitleContainerSC = styled.div`
   text-align: center;
   margin-top: 12px;
+
+  ${media.TABLET} {
+    text-align: left;
+  }
 `;
 
 export const ContainerOfBlocksSC = styled.div`

@@ -61,7 +61,6 @@ const variantTypography = {
     ${media.TABLET} {
       font-size: 36px;
       line-height: 38px;
-      text-align: center;
     }
     ${media.PHONE} {
       font-size: 26px;

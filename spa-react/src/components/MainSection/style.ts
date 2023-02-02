@@ -8,8 +8,7 @@ export const ContainerSC = styled.div`
   padding: 60px 100px 64px;
 
   ${media.TABLET} {
-    padding: 30px;
-    text-align: center;
+    padding: 120px 30px 30px 30px;
   }
 `;
 export const ContainerWithTwoBlocksSC = styled.div`
@@ -27,7 +26,6 @@ export const ContainerWithTwoBlocksSC = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
 `;
 export const CanvasContainerSC = styled.div`
@@ -104,6 +102,6 @@ export const ContainerButtonsSC = styled.div`
   ${media.TABLET} {
     flex-direction: column;
     row-gap: 20px;
-    align-items: center;
+    align-self: flex-start;
   }
 `;

@@ -4,9 +4,9 @@ import { IStylesProps } from "./types";
 
 export const StyledBurger = styled.button<IStylesProps>`
   display: none;
-  ${media.TABLET} {
+  ${media.LAPTOP} {
     position: absolute;
-    top: 48%;
+    top: 32%;
     right: 2rem;
     display: flex;
     flex-direction: column;

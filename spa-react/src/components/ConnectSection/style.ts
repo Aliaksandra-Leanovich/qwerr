@@ -10,6 +10,10 @@ export const SectionSC = styled.section`
   align-items: center;
 
   margin-top: 120px;
+
+  ${media.TABLET} {
+    margin-top: 60px;
+  }
 `;
 
 export const ContainerSC = styled.div`

@@ -16,8 +16,8 @@ export const FormSC = styled.form`
   column-gap: 24px;
   ${media.TABLET} {
     flex-direction: column;
+    justify-content: flex-start;
     row-gap: 20px;
-    align-items: center;
   }
 `;
 

@@ -12,10 +12,6 @@ export const SectionSC = styled.section`
   position: relative;
 
   background-color: ${Colors.PRIMARY};
-
-  ${media.TABLET} {
-    text-align: center;
-  }
 `;
 
 export const ContainerSC = styled.div`
@@ -116,7 +112,7 @@ export const ButtonsContainerSC = styled.div`
 
   column-gap: 28px;
   ${media.TABLET} {
-    align-self: center;
+    align-self: flex-start;
   }
 `;
 
