@@ -10,9 +10,15 @@ export const useGetLastMessage = () => {
   const [message, setMessage] = useState<string>();
 
   const setLastMessageToDB = async (lastMessage: string) => {
-    await updateDoc(doc(db, Collections.chats, chatId), {
-      lastMessage: lastMessage,
-    });
+    if (chatId) {
+      try {
+        await updateDoc(doc(db, Collections.chats, chatId), {
+          lastMessage: lastMessage,
+        });
+      } catch (err) {
+        console.log("error", err);
+      }
+    }
   };
 
   useEffect(() => {

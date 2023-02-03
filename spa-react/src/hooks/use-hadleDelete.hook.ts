@@ -9,12 +9,14 @@ export const useHandleDelete = (message: IMessage) => {
   const { chatId } = useAppSelector(getChatInformation);
 
   const handleDelete = async () => {
-    try {
-      await deleteDoc(
-        doc(db, Collections.chats, chatId, Collections.messages, message.id)
-      );
-    } catch (err) {
-      console.log("error", err);
+    if (chatId) {
+      try {
+        await deleteDoc(
+          doc(db, Collections.chats, chatId, Collections.messages, message.id)
+        );
+      } catch (err) {
+        console.log("error", err);
+      }
     }
   };
   return { handleDelete };

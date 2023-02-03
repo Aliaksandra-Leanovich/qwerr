@@ -14,19 +14,21 @@ export const useSetMessageToDB = () => {
 
     if (message && email && id && name) {
       try {
-        setDoc(
-          doc(db, Collections.chats, chatId, Collections.messages, setId),
-          {
-            text: message,
-            id: setId,
-            createdAt: new Date().toISOString(),
-            sender: {
-              email: email,
-              name: name,
-              id: id,
-            },
-          }
-        );
+        if (chatId) {
+          setDoc(
+            doc(db, Collections.chats, chatId, Collections.messages, setId),
+            {
+              text: message,
+              id: setId,
+              createdAt: new Date().toISOString(),
+              sender: {
+                email: email,
+                name: name,
+                id: id,
+              },
+            }
+          );
+        }
       } catch (err) {
         console.log("error", err);
       }

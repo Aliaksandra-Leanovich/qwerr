@@ -12,7 +12,7 @@ export const useEditMessage = (
   const { chatId } = useAppSelector(getChatInformation);
 
   const editMessage = async (message: string) => {
-    if (message) {
+    if (message && chatId) {
       try {
         await updateDoc(
           doc(db, Collections.chats, chatId, Collections.messages, messageId),

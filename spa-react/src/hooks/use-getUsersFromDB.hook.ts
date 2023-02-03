@@ -38,6 +38,7 @@ export const useGetUsersFromDB = () => {
 
   useEffect(() => {
     if (idChat) {
+      localStorage.setItem("chatId", idChat);
       dispatch(setChatId(idChat));
     }
   }, [idChat, dispatch]);
@@ -52,9 +53,7 @@ export const useGetUsersFromDB = () => {
 
             participants.some((el: IUser) => el.uid === id) &&
               participants.some((el: IUser) => el.uid === receiverId) &&
-              dispatch(setChatId(doc.id));
-            localStorage.setItem("chatId", doc.id);
-            setIdChat(doc.id); ///!!!
+              setIdChat(doc.id);
           });
         })
         .catch((error) => console.log(error.message));
