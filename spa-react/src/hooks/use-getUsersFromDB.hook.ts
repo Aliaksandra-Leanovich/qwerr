@@ -51,9 +51,11 @@ export const useGetUsersFromDB = () => {
           response.docs.map((doc) => {
             const { participants } = doc.data();
 
-            participants.some((el: IUser) => el.uid === id) &&
+            return (
+              participants.some((el: IUser) => el.uid === id) &&
               participants.some((el: IUser) => el.uid === receiverId) &&
-              setIdChat(doc.id);
+              setIdChat(doc.id)
+            );
           });
         })
         .catch((error) => console.log(error.message));
@@ -62,7 +64,7 @@ export const useGetUsersFromDB = () => {
 
   const handleSelect = (userId: string) => {
     if (users) {
-      const receiver = users?.find((item) => (item.uid = userId));
+      const receiver = users?.find((item) => item.uid === userId);
       getChatId(receiver!.uid);
     }
   };
