@@ -1,6 +1,4 @@
 import { useHandleDelete } from "src/hooks/use-hadleDelete.hook";
-import { useAppSelector } from "src/store/hooks";
-import { getUserInfo } from "src/store/selectors";
 import { ReactComponent as Delete } from "../../assets/delete.svg";
 import { ReactComponent as Edit } from "../../assets/edit.svg";
 import {
@@ -12,7 +10,8 @@ import {
 import { IProps } from "./types";
 
 export const MessageWithoutAvatar = ({ message, handleEdit }: IProps) => {
-  const { email } = useAppSelector(getUserInfo);
+  const email = localStorage.getItem("userEmail");
+
   const { handleDelete } = useHandleDelete(message);
 
   const onClick = () => {

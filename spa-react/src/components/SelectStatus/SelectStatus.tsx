@@ -27,9 +27,11 @@ export const SelectStatus = () => {
 
   const handleChange = async (event: SelectChangeEvent) => {
     setStatus(event.target.value);
-    await updateDoc(doc(db, "users", id), {
-      status: event.target.value,
-    });
+    if (id) {
+      await updateDoc(doc(db, "users", id), {
+        status: event.target.value,
+      });
+    }
   };
 
   return (

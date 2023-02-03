@@ -7,6 +7,7 @@ import { db } from "src/utils/firebase";
 
 export const useHandleDelete = (message: IMessage) => {
   const { chatId } = useAppSelector(getChatInformation);
+
   const handleDelete = async () => {
     try {
       await deleteDoc(

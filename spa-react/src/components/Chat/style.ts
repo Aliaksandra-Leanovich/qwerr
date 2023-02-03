@@ -14,10 +14,9 @@ export const ChatsSectionSC = styled.div`
 export const ContainerMessagesSC = styled.div`
   display: flex;
 
-  /* flex-flow: column nowrap; */
   flex-direction: column;
 
-  row-gap: 20px;
+  /* row-gap: 20px; */
 
   overflow: auto;
   position: relative;

@@ -2,11 +2,11 @@ import { useGetUpdateFromDB } from "src/hooks/use-getUpdateFromDB.hook";
 import { useHadleEdit } from "src/hooks/use-handleEdit.hook";
 import { useAppSelector } from "src/store/hooks";
 import { getChatInformation } from "src/store/selectors";
+import { ReactComponent as Sent } from "../../assets/sent.svg";
 import { InputChat } from "../InputChat/InputChat";
 import { Message, MessageWithoutAvatar } from "../Message";
 import { IMessage } from "../Message/types";
 import { IStylesProps } from "../Sidebar/types";
-import { ReactComponent as Sent } from "../../assets/sent.svg";
 import {
   ChatSectionSC,
   ContainerMessagesSC,

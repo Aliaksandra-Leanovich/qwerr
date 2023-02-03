@@ -1,21 +1,11 @@
 export interface IUser {
-  id: string;
+  uid: string;
   email: string;
   name: string;
-  status: string;
-}
-
-export interface IChat {
-  [key: string]: {
-    date: { seconds: number; nanoseconds: number };
-    lastMessage: {
-      message: string;
-    };
-  };
 }
 
 export interface IUsers {
-  id: string;
+  uid: string;
   email: string;
   name: string;
   status: string;
@@ -27,4 +17,11 @@ export interface IStylesProps {
 export interface IProps {
   isOpen: boolean;
   setOpen: (value: boolean) => void;
+}
+
+export interface IChat {
+  createdAt: string;
+  lastMessage: string;
+  participants: any;
+  updatedAt: string;
 }

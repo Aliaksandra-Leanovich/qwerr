@@ -17,9 +17,11 @@ export const useLogout = () => {
   const handleLogout = async () => {
     dispatch(unsetUser());
     try {
-      await updateDoc(doc(db, "users", id), {
-        status: "away",
-      });
+      if (id) {
+        await updateDoc(doc(db, "users", id), {
+          status: "away",
+        });
+      }
     } catch (event) {
       console.error("Error adding document: ", event);
     }

@@ -46,6 +46,8 @@ export const Date = styled.p`
 export const ButtonSC = styled.button`
   display: none;
   border: none;
+  align-items: center;
+  justify-content: center;
 
   svg {
     width: 14px;
@@ -65,9 +67,11 @@ export const MessageSC = styled.div`
   column-gap: 10px;
   color: ${Colors.INFOLIGHT};
 
+  margin-top: 12px;
+
   &:hover {
     button {
-      display: block;
+      display: flex;
     }
   }
 `;
@@ -78,14 +82,18 @@ export const MessageWithoutAvatarSC = styled.div`
   column-gap: 180px;
   color: ${Colors.INFOLIGHT};
 
+  margin-top: 4px;
+
   &:hover {
     button {
-      display: block;
+      display: flex;
     }
   }
 `;
 
 export const ButtonContainerSC = styled.div`
   display: flex;
+
+  justify-content: center;
   column-gap: 10px;
 `;

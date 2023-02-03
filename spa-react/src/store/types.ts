@@ -4,7 +4,7 @@ export interface IUserStore {
   isAuthorized: string | null | void;
   token: string | null;
   email: string | null;
-  id: string;
+  id: string | null;
   name: string | null;
 }
 

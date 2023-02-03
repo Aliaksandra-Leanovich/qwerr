@@ -1,13 +1,19 @@
+import { doc, updateDoc } from "firebase/firestore";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { Collections } from "src/enums";
 import { useLogout } from "src/hooks";
 import { routes } from "src/routes";
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 import { getUserInfo } from "src/store/selectors";
+import { setUserName } from "src/store/slices/userSlice";
+import { db } from "src/utils/firebase";
+import { ReactComponent as ArrowLeft } from "../../assets/arrowRight.svg";
+import { ReactComponent as Settings } from "../../assets/settings.svg";
 import { IBurgerProps } from "../Burger/types";
 import { BurgerChat } from "../BurgerChat.tsx";
-import { ReactComponent as Settings } from "../../assets/settings.svg";
-import { ReactComponent as ArrowLeft } from "../../assets/arrowRight.svg";
 import {
   ButtonBackSC,
   ButtonSC,
@@ -21,12 +27,6 @@ import {
   SettingsContainerSC,
   UserSC,
 } from "./style";
-import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { Collections } from "src/enums";
-import { doc, updateDoc } from "firebase/firestore";
-import { db } from "src/utils/firebase";
-import { setUserName } from "src/store/slices/userSlice";
 
 export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
   const [settings, setSettings] = useState(false);
@@ -34,6 +34,7 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
   const navigate = useNavigate();
   const { handleLogout } = useLogout();
   const { name, id } = useAppSelector(getUserInfo);
+
   const [edit, setEdit] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -57,13 +58,12 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
       }));
     } else {
       const { userName } = getValues();
-
-      await updateDoc(doc(db, Collections.users, id), {
-        name: userName,
-      });
-      dispatch(setUserName(userName));
-
-      console.log(userName);
+      if (id) {
+        await updateDoc(doc(db, Collections.users, id), {
+          name: userName,
+        });
+        dispatch(setUserName(userName));
+      }
 
       reset((formValues) => ({
         ...formValues,
@@ -105,7 +105,6 @@ export const HeaderChat = ({ isOpen, setOpen, color }: IBurgerProps) => {
                       <input type="text" {...register("userName")} />
                     )}
                   />
-                  {/* <button type="submit">done</button> */}
                 </form>
               ) : (
                 <UserSC>{name}</UserSC>

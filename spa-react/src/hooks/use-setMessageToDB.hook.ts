@@ -12,7 +12,7 @@ export const useSetMessageToDB = () => {
   const setMessageToDB = async (message: string) => {
     let setId = uuid();
 
-    if (message) {
+    if (message && email && id && name) {
       try {
         setDoc(
           doc(db, Collections.chats, chatId, Collections.messages, setId),

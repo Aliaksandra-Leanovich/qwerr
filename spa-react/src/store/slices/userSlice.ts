@@ -4,9 +4,9 @@ import { IUserStore } from "../types";
 const initialState: IUserStore = {
   isAuthorized: localStorage.getItem("userToken"),
   token: localStorage.getItem("userToken"),
-  email: "",
-  id: "",
-  name: "",
+  email: localStorage.getItem("userEmail"),
+  id: localStorage.getItem("userId"),
+  name: localStorage.getItem("userName"),
 };
 
 const userSlice = createSlice({

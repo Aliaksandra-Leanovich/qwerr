@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { media } from "src/ui";
+import { Colors, media } from "src/ui";
 import { IStylesProps } from "./types";
 
 export const ChatsSectionSC = styled.div<IStylesProps>`
@@ -8,7 +8,7 @@ export const ChatsSectionSC = styled.div<IStylesProps>`
   flex-direction: column;
 
   padding: 10px 0;
-  background: rgba(255, 255, 255, 0.18);
+  background: black;
 
   ${media.TABLET} {
     padding: 40px 0;
@@ -20,4 +20,16 @@ export const ChatsSectionSC = styled.div<IStylesProps>`
   ${media.PHONE} {
     width: 100%;
   }
+`;
+
+export const NoChatsSC = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 500;
+
+  color: ${Colors.INFOLIGHT};
 `;
