@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IPropsColumn, IPropsRow } from "./types";
 
 export const WrapperSC = styled.div`
@@ -10,6 +10,10 @@ export const WrapperSC = styled.div`
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(34.3553px);
   border-radius: 15px;
+
+  ${media.TABLET} {
+    max-width: 324px;
+  }
 `;
 
 export const CirclesContainerSc = styled.div`
@@ -40,6 +44,10 @@ export const RowSC = styled.div<IPropsRow>`
 
   height: ${({ height }) => height};
   width: ${({ width }) => width};
+
+  ${media.TABLET} {
+    width: ${({ minWidth }) => minWidth};
+  }
 `;
 
 export const Persent = styled.p`
@@ -60,16 +68,38 @@ export const Column = styled.div<IPropsColumn>`
 
   width: 9px;
   height: ${({ height }) => height};
+
+  ${media.TABLET} {
+    width: 6px;
+    height: ${({ minHeight }) => minHeight};
+  }
 `;
 
 export const StyledBarsSC = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 26px;
+
+  ${media.LAPTOP} {
+    align-self: center;
+  }
+
+  ${media.TABLET} {
+    align-self: flex-start;
+  }
 `;
 export const BarsBottomSC = styled.div`
   display: flex;
   column-gap: 28px;
+
+  ${media.TABLET} {
+    display: flex;
+    column-gap: 16px;
+  }
+  ${media.PHONE} {
+    flex-direction: column;
+    row-gap: 26px;
+  }
 `;
 
 export const WrapperVerticalSC = styled.div`
@@ -79,6 +109,9 @@ export const WrapperVerticalSC = styled.div`
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(34.3553px);
   border-radius: 15px;
+  ${media.TABLET} {
+    width: 146px;
+  }
 `;
 
 export const DiagramTopSC = styled.div`
@@ -88,6 +121,9 @@ export const DiagramTopSC = styled.div`
 
   grid-gap: 12px;
   margin-top: 16px;
+  ${media.TABLET} {
+    grid-gap: 8px;
+  }
 `;
 export const DiagramBottomSC = styled.div`
   display: flex;
@@ -96,6 +132,9 @@ export const DiagramBottomSC = styled.div`
 
   grid-gap: 12px;
   padding-left: 2px;
+  ${media.TABLET} {
+    grid-gap: 8px;
+  }
 `;
 
 export const ContainerWithCircleANdRows = styled.div`
@@ -104,6 +143,10 @@ export const ContainerWithCircleANdRows = styled.div`
 
   display: flex;
   align-items: center;
+
+  ${media.TABLET} {
+    column-gap: 16px;
+  }
 `;
 
 export const CircleMainSC = styled.div`
@@ -134,6 +177,18 @@ export const CircleMainSC = styled.div`
 
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.18);
+
+    ${media.TABLET} {
+      top: 9px;
+      left: 9px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  ${media.TABLET} {
+    width: 62px;
+    height: 62px;
   }
 `;
 
@@ -144,10 +199,17 @@ export const WrapperCircleSC = styled.div`
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(34.3553px);
   border-radius: 15px;
+
+  ${media.TABLET} {
+    width: 160px;
+  }
 `;
 
 export const RowsCircleContainerSC = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+  ${media.TABLET} {
+    row-gap: 10px;
+  }
 `;

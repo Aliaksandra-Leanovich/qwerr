@@ -11,10 +11,13 @@ export const SliderLogos = () => {
       <CustomSwiperSC
         cssMode={true}
         mousewheel={true}
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={66}
         keyboard={true}
         breakpoints={{
+          768: {
+            slidesPerView: 3,
+          },
           1152: {
             slidesPerView: 6,
           },
@@ -66,9 +69,16 @@ export const CustomSwiperSC = styled(Swiper)`
   z-index: 0 !important;
 
   width: 100%;
+  .swiper-container {
+    width: 640px;
+  }
 `;
 
 export const LogoContainerSC = styled.div`
   width: 144px;
   height: 42px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -13,16 +13,19 @@ const rows = [
     width: "72px",
     color: Colors.PRIMARY,
     height: "8px",
+    minWidth: "42px",
   },
   {
     width: "68px",
     color: Colors.PRIMARY,
     height: "8px",
+    minWidth: "38px",
   },
   {
     width: "76px",
     color: Colors.PRIMARY,
     height: "8px",
+    minWidth: "42px",
   },
 ];
 
@@ -40,6 +43,7 @@ export const BarCircle = () => {
               width={row.width}
               color={row.color}
               height={row.height}
+              minWidth={row.minWidth}
             />
           ))}
         </RowsCircleContainerSC>

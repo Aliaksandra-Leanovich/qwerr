@@ -5,6 +5,7 @@ import { Users } from "../pages/Users";
 import { About } from "../pages/About";
 import { routes } from "../routes";
 import { PrivateRoute } from "../utils";
+import { Chats } from "src/pages/Chats";
 
 export const AppRouter = () => {
   return (
@@ -15,7 +16,9 @@ export const AppRouter = () => {
       </Route>
 
       <Route path={routes.ABOUT} element={<About />} />
+
       <Route element={<PrivateRoute />}>
+        <Route path={routes.CHATS} element={<Chats />} />
         <Route path={routes.USERS} element={<Users />} />
       </Route>
     </Routes>

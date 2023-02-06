@@ -12,34 +12,42 @@ const columns = [
   {
     height: "62px",
     background: Colors.LIGHTBLUE,
+    minHeight: "52px",
   },
   {
     height: "42px",
     background: Colors.LIGHTBLUE,
+    minHeight: "32px",
   },
   {
     height: "82px",
     background: Colors.PRIMARY,
+    minHeight: "72px",
   },
   {
     height: "58px",
     background: Colors.LIGHTBLUE,
+    minHeight: "48px",
   },
   {
     height: "70px",
     background: Colors.LIGHTBLUE,
+    minHeight: "60px",
   },
   {
     height: "32px",
     background: Colors.LIGHTBLUE,
+    minHeight: "22px",
   },
   {
     height: "24px",
     background: Colors.LIGHTBLUE,
+    minHeight: "14px",
   },
   {
     height: "14px",
     background: Colors.LIGHTBLUE,
+    minHeight: "8px",
   },
 ];
 
@@ -55,6 +63,7 @@ export const BarVertical = () => {
           <Column
             key={index}
             height={column.height}
+            minHeight={column.minHeight}
             background={column.background}
           />
         ))}
@@ -64,6 +73,7 @@ export const BarVertical = () => {
           <Column
             key={index}
             height={column.height}
+            minHeight={column.minHeight}
             background={column.background}
           />
         ))}

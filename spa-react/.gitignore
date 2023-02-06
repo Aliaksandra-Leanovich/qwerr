@@ -83,3 +83,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
+build/
+.firebase/
+.firebaserc

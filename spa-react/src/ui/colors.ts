@@ -12,4 +12,12 @@ export enum Colors {
   YELLOW = "#ECAA00",
   RED = "#FC5B00",
   DARKGREEN = "#009D10",
+
+  BLUE = "#2470ff",
+  LIGHTGRAY = "#d6d6d6",
+
+  GREEN = "#009D10",
+
+  CHAT_SECONDARY = "#2AB27B",
+  CHAT_PRIMARY = "#939BA2",
 }

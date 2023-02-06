@@ -1,7 +1,8 @@
 {
   "nav.product": "Product",
   "nav.service": "Service",
-  "nav.about": "About",
+  "nav.about": "Table",
+  "nav.chat": "Chats",
   "main.title": "Save time by building fast with Boldo Template",
   "main.description": "Funding handshake buyer business-to-business metrics iPad partnership. First mover advantage innovator success deployment non-disclosure.",
   "button.login": "Login",
@@ -43,6 +44,7 @@
   "form.title": "An enterprise template to ramp up your company website",
   "input.value.email": "Enter your email",
   "input.value.password": "Enter your password",
+  "input.value.name": "Enter your name and surname",
   "form.button": "Start now",
   "footer.text": "Social media validation business model canvas graphical user interface launch party creative facebook iPad twitter.",
   "footer.rights": "All rights reserved",
@@ -71,5 +73,11 @@
   "noData": "Oooops 🙈",
   "button.open.modal": "Add user",
   "search.input": "Search by name/surname",
-  "checkbox.field": "To highest"
+  "checkbox.field": "To highest",
+  "chat.empty": "Select a conversation",
+  "input.change": "Type a message",
+  "status.active": "Active",
+  "status.away": "Away",
+  "status.doNotDisturb": "Do not disturb",
+  "status": "Status"
 }
