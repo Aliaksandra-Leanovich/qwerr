@@ -1,1 +1,1 @@
-export const date = new Date().toLocaleString();
+export const date = new Date().toISOString();

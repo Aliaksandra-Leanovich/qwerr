@@ -10,6 +10,10 @@ export const SectionSC = styled.section`
   align-items: center;
 
   margin-top: 120px;
+
+  ${media.TABLET} {
+    margin-top: 60px;
+  }
 `;
 
 export const ContainerSC = styled.div`
@@ -17,6 +21,10 @@ export const ContainerSC = styled.div`
   width: 100%;
 
   padding: 0 100px 126px;
+
+  ${media.LAPTOP} {
+    padding: 0 32px 140px 32px;
+  }
 `;
 
 export const ContainerBlocksSC = styled.div`
@@ -34,7 +42,9 @@ export const ContainerBlocksSC = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 30px;
+    justify-content: center;
+    row-gap: 40px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -42,8 +52,10 @@ export const ImageContainerSC = styled.div<IPropsStyle>`
   width: 494px;
   height: ${({ height }) => height};
 
-  background-image: url(${({ background }) => background});
-  background-repeat: no-repeat;
+  ${media.TABLET} {
+    width: 294px;
+    height: 400px;
+  }
 `;
 
 export const ImageSC = styled.img`
@@ -57,6 +69,10 @@ export const TextContainerSC = styled.div`
 
 export const TitleContainerSC = styled.div`
   margin-top: 124px;
+
+  ${media.LAPTOP} {
+    margin-top: 10px;
+  }
 `;
 
 export const DescriptionBlockSC = styled.div`
@@ -65,6 +81,10 @@ export const DescriptionBlockSC = styled.div`
 
   row-gap: 24px;
   margin: 40px 0 56px;
+
+  ${media.LAPTOP} {
+    margin: 20px 0 26px;
+  }
 `;
 export const DescriptionSC = styled.div`
   display: flex;
@@ -78,17 +98,19 @@ export const CheckImgSC = styled.img`
 `;
 
 export const Block = styled.div`
-  background-color: #bbbbbb;
+  background-color: ${Colors.PRIMARY};
 
   width: 500px;
   height: 252px;
 `;
+
 export const AdvantagesContainerSC = styled.div`
   display: flex;
   flex-direction: column;
 
   row-gap: 24px;
 `;
+
 export const AdvantageSC = styled.div`
   display: flex;
   align-items: center;
@@ -99,7 +121,7 @@ export const AdvantageSC = styled.div`
   max-width: 500px;
   width: 100%;
 
-  background: #ffffff;
+  background: ${Colors.INFOLIGHT};
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
 
@@ -121,7 +143,7 @@ export const AdvantageSC = styled.div`
 
     svg {
       path {
-        stroke: #fff;
+        stroke: ${Colors.INFOLIGHT};
       }
     }
   }
@@ -136,6 +158,10 @@ export const ContainerImageAndDiagramSC = styled.div`
   display: block;
   justify-content: center;
   align-items: center;
+
+  ${media.TABLET} {
+    width: 294px;
+  }
 `;
 
 export const ContainerDiagramSC = styled.div`
@@ -151,6 +177,14 @@ export const ContainerDiagramSC = styled.div`
   background: ${Colors.INFOLIGHT};
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
   border-radius: 12px;
+
+  ${media.TABLET} {
+    top: 160px;
+    left: 30px;
+    height: 250px;
+    width: 160px;
+    padding: 20px 30px;
+  }
 `;
 
 export const DiagramTopSC = styled.div`
@@ -159,6 +193,9 @@ export const DiagramTopSC = styled.div`
   align-items: flex-end;
 
   grid-gap: 12px;
+  ${media.TABLET} {
+    grid-gap: 6px;
+  }
 `;
 
 export const DiagramBottomSC = styled.div`
@@ -167,6 +204,10 @@ export const DiagramBottomSC = styled.div`
   align-items: flex-start;
 
   grid-gap: 12px;
+
+  ${media.TABLET} {
+    grid-gap: 6px;
+  }
 `;
 
 export const DescriptionDiagramSC = styled.div`
@@ -179,6 +220,11 @@ export const Column = styled.div<IProps>`
 
   background-color: ${({ background }) => background};
   border-radius: ${({ radius }) => radius};
+
+  ${media.TABLET} {
+    width: 6px;
+    height: ${({ minHeight }) => minHeight};
+  }
 `;
 
 export const BlockWithCirclSC = styled.div`
@@ -191,6 +237,16 @@ export const BlockWithCirclSC = styled.div`
   background: ${Colors.INFOLIGHT};
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
   border-radius: 12px;
+
+  ${media.TABLET} {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 210px;
+    left: 30px;
+
+    padding: 28px;
+  }
 `;
 
 export const CircleSC = styled.div`
@@ -206,6 +262,11 @@ export const CircleSC = styled.div`
       ${Colors.PRIMARY} 33% 66%,
       ${Colors.LIGHTBLUE} 66% 100%
     );
+
+  ${media.TABLET} {
+    width: 104px;
+    height: 104px;
+  }
 `;
 
 export const PersentsBlockSC = styled.div`

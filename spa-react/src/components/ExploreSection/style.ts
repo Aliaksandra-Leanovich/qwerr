@@ -16,14 +16,11 @@ export const ContainerSC = styled.div`
   width: 100%;
 
   padding: 0 100px;
-`;
 
-export const TitleSC = styled.h3`
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 72px;
-
-  text-align: center;
+  ${media.TABLET} {
+    padding: 0 30px;
+    text-align: left;
+  }
 `;
 
 export const ContainerOfBlocksSC = styled.div`
@@ -36,10 +33,22 @@ export const ContainerOfBlocksSC = styled.div`
 
   margin-top: 80px;
 
+  ${media.DESKTOP} {
+    grid-template-columns: repeat(3, 260px);
+    grid-gap: 80px;
+  }
+
   ${media.LAPTOP} {
     grid-template-columns: repeat(2, 300px);
     grid-gap: 50px;
     row-gap: 30px;
+  }
+  ${media.TABLET} {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -87,5 +96,5 @@ export const LinkSC = styled.button`
   line-height: 36px;
   text-align: left;
 
-  color: #0a2640;
+  color: ${Colors.PRIMARY};
 `;

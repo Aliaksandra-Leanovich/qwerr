@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { media } from "../../ui";
+import { Colors, media } from "../../ui";
 import { IProps, IPropsOpen } from "./types";
 
 export const SectionSC = styled.section`
@@ -13,7 +13,11 @@ export const ContainerSC = styled.div`
   max-width: 1400px;
   width: 100%;
 
-  padding: 124px 160px 0;
+  padding: 124px 100px 0;
+
+  ${media.TABLET} {
+    padding: 60px 20px 0;
+  }
 `;
 
 export const ContainerImageSC = styled.div<IProps>`
@@ -67,7 +71,7 @@ export const DropdownContainerSC = styled.div`
 
   padding-bottom: 16px;
 
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px solid ${Colors.LIGHTGRAY};
 
   display: flex;
   flex-direction: column;

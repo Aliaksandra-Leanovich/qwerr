@@ -7,16 +7,15 @@ import { useChangeLanguage } from "src/hooks/use-changeLanguage.hook";
 import { useLogout } from "src/hooks/use-logout.hook";
 import { useLtrRtl } from "src/hooks/use-ltrRtl.hook";
 import { Colors } from "src/ui";
-import { LinkVariants } from "../../enums";
 import { routes } from "../../routes";
 import { useAppSelector } from "../../store/hooks";
 import { getUserInfo } from "../../store/selectors";
-import { Link } from "../Link";
 import { LoginForm } from "../LoginForm";
 import { Modal } from "../Modal/Modal";
 import { ButtonSC, ContainerSC, LinkCustomSC, LinkSC } from "./style";
+import { INavigationProps } from "./TopNavigation";
 
-export const Navigation = () => {
+export const Navigation = ({ isOpen }: INavigationProps) => {
   const { t } = useTranslation();
 
   const { handleLogout } = useLogout();
@@ -32,7 +31,7 @@ export const Navigation = () => {
   };
 
   return (
-    <ContainerSC>
+    <ContainerSC isOpen={isOpen}>
       <ButtonSC onClick={() => changeRTLorLTR()}>rtl/ltr</ButtonSC>
       <FormControl fullWidth>
         <InputLabel
@@ -60,6 +59,7 @@ export const Navigation = () => {
       <LinkSC href={routes.PRODUCT}>{t("nav.product")}</LinkSC>
       <LinkSC href={routes.SERVICES}>{t("nav.service")}</LinkSC>
       <LinkCustomSC to={routes.ABOUT}>{t("nav.about")}</LinkCustomSC>
+
       <Modal
         show={show}
         handleClose={showModal}
@@ -71,9 +71,7 @@ export const Navigation = () => {
       <>
         {isAuthorized ? (
           <>
-            <Link to={routes.USERS} variant={LinkVariants.primaryWhiteSmall}>
-              {t("button.users")}
-            </Link>
+            <LinkCustomSC to={routes.CHATS}>{t("nav.chat")}</LinkCustomSC>
             <ButtonSC type="button" onClick={handleLogout}>
               {t("button.logout")}
             </ButtonSC>
